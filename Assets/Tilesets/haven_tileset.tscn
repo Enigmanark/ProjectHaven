@@ -473,7 +473,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CasteBL" type="Sprite" parent="." index="52"]
 
-position = Vector2( 80, 112 )
+position = Vector2( 96, 112 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -482,7 +482,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CastleTL" type="Sprite" parent="." index="53"]
 
-position = Vector2( 80, 96 )
+position = Vector2( 96, 96 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -491,7 +491,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CastleTR" type="Sprite" parent="." index="54"]
 
-position = Vector2( 96, 96 )
+position = Vector2( 112, 96 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -500,7 +500,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CastleBR" type="Sprite" parent="." index="55"]
 
-position = Vector2( 96, 112 )
+position = Vector2( 112, 112 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -509,7 +509,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CastleTowerT" type="Sprite" parent="." index="56"]
 
-position = Vector2( 112, 96 )
+position = Vector2( 128, 96 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -518,11 +518,29 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 [node name="CastleTowerB" type="Sprite" parent="." index="57"]
 
-position = Vector2( 112, 112 )
+position = Vector2( 128, 112 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 112, 112, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CastleTowerBL" type="Sprite" parent="." index="58"]
+
+position = Vector2( 80, 112 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 80, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CastleTowerLT" type="Sprite" parent="." index="59"]
+
+position = Vector2( 80, 96 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 64, 16, 16 )
 _sections_unfolded = [ "Offset", "Region" ]
 
 

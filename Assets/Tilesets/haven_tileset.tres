@@ -526,4 +526,22 @@
 57/occluder_offset = Vector2( 0, 0 )
 57/navigation_offset = Vector2( 0, 0 )
 57/shapes = [  ]
+58/name = "CastleTowerBL"
+58/texture = ExtResource( 1 )
+58/tex_offset = Vector2( 0, 0 )
+58/modulate = Color( 1, 1, 1, 1 )
+58/region = Rect2( 80, 80, 16, 16 )
+58/is_autotile = false
+58/occluder_offset = Vector2( 0, 0 )
+58/navigation_offset = Vector2( 0, 0 )
+58/shapes = [  ]
+59/name = "CastleTowerLT"
+59/texture = ExtResource( 1 )
+59/tex_offset = Vector2( 0, 0 )
+59/modulate = Color( 1, 1, 1, 1 )
+59/region = Rect2( 80, 64, 16, 16 )
+59/is_autotile = false
+59/occluder_offset = Vector2( 0, 0 )
+59/navigation_offset = Vector2( 0, 0 )
+59/shapes = [  ]
 
