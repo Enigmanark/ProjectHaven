@@ -606,4 +606,13 @@ region_enabled = true
 region_rect = Rect2( 64, 128, 16, 16 )
 _sections_unfolded = [ "Offset", "Region" ]
 
+[node name="BigTree1" type="Sprite" parent="." index="67"]
+
+position = Vector2( 80, 128 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 80, 128, 48, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
 
