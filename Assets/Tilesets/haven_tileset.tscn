@@ -543,4 +543,67 @@ region_enabled = true
 region_rect = Rect2( 80, 64, 16, 16 )
 _sections_unfolded = [ "Offset", "Region" ]
 
+[node name="Stump1" type="Sprite" parent="." index="60"]
+
+position = Vector2( 96, 80 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 80, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CastleWindow" type="Sprite" parent="." index="61"]
+
+position = Vector2( 112, 80 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 80, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Box1" type="Sprite" parent="." index="62"]
+
+position = Vector2( 0, 64 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 64, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Bucket1" type="Sprite" parent="." index="63"]
+
+position = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 64, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="MageTower" type="Sprite" parent="." index="64"]
+
+position = Vector2( 0, 128 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 128, 48, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="WeaponSign" type="Sprite" parent="." index="65"]
+
+position = Vector2( 48, 128 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 48, 128, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="BeerSign" type="Sprite" parent="." index="66"]
+
+position = Vector2( 64, 128 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 64, 128, 16, 16 )
+_sections_unfolded = [ "Offset", "Region" ]
+
 
