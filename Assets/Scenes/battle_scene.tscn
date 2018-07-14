@@ -90,8 +90,9 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Player" parent="Battle" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 56.0883, 113.765 )
+position = Vector2( 49.2771, 113.406 )
 scale = Vector2( 1.6, 1.6 )
+timeToMove = 0.98
 
 [node name="GreenSlime" parent="Battle" index="3" instance=ExtResource( 5 )]
 

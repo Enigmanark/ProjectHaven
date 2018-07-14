@@ -47,6 +47,8 @@ func update_enemy_hud():
 	enemyhud.get_node("EnemySPBar").value = spp;
 	enemyhud.get_node("EnemyMPBar").value = mpp;
 	enemyhud.get_node("EnemyHPBar/HPText").text = str(enemyCurrentHP) + "/" + str(enemyHP);
+	enemyhud.get_node("EnemySPBar/SPText").text = str(enemyCurrentSP) + "/" + str(enemySP);
+	enemyhud.get_node("EnemyMPBar/MPText").text = str(enemyCurrentMP) + "/" + str(enemyMP);
 	
 func update_player_hud():
 	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
@@ -55,6 +57,9 @@ func update_player_hud():
 	playerhud.get_node("PlayerHPBar").value = hpp;
 	playerhud.get_node("PlayerSPBar").value = spp;
 	playerhud.get_node("PlayerMPBar").value = mpp;
+	playerhud.get_node("PlayerHPBar/HPText").text = str(playerCurrentHP) + "/" + str(playerHP);
+	playerhud.get_node("PlayerSPBar/SPText").text = str(playerCurrentSP) + "/" + str(playerSP);
+	playerhud.get_node("PlayerMPBar/MPText").text = str(playerCurrentMP) + "/" + str(playerMP);
 
 func do_player_attack():
 	enemyCurrentHP -= playerDamage;
