@@ -2,6 +2,7 @@ extends TextureButton
 
 var attacking = false;
 var movingBack = false;
+var didAttack = false;
 var player;
 var attackWaitTimer = 0;
 var attackWaitTime = 0.65;
@@ -13,10 +14,14 @@ func attack():
 	attacking = true;
 	player.move_and_attack();
 	visible = false;
+	didAttack = false;
 	
 func _process(delta):
 	if attacking:
 		if player.inPosition:
+			if !didAttack:
+				get_parent().get_parent().get_node("Battle").do_player_attack();
+				didAttack = true;
 			attackWaitTimer += delta;
 			if attackWaitTimer >= attackWaitTime:
 				attackWaitTimer = 0;

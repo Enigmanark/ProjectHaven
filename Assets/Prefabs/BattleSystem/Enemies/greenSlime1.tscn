@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Art/Sprites/greenSlime1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/greenSlime_idle.tres" type="Animation" id=2]
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=3]
-
-
+[ext_resource path="res://Assets/Scripts/BattleSystem/EnemyStats.gd" type="Script" id=4]
 
 [node name="GreenSlime" type="Node2D" index="0"]
 
@@ -29,5 +28,12 @@ blend_times = [  ]
 script = ExtResource( 3 )
 _sections_unfolded = [ "Playback Options" ]
 animName = "greenSlime_idle"
+
+[node name="EnemyStats" type="Node" parent="." index="2"]
+
+script = ExtResource( 4 )
+hp = 50
+sp = 25
+mp = 10
 
 
