@@ -46,6 +46,7 @@ func update_enemy_hud():
 	enemyhud.get_node("EnemyHPBar").value = hpp
 	enemyhud.get_node("EnemySPBar").value = spp;
 	enemyhud.get_node("EnemyMPBar").value = mpp;
+	enemyhud.get_node("EnemyHPBar/HPText").text = str(enemyCurrentHP) + "/" + str(enemyHP);
 	
 func update_player_hud():
 	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
@@ -60,5 +61,3 @@ func do_player_attack():
 	update_enemy_hud();
 	if enemyCurrentHP <= 0:
 		print("You win!");
-	else:
-		print(str(enemyCurrentHP) + "/" + str(enemyHP));

@@ -13,7 +13,7 @@ func _ready():
 func attack():
 	attacking = true;
 	player.move_and_attack();
-	visible = false;
+	get_parent().visible = false;
 	didAttack = false;
 	
 func _process(delta):
@@ -31,7 +31,7 @@ func _process(delta):
 				movingBack = true;
 	elif movingBack:
 		if player.inPosition:
-			visible = true;
+			get_parent().visible = true;
 			
 func _on_AttackButton_pressed():
 	attack();
