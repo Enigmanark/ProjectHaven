@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/BattleCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/greenSlime1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Art/GUI/button_attack.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Scripts/BattleSystem/InitiateAttack.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=11]
 
 [node name="BattleScene" type="Node2D" index="0"]
 
@@ -101,6 +105,214 @@ group = null
 texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Rect" ]
+
+[node name="HUD" type="Node2D" parent="." index="3"]
+
+position = Vector2( 32, 192 )
+
+[node name="PlayerHUD" type="Node2D" parent="HUD" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="PlayerHPBar" type="TextureProgress" parent="HUD/PlayerHUD" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -32.0
+margin_right = 67.0
+margin_bottom = -28.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 9 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+
+[node name="PlayerSPBar" type="TextureProgress" parent="HUD/PlayerHUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -23.0
+margin_right = 67.0
+margin_bottom = -19.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 10 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+
+[node name="PlayerMPBar" type="TextureProgress" parent="HUD/PlayerHUD" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -14.0
+margin_right = 67.0
+margin_bottom = -10.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 11 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+
+[node name="EnemyHUD" type="Node2D" parent="HUD" index="1"]
+
+position = Vector2( 234.173, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="EnemyHPBar" type="TextureProgress" parent="HUD/EnemyHUD" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -32.0
+margin_right = 67.0
+margin_bottom = -28.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 9 )
+fill_mode = 1
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+
+[node name="EnemySPBar" type="TextureProgress" parent="HUD/EnemyHUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -23.0
+margin_right = 67.0
+margin_bottom = -19.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 10 )
+fill_mode = 1
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+
+[node name="EnemyMPBar" type="TextureProgress" parent="HUD/EnemyHUD" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -29.0
+margin_top = -14.0
+margin_right = 67.0
+margin_bottom = -10.0
+rect_scale = Vector2( 1, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = true
+texture_under = ExtResource( 8 )
+texture_over = null
+texture_progress = ExtResource( 11 )
+fill_mode = 1
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
 [connection signal="pressed" from="BattleMenu/AttackButton" to="BattleMenu/AttackButton" method="_on_AttackButton_pressed"]
 
