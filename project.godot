@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="NamePendingMobileGame"
+config/name="Project Haven"
 run/main_scene="res://Assets/Scenes/haven.tscn"
 config/icon="res://icon.png"
 
