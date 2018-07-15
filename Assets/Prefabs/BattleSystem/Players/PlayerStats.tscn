@@ -8,5 +8,6 @@ script = ExtResource( 1 )
 maxhp = 75
 maxsp = 25
 maxmp = 25
+damage = 10
 
 

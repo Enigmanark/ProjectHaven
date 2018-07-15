@@ -125,8 +125,8 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Player" parent="Battle" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 49.2771, 113.406 )
-scale = Vector2( 1.6, 1.6 )
+position = Vector2( 60.819, 104.624 )
+scale = Vector2( 1.6, 2 )
 timeToMove = 0.98
 
 [node name="GreenSlime" parent="Battle" index="3" instance=ExtResource( 5 )]
@@ -136,8 +136,8 @@ position = Vector2( 272.44, 124.919 )
 [node name="BattleMenu" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( 367.343, 129.165 )
-scale = Vector2( 1.86, 1.55 )
+position = Vector2( 369.738, 91.4444 )
+scale = Vector2( 1.86, 1.8 )
 z_index = 3
 z_as_relative = false
 _sections_unfolded = [ "Transform", "Z Index" ]

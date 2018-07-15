@@ -5,6 +5,7 @@ export(int) var maxsp;
 var currentSP;
 export(int) var maxmp;
 var currentMP;
+export(int) var damage;
 
 func _ready():
 	currentHP = maxhp;

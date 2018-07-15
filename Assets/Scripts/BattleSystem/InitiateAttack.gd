@@ -17,6 +17,7 @@ func attack():
 	player.move_and_attack();
 	get_parent().visible = false;
 	didAttack = false;
+	battleCore.battlePhase = true;
 	
 func _process(delta):
 	if attacking:
@@ -32,7 +33,7 @@ func _process(delta):
 				player.inPosition = false;
 				movingBack = true;
 	elif movingBack:
-		if player.inStartPosition and !battleCore.victory:
+		if player.inStartPosition and !battleCore.victory and !battleCore.battlePhase:
 			get_parent().visible = true;
 			
 func _on_AttackButton_pressed():

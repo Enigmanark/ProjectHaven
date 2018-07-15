@@ -13,4 +13,5 @@ func do_random_battle():
 	currentBattle.maxMP = battle["MaxMP"];
 	currentBattle.maxSP = battle["MaxSP"];
 	currentBattle._name = battle["Name"];
+	currentBattle.damage = battle["Damage"];
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
