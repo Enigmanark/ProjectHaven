@@ -18,6 +18,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 editor/display_folded = true
 position = Vector2( 7, 18 )
+scale = Vector2( 1.66, 1.55 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerHPBar" type="TextureProgress" parent="." index="0"]
