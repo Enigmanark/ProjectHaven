@@ -305,4 +305,6 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[connection signal="pressed" from="GUI/WindowBackground/RandomBattleButton" to="GUI" method="_on_RandomBattleButton_pressed"]
+
 

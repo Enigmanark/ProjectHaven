@@ -21,23 +21,24 @@ var playerhud;
 
 func _ready():
 	var player = get_parent().get_node("/root/PlayerStats");
-	var enemy = get_node("GreenSlime/EnemyStats");
 	playerhud = get_parent().get_node("HUD/PlayerHUD");
 	enemyhud = get_parent().get_node("HUD/EnemyHUD");
-	playerHP = player.hp;
-	playerCurrentHP = playerHP;
-	playerMP = player.mp;
-	playerCurrentMP = player.mp;
-	playerSP = player.sp;
-	playerCurrentSP = player.sp;
-	enemyHP = enemy.hp;
-	enemyCurrentHP = enemy.hp;
-	enemyMP = enemy.mp;
-	enemyCurrentMP = enemy.mp;
-	enemySP = enemy.sp;
-	enemyCurrentSP = enemy.sp;
+	playerHP = player.maxhp;
+	playerCurrentHP = player.currentHP;
+	playerMP = player.maxmp;
+	playerCurrentMP = player.currentMP;
+	playerSP = player.maxsp;
+	playerCurrentSP = player.currentSP;
+	
+	var enemy = get_parent().get_node("/root/CurrentBattle");
+	enemyHP = enemy.maxHP;
+	enemyCurrentHP = enemyHP;
+	enemyMP = enemy.maxMP;
+	enemyCurrentMP = enemyMP;
+	enemySP = enemy.maxMP;
+	enemyCurrentSP = enemyMP;
 	update_enemy_hud();
-	update_player_hud(player);
+	get_node("../HUD/PlayerHUD").update_player_hud(player);
 
 func update_enemy_hud():
 	var hpp = (float(enemyCurrentHP) / float(enemyHP)) * float(100);
