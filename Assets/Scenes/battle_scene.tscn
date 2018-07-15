@@ -63,8 +63,9 @@ scale = Vector2( 1.66, 1.5 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="Battle" index="0"]
+[node name="Terrain" type="TileMap" parent="Battle" index="0"]
 
+scale = Vector2( 1, 1 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
