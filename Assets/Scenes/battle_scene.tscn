@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/BattleCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -29,6 +30,38 @@ use_mipmaps = true
 use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="BattleScene" type="Node2D" index="0"]
 
@@ -65,7 +98,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Terrain" type="TileMap" parent="Battle" index="0"]
 
-scale = Vector2( 1, 1 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -469,6 +501,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="HUD" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 57.5229, 287.562 )
 scale = Vector2( 1.66, 1.5 )
 _sections_unfolded = [ "Transform" ]
@@ -654,6 +687,188 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="VictoryGUI" type="Node2D" parent="." index="4"]
+
+visible = false
+
+[node name="VictoryWindow" type="TextureRect" parent="VictoryGUI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 211.0
+margin_top = 35.0
+margin_right = 259.0
+margin_bottom = 83.0
+rect_scale = Vector2( 3, 5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="YouWin" type="Label" parent="VictoryGUI/VictoryWindow" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 1.0
+margin_right = 54.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Victory!"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Received" type="Label" parent="VictoryGUI/VictoryWindow" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 12.0
+margin_right = 86.0
+margin_bottom = 43.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "You received:"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="EXP" type="Label" parent="VictoryGUI/VictoryWindow" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 19.0
+margin_right = 86.0
+margin_bottom = 50.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "100 Experience!"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Gold" type="Label" parent="VictoryGUI/VictoryWindow" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 27.0
+margin_right = 76.0
+margin_bottom = 52.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+text = "10 Gold!"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ReturnButton" type="TextureButton" parent="VictoryGUI/VictoryWindow" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 38.0
+margin_right = 60.0
+margin_bottom = 78.0
+rect_scale = Vector2( 0.5, 0.4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Return" type="Label" parent="VictoryGUI/VictoryWindow/ReturnButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -2.0
+margin_right = 53.0
+margin_bottom = 25.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "Return to Town"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
 [connection signal="pressed" from="BattleMenu/AttackButton" to="BattleMenu/AttackButton" method="_on_AttackButton_pressed"]
 
 [connection signal="pressed" from="BattleMenu/Spells" to="BattleMenu/Spells" method="_on_AttackButton_pressed"]
@@ -667,5 +882,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [connection signal="pressed" from="BattleMenu/Pet" to="BattleMenu/Pet" method="_on_AttackButton_pressed"]
 
 [connection signal="pressed" from="BattleMenu/Flee" to="BattleMenu/Flee" method="_on_AttackButton_pressed"]
+
+[connection signal="pressed" from="VictoryGUI/VictoryWindow/ReturnButton" to="Battle" method="_on_ReturnButton_pressed"]
 
 

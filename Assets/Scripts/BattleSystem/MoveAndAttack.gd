@@ -1,5 +1,7 @@
 extends Sprite
 
+var inStartPosition = false;
+var movingBack = false;
 var isMovingRight = false;
 var isMovingLeft = false;
 var timer = 0;
@@ -22,14 +24,16 @@ func _process(delta):
 		timer += delta;
 		if timer >= timeToMove:
 			isMovingLeft = false;
-			inPosition = true;
+			inStartPosition = true;
 			timer = 0;
 			
 func move_and_attack():
 	get_node("AnimationPlayer").play("player_attack");
 	isMovingRight = true;
+	inStartPosition = false;
 	inPosition = false;
 	
 func move_left():
 	isMovingLeft = true;
 	inPosition = false;
+	inStartPosition = false;

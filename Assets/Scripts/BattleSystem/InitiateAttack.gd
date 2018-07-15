@@ -6,8 +6,10 @@ var didAttack = false;
 var player;
 var attackWaitTimer = 0;
 var attackWaitTime = 0.65;
+var battleCore;
 
 func _ready():
+	battleCore = get_node("../../Battle");
 	player = get_parent().get_parent().get_node("Battle/Player");
 	
 func attack():
@@ -30,8 +32,9 @@ func _process(delta):
 				player.inPosition = false;
 				movingBack = true;
 	elif movingBack:
-		if player.inPosition:
+		if player.inStartPosition and !battleCore.victory:
 			get_parent().visible = true;
 			
 func _on_AttackButton_pressed():
-	attack();
+	if !battleCore.victory:
+		attack();

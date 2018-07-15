@@ -19,6 +19,8 @@ var enemyDamage = 10;
 var enemyhud;
 var playerhud;
 
+var victory = false;
+
 func _ready():
 	var player = get_parent().get_node("/root/PlayerStats");
 	playerhud = get_parent().get_node("HUD/PlayerHUD");
@@ -54,5 +56,13 @@ func update_enemy_hud():
 func do_player_attack():
 	enemyCurrentHP -= playerDamage;
 	update_enemy_hud();
-	if enemyCurrentHP <= 0:
-		print("You win!");
+
+func _process(delta):
+	if !victory:
+		if enemyCurrentHP <= 0 and get_node("Player").inStartPosition:
+			victory = true;
+			get_node("../BattleMenu").visible = false;
+			get_node("../VictoryGUI").visible = true;
+
+func _on_ReturnButton_pressed():
+	get_node("/root/BattleSceneManager").return_to_haven();
