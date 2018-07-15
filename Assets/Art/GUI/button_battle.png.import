@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_attack.png-a1b43f318f398f507f59d1bb2d2fdee9.stex"
+path="res://.import/button_battle.png-ab6f71b92174881a93579ee5a4e731f6.stex"
 
 [deps]
 
-source_file="res://Assets/Art/GUI/button_attack.png"
-dest_files=[ "res://.import/button_attack.png-a1b43f318f398f507f59d1bb2d2fdee9.stex" ]
+source_file="res://Assets/Art/GUI/button_battle.png"
+dest_files=[ "res://.import/button_battle.png-ab6f71b92174881a93579ee5a4e731f6.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

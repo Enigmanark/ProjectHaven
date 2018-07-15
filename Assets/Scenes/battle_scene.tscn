@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/BattleCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees.tres.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/greenSlime1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/GUI/button_battle.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Scripts/BattleSystem/InitiateAttack.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=9]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -136,6 +137,8 @@ position = Vector2( 272.44, 124.919 )
 
 [node name="BattleMenu" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 533.091, 109.494 )
 scale = Vector2( 2.86, 2.8 )
 z_index = 3
@@ -501,6 +504,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="HUD" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 191.996, 429.255 )
 scale = Vector2( 2.3, 1.8 )
 _sections_unfolded = [ "Transform" ]
@@ -689,7 +693,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="VictoryGUI" type="Node2D" parent="." index="4"]
 
-visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )
 _sections_unfolded = [ "Transform" ]
@@ -732,13 +735,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Victory!"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Received" type="Label" parent="VictoryGUI/VictoryWindow" index="1"]
 
@@ -758,6 +762,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You received:"
 align = 1
 valign = 1
@@ -765,7 +770,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="EXP" type="Label" parent="VictoryGUI/VictoryWindow" index="2"]
 
@@ -785,6 +790,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "100 Experience!"
 align = 1
 valign = 1
@@ -792,7 +798,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Gold" type="Label" parent="VictoryGUI/VictoryWindow" index="3"]
 
@@ -812,6 +818,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "10 Gold!"
 align = 1
 valign = 1
@@ -819,7 +826,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="ReturnButton" type="TextureButton" parent="VictoryGUI/VictoryWindow" index="4"]
 
@@ -843,7 +850,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 15 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Return" type="Label" parent="VictoryGUI/VictoryWindow/ReturnButton" index="0"]
