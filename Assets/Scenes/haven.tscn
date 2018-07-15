@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Scripts/Haven/TownGUI.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -19,7 +20,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 10
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Haven" type="Node2D" index="0"]
@@ -189,9 +190,10 @@ _sections_unfolded = [ "Cell" ]
 [node name="GUI" type="Node2D" parent="." index="2"]
 
 position = Vector2( 0, -10.2913 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PlayerHUD" parent="GUI" index="0" instance=ExtResource( 2 )]
+[node name="PlayerHUD" parent="GUI" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 68.2159, 477.854 )
 
@@ -212,7 +214,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -273,7 +275,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="RandomBattleText" type="Label" parent="GUI/WindowBackground/RandomBattleButton" index="0"]

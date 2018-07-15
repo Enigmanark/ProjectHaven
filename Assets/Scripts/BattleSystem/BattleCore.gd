@@ -20,7 +20,7 @@ var enemyhud;
 var playerhud;
 
 func _ready():
-	var player = get_node("Player/PlayerStats");
+	var player = get_parent().get_node("/root/PlayerStats");
 	var enemy = get_node("GreenSlime/EnemyStats");
 	playerhud = get_parent().get_node("HUD/PlayerHUD");
 	enemyhud = get_parent().get_node("HUD/EnemyHUD");
@@ -37,7 +37,7 @@ func _ready():
 	enemySP = enemy.sp;
 	enemyCurrentSP = enemy.sp;
 	update_enemy_hud();
-	update_player_hud();
+	update_player_hud(player);
 
 func update_enemy_hud():
 	var hpp = (float(enemyCurrentHP) / float(enemyHP)) * float(100);
@@ -49,17 +49,6 @@ func update_enemy_hud():
 	enemyhud.get_node("EnemyHPBar/HPText").text = str(enemyCurrentHP) + "/" + str(enemyHP);
 	enemyhud.get_node("EnemySPBar/SPText").text = str(enemyCurrentSP) + "/" + str(enemySP);
 	enemyhud.get_node("EnemyMPBar/MPText").text = str(enemyCurrentMP) + "/" + str(enemyMP);
-	
-func update_player_hud():
-	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
-	var spp = (float(playerCurrentSP) / float(playerSP)) * float(100);
-	var mpp = (float(playerCurrentMP) / float(playerMP)) * float(100);
-	playerhud.get_node("PlayerHPBar").value = hpp;
-	playerhud.get_node("PlayerSPBar").value = spp;
-	playerhud.get_node("PlayerMPBar").value = mpp;
-	playerhud.get_node("PlayerHPBar/HPText").text = str(playerCurrentHP) + "/" + str(playerHP);
-	playerhud.get_node("PlayerSPBar/SPText").text = str(playerCurrentSP) + "/" + str(playerSP);
-	playerhud.get_node("PlayerMPBar/MPText").text = str(playerCurrentMP) + "/" + str(playerMP);
 
 func do_player_attack():
 	enemyCurrentHP -= playerDamage;

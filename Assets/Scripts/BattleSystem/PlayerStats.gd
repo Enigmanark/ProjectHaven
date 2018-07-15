@@ -1,7 +1,12 @@
 extends Node
-export(int) var hp;
-export(int) var sp;
-export(int) var mp;
+export(int) var maxhp;
+var currentHP;
+export(int) var maxsp;
+var currentSP;
+export(int) var maxmp;
+var currentMP;
 
 func _ready():
-	pass
+	currentHP = maxhp;
+	currentSP = maxsp;
+	currentMP = maxmp;
