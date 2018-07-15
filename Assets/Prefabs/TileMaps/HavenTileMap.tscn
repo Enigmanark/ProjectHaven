@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=1]
 
-[node name="Town" type="Node2D"]
+[node name="Town" type="Node2D" index="0"]
 
 editor/display_folded = true
-scale = Vector2( 1.66, 1.5 )
+scale = Vector2( 1.667, 1.5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Layer1" type="TileMap" parent="." index="0"]

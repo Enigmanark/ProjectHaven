@@ -3,6 +3,7 @@ extends Node2D
 var attacking = false;
 var movingBack = false;
 var didAttack = false;
+var alive = true;
 var player;
 var attackWaitTimer = 0;
 var attackWaitTime = 0.65;
@@ -16,6 +17,9 @@ func _ready():
 func attack():
 	attacking = true;
 	enemyMove.move_and_attack();
+
+func kill():
+	alive = false;
 	
 func _process(delta):
 	if attacking:

@@ -72,6 +72,8 @@ func do_enemy_attack():
 
 func do_player_attack():
 	enemyCurrentHP -= playerDamage;
+	if(enemyCurrentHP <= 0):
+		get_node("GreenSlime/AttackLogic").kill();
 	update_enemy_hud();
 
 func _process(delta):
@@ -80,13 +82,16 @@ func _process(delta):
 	if battlePhase:
 		if get_node("Player").inStartPosition:
 			if enemyMove.inStartPosition:
-				if enemyLogic.didAttack:
+				if enemyLogic.alive:
+					if enemyLogic.didAttack:
+						battlePhase = false;
+						enemyLogic.didAttack = false;
+					elif !enemyLogic.attacking and !enemyLogic.didAttack and battlePhase:
+						enemyLogic.attack();
+				else:
 					battlePhase = false;
-					enemyLogic.didAttack = false;
-				elif !enemyLogic.attacking and !enemyLogic.didAttack and battlePhase:
-					enemyLogic.attack();
-	if !victory:
-		if enemyCurrentHP <= 0 and get_node("Player").inStartPosition:
+	if !victory and !battlePhase:
+		if !enemyLogic.alive and get_node("Player").inStartPosition:
 			victory = true;
 			get_node("../BattleMenu").visible = false;
 			get_node("../VictoryGUI").visible = true;
