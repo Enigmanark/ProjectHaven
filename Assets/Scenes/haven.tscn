@@ -62,7 +62,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerHUD" parent="GUI" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 68.2159, 477.854 )
+position = Vector2( 88.0634, 470.504 )
+scale = Vector2( 2.3, 1.8 )
 
 [node name="WindowBackground" type="TextureRect" parent="GUI" index="1"]
 
@@ -70,10 +71,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 4.0
-margin_top = 133.0
-margin_right = 83.0
-margin_bottom = 198.0
+margin_left = 15.0
+margin_top = 112.0
+margin_right = 94.0
+margin_bottom = 177.0
 rect_scale = Vector2( 3, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
