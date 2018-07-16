@@ -107,14 +107,14 @@ size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
-bbcode_text = "Welcome to Project Haven v0.1.57!
+bbcode_text = "Welcome to Project Haven v0.2
 For now you can only do random battles.
 Touch or click below to get started!"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Welcome to Project Haven v0.1.57!
+text = "Welcome to Project Haven v0.2
 For now you can only do random battles.
 Touch or click below to get started!"
 scroll_active = false
