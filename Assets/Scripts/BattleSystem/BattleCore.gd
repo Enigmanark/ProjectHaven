@@ -54,6 +54,7 @@ func update_enemy_hud():
 	var hpp = (float(enemyCurHP) / float(enemyMaxHP)) * float(100);
 	var spp = (float(enemyCurSP) / float(enemyMaxSP)) * float(100);
 	var mpp = (float(enemyCurMP) / float(enemyMaxMP)) * float(100);
+	enemyhud.get_node("NameBackground/Name").text = enemyName;
 	enemyhud.get_node("EnemyHPBar").value = hpp
 	enemyhud.get_node("EnemySPBar").value = spp;
 	enemyhud.get_node("EnemyMPBar").value = mpp;
@@ -82,9 +83,7 @@ func do_player_attack():
 	update_enemy_hud();
 
 #Overarching battle logic
-func _process(delta):
-			
-			
+func _process(delta):		
 	var enemyLogic = enemyInst.get_node("AttackLogic");
 	var enemyMove = enemyInst;
 	#If we're in the battlephase, this is started from InitateAttack.gd

@@ -1,4 +1,5 @@
 extends Node
+var _name = "Solar";
 export(int) var maxhp;
 var currentHP;
 export(int) var maxsp;

@@ -13,6 +13,7 @@ func update_player_hud(playerStats):
 	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
 	var spp = (float(playerCurrentSP) / float(playerSP)) * float(100);
 	var mpp = (float(playerCurrentMP) / float(playerMP)) * float(100);
+	get_node("NameBackground/Name").text = playerStats._name;
 	get_node("PlayerHPBar").value = hpp;
 	get_node("PlayerSPBar").value = spp;
 	get_node("PlayerMPBar").value = mpp;
