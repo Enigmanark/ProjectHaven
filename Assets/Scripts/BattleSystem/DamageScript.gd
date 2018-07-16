@@ -2,7 +2,7 @@ extends Label
 
 var damage;
 var element;
-var speed = 30;
+var speed = 25;
 
 func _ready():
 	text = str(damage);
@@ -21,6 +21,22 @@ func _ready():
 	elif element == "Dark":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_dark.png");
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_dark.wav");
+		get_node("AudioStreamPlayer").play();
+	elif element == "Light":
+		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_light.png");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_light.wav");
+		get_node("AudioStreamPlayer").play();
+	elif element == "Air":
+		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_air.png");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_air.wav");
+		get_node("AudioStreamPlayer").play();
+	elif element == "Thunder":
+		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_thunder.png");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_thunder.wav");
+		get_node("AudioStreamPlayer").play();
+	elif element == "Water":
+		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_water.png");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_water.wav");
 		get_node("AudioStreamPlayer").play();
 
 func _process(delta):
