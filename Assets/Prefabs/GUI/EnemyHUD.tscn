@@ -1,28 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Scripts/BattleSystem/PlayerHUD.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
 use_mipmaps = true
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="PlayerHUD" type="Node2D" index="0"]
+[node name="EnemyHUD" type="Node2D" index="0"]
 
-position = Vector2( 7, 18 )
-scale = Vector2( 1.66, 1.55 )
-script = ExtResource( 1 )
+position = Vector2( 180.002, 17.3368 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PlayerHPBar" type="TextureProgress" parent="." index="0"]
+[node name="EnemyHPBar" type="TextureProgress" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -32,7 +29,7 @@ margin_left = -32.0
 margin_top = -50.0
 margin_right = 78.0
 margin_bottom = -34.0
-rect_min_size = Vector2( 96, 16 )
+rect_min_size = Vector2( 110, 16 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -46,24 +43,25 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 2 )
+texture_under = ExtResource( 1 )
 texture_over = null
-texture_progress = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
-_sections_unfolded = [ "Margin", "Textures" ]
+_sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="HPText" type="Label" parent="PlayerHPBar" index="0"]
+[node name="HPText" type="Label" parent="EnemyHPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
-margin_top = 2.0
-margin_right = 76.0
-margin_bottom = 16.0
+margin_left = 27.0
+margin_top = 1.0
+margin_right = 77.0
+margin_bottom = 15.0
 rect_scale = Vector2( 1.2, 1 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -78,9 +76,9 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
-[node name="PlayerSPBar" type="TextureProgress" parent="." index="1"]
+[node name="EnemySPBar" type="TextureProgress" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -90,7 +88,6 @@ margin_left = -32.0
 margin_top = -33.0
 margin_right = 78.0
 margin_bottom = -17.0
-rect_min_size = Vector2( 96, 16 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -104,23 +101,24 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 2 )
+texture_under = ExtResource( 1 )
 texture_over = null
-texture_progress = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="SPText" type="Label" parent="PlayerSPBar" index="0"]
+[node name="SPText" type="Label" parent="EnemySPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
+margin_left = 27.0
 margin_top = 1.0
-margin_right = 76.0
+margin_right = 77.0
 margin_bottom = 15.0
 rect_scale = Vector2( 1.2, 1 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -138,7 +136,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="PlayerMPBar" type="TextureProgress" parent="." index="2"]
+[node name="EnemyMPBar" type="TextureProgress" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -160,23 +158,24 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 2 )
+texture_under = ExtResource( 1 )
 texture_over = null
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="MPText" type="Label" parent="PlayerMPBar" index="0"]
+[node name="MPText" type="Label" parent="EnemyMPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
+margin_left = 27.0
 margin_top = 1.0
-margin_right = 76.0
+margin_right = 77.0
 margin_bottom = 15.0
 rect_scale = Vector2( 1.2, 1 )
 rect_pivot_offset = Vector2( 0, 0 )
