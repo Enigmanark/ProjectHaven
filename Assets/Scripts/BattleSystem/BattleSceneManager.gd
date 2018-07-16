@@ -15,8 +15,17 @@ func do_random_battle():
 	currentBattle._name = battle["Name"];
 	currentBattle.minDamage = battle["MinDamage"];
 	currentBattle.maxDamage = battle["MaxDamage"];
+	currentBattle.attackElement = battle["AttackElement"];
 	currentBattle.meleeDef = battle["MeleeDef"];
 	currentBattle.rangedDef = battle["RangedDef"];
 	currentBattle.spellDef = battle["SpellDef"];
 	currentBattle.path = battle["Path"];
+	currentBattle.earth = battle["Earth"];
+	currentBattle.water = battle["Water"];
+	currentBattle.air = battle["Air"];
+	currentBattle.fire = battle["Fire"];
+	currentBattle.ice = battle["Ice"];
+	currentBattle.thunder = battle["Thunder"];
+	currentBattle.light = battle["Light"];
+	currentBattle.dark = battle["Dark"];
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");

@@ -1,5 +1,25 @@
 extends Node
 
+var _name;
+var path;
+var maxHP;
+var maxSP;
+var maxMP;
+var meleeDef;
+var rangedDef;
+var spellDef;
+var minDamage;
+var maxDamage;
+var attackElement;
+var earth;
+var water;
+var air;
+var fire;
+var ice;
+var thunder;
+var light;
+var dark;
+
 var enemies = [];
 
 func _ready():
@@ -12,20 +32,30 @@ func get_random_battle():
 	return enemies[int(rand)];
 	
 func init_enemies():
-	var name = "Green Slime";
-	var path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/greenSlime1.tscn";
-	var maxHP = 50;
-	var maxSP = 25;
-	var maxMP = 25;
-	var meleeDef = 10;
-	var rangedDef = 10;
-	var spellDef = 10;
-	var minDamage = 2;
-	var maxDamage = 8;
-	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		minDamage, maxDamage, path));
+	_name = "Green Slime";
+	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/greenSlime1.tscn";
+	maxHP = 50;
+	maxSP = 25;
+	maxMP = 25;
+	meleeDef = 10;
+	rangedDef = 10;
+	spellDef = 10;
+	minDamage = 2;
+	maxDamage = 8;
+	attackElement = "Earth";
+	earth = 70;
+	water = 90;
+	air = 200;
+	fire = 150;
+	ice = 120;
+	thunder = 50;
+	light = 100;
+	dark = 100;
+	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
+		light, dark));
 		
-	name = "Undead Fighter";
+	_name = "Undead Fighter";
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Undead/UndeadFighter.tscn";
 	maxHP = 100;
 	maxSP = 75;
@@ -35,10 +65,20 @@ func init_enemies():
 	spellDef = 10;
 	minDamage = 2;
 	maxDamage = 8;
-	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		minDamage, maxDamage, path));
+	attackElement = "Dark";
+	earth = 80;
+	water = 100;
+	air = 100;
+	fire = 150;
+	ice = 80;
+	thunder = 90;
+	light = 200;
+	dark = 50;
+	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
+		light, dark));
 		
-	name = "Fire Slime";
+	_name = "Fire Slime";
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/fireSlime1.tscn";
 	maxHP = 60;
 	maxSP = 25;
@@ -48,10 +88,20 @@ func init_enemies():
 	spellDef = 10;
 	minDamage = 2;
 	maxDamage = 8;
-	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		minDamage, maxDamage, path));
+	attackElement = "Fire";
+	earth = 100;
+	water = 200;
+	air = 100;
+	fire = 70;
+	ice = 50;
+	thunder = 50;
+	light = 100;
+	dark = 100;
+	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
+		light, dark));
 		
-	name = "Cold Slime";
+	_name = "Cold Slime";
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/coldSlime1.tscn";
 	maxHP = 60;
 	maxSP = 25;
@@ -61,10 +111,21 @@ func init_enemies():
 	spellDef = 10;
 	minDamage = 2;
 	maxDamage = 8;
-	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		minDamage, maxDamage, path));
+	attackElement = "Ice";
+	earth = 100;
+	water = 80;
+	air = 100;
+	fire = 200;
+	ice = 70;
+	thunder = 100;
+	light = 100;
+	dark = 100;
+	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
+		light, dark));
 
-func make_enemy(name, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, minD, maxD, path):
+func make_enemy(name, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, minD, maxD, attackElement, 
+	path, earth, water, air, fire, ice, thunder, light, dark):
 	var enemy = {};
 	enemy["MaxHP"] = maxhp;
 	enemy["Path"] = path;
@@ -76,5 +137,14 @@ func make_enemy(name, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, minD, 
 	enemy["SpellDef"] = spellDef;
 	enemy["MinDamage"] = minD;
 	enemy["MaxDamage"] = maxD;
+	enemy["AttackElement"] = attackElement;
+	enemy["Earth"] = earth;
+	enemy["Water"] = water;
+	enemy["Air"] = air;
+	enemy["Fire"] = fire;
+	enemy["Ice"] = ice;
+	enemy["Thunder"] = thunder;
+	enemy["Light"] = light;
+	enemy["Dark"] = dark;
 	return enemy;
 	

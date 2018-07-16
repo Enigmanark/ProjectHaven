@@ -20,7 +20,24 @@ var charisma = 1;
 var currentCharisma = charisma;
 var luck = 1;
 var currentLuck = luck;
+var earth = 100;
+var currentEarth = earth;
+var water = 100;
+var currentWater = water;
+var air = 100;
+var currentAir = air;
+var fire = 100;
+var currentFire = fire;
+var ice = 100;
+var currentIce = ice;
+var thunder = 100;
+var currentThunder = thunder;
+var light = 100;
+var currentLight = light;
+var dark = 100;
+var currentDark = dark;
 
+var attackElement = "Earth";
 var minDamage = 5;
 var maxDamage = 10;
 
