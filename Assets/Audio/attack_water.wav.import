@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/attack_water.wav-a5a876cfa4abab86bbbdce66e732fefb.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/attack_water.wav"
+dest_files=[ "res://.import/attack_water.wav-a5a876cfa4abab86bbbdce66e732fefb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
