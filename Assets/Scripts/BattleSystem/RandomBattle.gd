@@ -50,6 +50,19 @@ func init_enemies():
 	maxDamage = 8;
 	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		minDamage, maxDamage, path));
+		
+	name = "Cold Slime";
+	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/coldSlime1.tscn";
+	maxHP = 60;
+	maxSP = 25;
+	maxMP = 25;
+	meleeDef = 10;
+	rangedDef = 10;
+	spellDef = 10;
+	minDamage = 2;
+	maxDamage = 8;
+	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, path));
 
 func make_enemy(name, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, minD, maxD, path):
 	var enemy = {};

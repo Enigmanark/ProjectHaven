@@ -12,7 +12,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 timeToMove = 1
 
-[node name="greenSlime1" type="Sprite" parent="." index="0"]
+[node name="slimeSprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 0, -0.311928 )
 scale = Vector2( 1.0208, 1 )
