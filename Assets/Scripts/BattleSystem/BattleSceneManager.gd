@@ -18,4 +18,5 @@ func do_random_battle():
 	currentBattle.meleeDef = battle["MeleeDef"];
 	currentBattle.rangedDef = battle["RangedDef"];
 	currentBattle.spellDef = battle["SpellDef"];
+	currentBattle.path = battle["Path"];
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");

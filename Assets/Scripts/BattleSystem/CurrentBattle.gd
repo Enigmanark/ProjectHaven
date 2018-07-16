@@ -9,6 +9,7 @@ var maxDamage;
 var meleeDef;
 var rangedDef;
 var spellDef;
+var path;
 
 func _ready():
 	pass

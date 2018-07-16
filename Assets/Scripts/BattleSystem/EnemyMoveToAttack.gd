@@ -28,7 +28,6 @@ func _process(delta):
 			timer = 0;
 			
 func move_and_attack():
-	get_node("AnimationPlayer").play("player_attack");
 	isMovingLeft = true;
 	inStartPosition = false;
 	inPosition = false;

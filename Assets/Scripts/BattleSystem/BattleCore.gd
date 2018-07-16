@@ -16,13 +16,15 @@ var enemyMeleeDef;
 var enemyRangedDef;
 var enemySpellDef;
 
+var enemyInst;
+
 var enemyhud;
 var playerhud;
 
 var victory = false;
 var battlePhase = false;
 
-var baseAccuracy = 95;
+var currentBattle;
 
 func _ready():
 	randomize();
@@ -30,9 +32,23 @@ func _ready():
 	playerhud = get_parent().get_node("HUD/PlayerHUD");
 	enemyhud = get_parent().get_node("HUD/EnemyHUD");
 	enemyStats = get_parent().get_node("/root/CurrentBattle");
+	load_enemy();
+	get_node("../HUD/PlayerHUD").update_player_hud(playerStats);
+
+func load_enemy():
+	var enemy_x = get_node("Foe/Enemy").position.x;
+	var enemy_y = get_node("Foe/Enemy").position.y;
+	get_node("Foe/Enemy").queue_free();
+	var enemySc = load(get_node("/root/CurrentBattle").path);
+	var inst = enemySc.instance();
+	inst.add_to_group("Enemy");
+	get_node("Foe").add_child(inst);
 	init_enemy_battle_vars();
 	update_enemy_hud();
-	get_node("../HUD/PlayerHUD").update_player_hud(playerStats);
+	for object in get_node("Foe").get_children():
+		if object.is_in_group("Enemy"):
+			enemyInst = object;
+	enemyInst.position = Vector2(enemy_x, enemy_y);
 
 func update_enemy_hud():
 	var hpp = (float(enemyCurHP) / float(enemyMaxHP)) * float(100);
@@ -60,15 +76,17 @@ func do_player_attack():
 	enemyCurHP -= damage;
 	var floatD = floatDSc.instance();
 	floatD.damage = damage;
-	get_node("GreenSlime").add_child(floatD);
+	enemyInst.add_child(floatD);
 	if(enemyCurHP <= 0):
-		get_node("GreenSlime/AttackLogic").kill();
+		enemyInst.get_node("AttackLogic").kill();
 	update_enemy_hud();
 
 #Overarching battle logic
 func _process(delta):
-	var enemyLogic = get_node("GreenSlime/AttackLogic");
-	var enemyMove = get_node("GreenSlime");
+			
+			
+	var enemyLogic = enemyInst.get_node("AttackLogic");
+	var enemyMove = enemyInst;
 	#If we're in the battlephase, this is started from InitateAttack.gd
 	if battlePhase:
 		#If player is in start position
@@ -106,12 +124,10 @@ func calculate_enemy_damage():
 #Damage calculation for the player
 func calculate_player_damage():
 	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage);
-	print("Base Damage is:" + str(baseD));
 	var strength = playerStats.currentStrength;
 	#convert to decimal
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;
-	print("Mod is:" + str(mod));
 	var moddedD = mod + baseD;
 	return int(moddedD);
 

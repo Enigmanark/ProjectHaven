@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var attacking = false;
 var movingBack = false;
@@ -11,7 +11,7 @@ var battleCore;
 var enemyMove;
 
 func _ready():
-	battleCore = get_parent().get_parent();
+	battleCore = get_parent().get_parent().get_parent();
 	enemyMove = get_parent();
 	
 func attack():
