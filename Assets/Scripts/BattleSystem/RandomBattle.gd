@@ -7,7 +7,7 @@ func _ready():
 	
 func get_random_battle():
 	randomize();
-	var rand = rand_range(0, 2);
+	var rand = rand_range(0, enemies.size());
 	print(int(rand));
 	return enemies[int(rand)];
 	
@@ -31,6 +31,19 @@ func init_enemies():
 	maxSP = 75;
 	maxMP = 25;
 	meleeDef = 20;
+	rangedDef = 10;
+	spellDef = 10;
+	minDamage = 2;
+	maxDamage = 8;
+	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage, path));
+		
+	name = "Fire Slime";
+	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/fireSlime1.tscn";
+	maxHP = 60;
+	maxSP = 25;
+	maxMP = 25;
+	meleeDef = 10;
 	rangedDef = 10;
 	spellDef = 10;
 	minDamage = 2;
