@@ -65,30 +65,45 @@ func do_player_attack():
 		get_node("GreenSlime/AttackLogic").kill();
 	update_enemy_hud();
 
+#Overarching battle logic
 func _process(delta):
 	var enemyLogic = get_node("GreenSlime/AttackLogic");
 	var enemyMove = get_node("GreenSlime");
+	#If we're in the battlephase, this is started from InitateAttack.gd
 	if battlePhase:
+		#If player is in start position
 		if get_node("Player").inStartPosition:
+			#If enemy is in start position
 			if enemyMove.inStartPosition:
+				#If the enemy is alive
 				if enemyLogic.alive:
+					#If the enemy did it's attack
 					if enemyLogic.didAttack:
+						#Turn off battle phase and did attack
 						battlePhase = false;
 						enemyLogic.didAttack = false;
+			#Or if the enemy is not attacking, has not done it's attack, and we're still in battle
 					elif !enemyLogic.attacking and !enemyLogic.didAttack and battlePhase:
+						#Make the enemy do it's attack
 						enemyLogic.attack();
+				#The enemy isn't alive, turn off battle phase
 				else:
 					battlePhase = false;
+	#If we haven't won yet and it's not in a battle phase
 	if !victory and !battlePhase:
+		#If the enemy is dead and the player is in start position
 		if !enemyLogic.alive and get_node("Player").inStartPosition:
+			#Show victory screen
 			victory = true;
 			get_node("../BattleMenu").visible = false;
 			get_node("../VictoryGUI").visible = true;
 
+#Damage calculation for the enemy
 func calculate_enemy_damage():
 	var baseD = rand_range(enemyStats.minDamage, enemyStats.maxDamage);
 	return int(baseD);
 
+#Damage calculation for the player
 func calculate_player_damage():
 	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage);
 	print("Base Damage is:" + str(baseD));
@@ -100,6 +115,7 @@ func calculate_player_damage():
 	var moddedD = mod + baseD;
 	return int(moddedD);
 
+#Gets the enemy battle vars from enemystats for easy access
 func init_enemy_battle_vars():
 	enemyName = enemyStats._name;
 	enemyMaxHP = enemyStats.maxHP;
