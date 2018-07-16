@@ -9,7 +9,7 @@ var attackWaitTime = 0.65;
 var battleCore;
 
 func _ready():
-	battleCore = get_node("../../Battle");
+	battleCore = get_parent().get_parent().get_node("Battle");
 	player = get_parent().get_parent().get_node("Battle/Player");
 	
 func attack():

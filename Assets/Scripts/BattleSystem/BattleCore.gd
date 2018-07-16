@@ -64,19 +64,43 @@ func update_enemy_hud():
 
 func do_enemy_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	var damage = calculate_enemy_damage();
+	var baseDamage = int(calculate_enemy_damage());
+	var damage = int(calculate_element_damage(enemyStats.attackElement, baseDamage, playerStats));
 	var floatD = floatDSc.instance();
 	floatD.damage = damage;
+	floatD.element = enemyStats.attackElement;
 	get_node("Player").add_child(floatD);
 	playerStats.currentHP -= damage;
 	get_node("../HUD/PlayerHUD").update_player_hud(get_parent().get_node("/root/PlayerStats"));
 
+func calculate_element_damage(element, damage, defender):
+	if(element == "Earth"):
+		return damage * defender.earth;
+	elif(element == "Water"):
+		return damage * defender.water;
+	elif(element == "Air"):
+		return damage * defender.air;
+	elif(element == "Fire"):
+		return damage * defender.fire;
+	elif(element == "Water"):
+		return damage * defender.water;
+	elif(element == "Ice"):
+		return damage * defender.ice;
+	elif(element == "Thunder"):
+		return damage * defender.thunder;
+	elif(element == "Light"):
+		return damage * defender.light;
+	elif(element == "Dark"):
+		return damage * defender.dark;
+
 func do_player_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	var damage = calculate_player_damage();
+	var baseDamage = calculate_player_damage();
+	var damage = int(calculate_element_damage(playerStats.attackElement, baseDamage, enemyStats));
 	enemyCurHP -= damage;
 	var floatD = floatDSc.instance();
 	floatD.damage = damage;
+	floatD.element = playerStats.attackElement;
 	enemyInst.add_child(floatD);
 	if(enemyCurHP <= 0):
 		enemyInst.get_node("AttackLogic").kill();

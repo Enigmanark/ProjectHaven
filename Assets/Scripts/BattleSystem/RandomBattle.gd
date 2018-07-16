@@ -43,14 +43,14 @@ func init_enemies():
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Earth";
-	earth = 70;
-	water = 90;
-	air = 200;
-	fire = 150;
-	ice = 120;
-	thunder = 50;
-	light = 100;
-	dark = 100;
+	earth = .7;
+	water = .9;
+	air = 2;
+	fire = 1.5;
+	ice = 1.2;
+	thunder = .5;
+	light = 1;
+	dark = 1;
 	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
@@ -66,14 +66,14 @@ func init_enemies():
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Dark";
-	earth = 80;
-	water = 100;
-	air = 100;
-	fire = 150;
-	ice = 80;
-	thunder = 90;
-	light = 200;
-	dark = 50;
+	earth = .8;
+	water = 1;
+	air = 1;
+	fire = 1.5;
+	ice = .8;
+	thunder = .9;
+	light = 2;
+	dark = .50;
 	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
@@ -89,14 +89,14 @@ func init_enemies():
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Fire";
-	earth = 100;
-	water = 200;
-	air = 100;
-	fire = 70;
-	ice = 50;
-	thunder = 50;
-	light = 100;
-	dark = 100;
+	earth = 1;
+	water = 2;
+	air = 1;
+	fire = .7;
+	ice = .5;
+	thunder = .5;
+	light = 1;
+	dark = 1;
 	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
@@ -112,14 +112,14 @@ func init_enemies():
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Ice";
-	earth = 100;
-	water = 80;
-	air = 100;
-	fire = 200;
-	ice = 70;
-	thunder = 100;
-	light = 100;
-	dark = 100;
+	earth = 1;
+	water = .8;
+	air = 1;
+	fire = 2;
+	ice = .7;
+	thunder = 1;
+	light = 1;
+	dark = 1;
 	enemies.append(make_enemy(_name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
