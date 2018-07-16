@@ -46,11 +46,21 @@ func update_enemy_hud():
 	enemyhud.get_node("EnemyMPBar/MPText").text = str(enemyCurMP) + "/" + str(enemyMaxMP);
 
 func do_enemy_attack():
-	playerStats.currentHP -= calculate_enemy_damage();
+	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
+	var damage = calculate_enemy_damage();
+	var floatD = floatDSc.instance();
+	floatD.damage = damage;
+	get_node("Player").add_child(floatD);
+	playerStats.currentHP -= damage;
 	get_node("../HUD/PlayerHUD").update_player_hud(get_parent().get_node("/root/PlayerStats"));
 
 func do_player_attack():
-	enemyCurHP -= calculate_player_damage();
+	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
+	var damage = calculate_player_damage();
+	enemyCurHP -= damage;
+	var floatD = floatDSc.instance();
+	floatD.damage = damage;
+	get_node("GreenSlime").add_child(floatD);
 	if(enemyCurHP <= 0):
 		get_node("GreenSlime/AttackLogic").kill();
 	update_enemy_hud();
@@ -81,10 +91,12 @@ func calculate_enemy_damage():
 
 func calculate_player_damage():
 	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage);
+	print("Base Damage is:" + str(baseD));
 	var strength = playerStats.currentStrength;
 	#convert to decimal
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;
+	print("Mod is:" + str(mod));
 	var moddedD = mod + baseD;
 	return int(moddedD);
 

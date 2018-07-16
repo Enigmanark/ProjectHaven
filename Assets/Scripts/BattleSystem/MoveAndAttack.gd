@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 var inStartPosition = false;
 var movingBack = false;

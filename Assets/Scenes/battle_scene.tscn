@@ -126,13 +126,13 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Player" parent="Battle" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 60.819, 104.624 )
-scale = Vector2( 1.6, 2 )
+position = Vector2( 57.7304, 109.777 )
 timeToMove = 0.98
 
 [node name="GreenSlime" parent="Battle" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 272.44, 124.919 )
+position = Vector2( 272, 124 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="BattleMenu" type="Node2D" parent="." index="2"]
 
@@ -691,6 +691,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="VictoryGUI" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )

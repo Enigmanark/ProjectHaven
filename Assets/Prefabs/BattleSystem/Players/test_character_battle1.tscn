@@ -1,19 +1,24 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Art/Sprites/test_character_battle_Layer 0.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Scripts/BattleSystem/MoveAndAttack.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Scripts/BattleSystem/MoveAndAttack.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/Sprites/test_character_battle_Layer 0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Art/Sprites/test_character_battle_Layer 1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Art/Sprites/test_sword.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_attack.tres" type="Animation" id=5]
 
-[node name="Player" type="Sprite" index="0"]
+[node name="Player" type="Node2D" index="0"]
 
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 timeToMove = 1.0
 
-[node name="PlayerArm" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 1.5, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PlayerArm" type="Sprite" parent="Sprite" index="0"]
 
 position = Vector2( -12.1692, -3.8974 )
 rotation = 0.844739
@@ -23,10 +28,9 @@ centered = false
 offset = Vector2( -11, -20 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="weapon" type="Sprite" parent="PlayerArm" index="0"]
+[node name="weapon" type="Sprite" parent="Sprite/PlayerArm" index="0"]
 
 position = Vector2( 7.84124, -3.52391 )
-z_index = 1
 z_as_relative = false
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
