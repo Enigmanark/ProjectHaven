@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/EnemyMoveToAttack.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/Sprites/greenSlime1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/greenSlime_idle.tres" type="Animation" id=3]
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Scripts/BattleSystem/EnemyStats.gd" type="Script" id=5]
-[ext_resource path="res://Assets/Scripts/BattleSystem/EnemyLogic.gd" type="Script" id=6]
-
+[ext_resource path="res://Assets/Scripts/BattleSystem/EnemyLogic.gd" type="Script" id=5]
 
 [node name="GreenSlime" type="Node2D" index="0"]
 
@@ -34,15 +32,8 @@ script = ExtResource( 4 )
 _sections_unfolded = [ "Playback Options" ]
 animName = "greenSlime_idle"
 
-[node name="EnemyStats" type="Node" parent="." index="2"]
+[node name="AttackLogic" type="Node2D" parent="." index="2"]
 
 script = ExtResource( 5 )
-hp = 50
-sp = 25
-mp = 10
-
-[node name="AttackLogic" type="Node2D" parent="." index="3"]
-
-script = ExtResource( 6 )
 
 

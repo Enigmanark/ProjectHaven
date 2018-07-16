@@ -13,15 +13,24 @@ func init_enemies():
 	var maxHP = 50;
 	var maxSP = 25;
 	var maxMP = 25;
-	var damage = 5;
-	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, damage));
+	var meleeDef = 10;
+	var rangedDef = 10;
+	var spellDef = 10;
+	var minDamage = 2;
+	var maxDamage = 8;
+	enemies.append(make_enemy(name, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
+		minDamage, maxDamage));
 
-func make_enemy(name, maxhp, maxsp, maxmp, d):
+func make_enemy(name, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, minD, maxD):
 	var greenSlime = {};
 	greenSlime["MaxHP"] = maxhp;
 	greenSlime["Name"] = name;
 	greenSlime["MaxSP"] = maxsp;
 	greenSlime["MaxMP"] = maxmp;
-	greenSlime["Damage"] = d;
+	greenSlime["MeleeDef"] = meleeDef;
+	greenSlime["RangedDef"] = rangedDef;
+	greenSlime["SpellDef"] = spellDef;
+	greenSlime["MinDamage"] = minD;
+	greenSlime["MaxDamage"] = maxD;
 	return greenSlime;
 	

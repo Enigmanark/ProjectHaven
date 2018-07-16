@@ -93,7 +93,6 @@ editor_draw_drag_margin = false
 
 [node name="Battle" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 scale = Vector2( 2.38, 2.14 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -138,7 +137,6 @@ position = Vector2( 272.44, 124.919 )
 [node name="BattleMenu" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 533.091, 109.494 )
 scale = Vector2( 2.86, 2.8 )
 z_index = 3
@@ -693,6 +691,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="VictoryGUI" type="Node2D" parent="." index="4"]
 
+visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )
 _sections_unfolded = [ "Transform" ]

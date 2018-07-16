@@ -13,5 +13,9 @@ func do_random_battle():
 	currentBattle.maxMP = battle["MaxMP"];
 	currentBattle.maxSP = battle["MaxSP"];
 	currentBattle._name = battle["Name"];
-	currentBattle.damage = battle["Damage"];
+	currentBattle.minDamage = battle["MinDamage"];
+	currentBattle.maxDamage = battle["MaxDamage"];
+	currentBattle.meleeDef = battle["MeleeDef"];
+	currentBattle.rangedDef = battle["RangedDef"];
+	currentBattle.spellDef = battle["SpellDef"];
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
