@@ -1,13 +1,16 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/EnemyMoveToAttack.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Art/Sprites/undead_fighter_Layer 0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/Sprites/undead_fighter_Layer 1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/Sprites/test_sword.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Sprites/Enemies/undead_fighter_Layer 0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/Sprites/Characters/undead_fighter_Layer 1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Sprites/Battle/test_sword.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/Undead/undead_fighter_idle.tres" type="Animation" id=5]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Enemies/Undead/undead_fighter.tres" type="Animation" id=6]
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Scripts/BattleSystem/EnemyLogic.gd" type="Script" id=8]
+
+
+
 
 [node name="Enemy" type="Node2D" index="0"]
 

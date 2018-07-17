@@ -1,12 +1,15 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/MoveAndAttack.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Art/Sprites/test_character_battle_Layer 0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/Sprites/test_character_battle_Layer 1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/Sprites/test_sword.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Sprites/Characters/test_character_battle_Layer 0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/Sprites/Characters/test_character_battle_Layer 1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Sprites/Battle/test_sword.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_attack.tres" type="Animation" id=5]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_idle.tres" type="Animation" id=6]
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=7]
+
+
+
 
 [node name="Player" type="Node2D" index="0"]
 
