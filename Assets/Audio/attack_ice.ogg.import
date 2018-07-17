@@ -11,5 +11,5 @@ dest_files=[ "res://.import/attack_ice.ogg-a1ef5e45f3242ddc8dc20c226c4525f2.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

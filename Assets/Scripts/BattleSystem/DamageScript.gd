@@ -1,11 +1,11 @@
-extends Label
+extends Node2D
 
 var damage;
 var element;
 var speed = 25;
 
 func _ready():
-	text = str(damage);
+	get_node("Text").text = str(500);
 	if element == "Earth":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_earth.png");
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_earth.wav");
@@ -16,7 +16,7 @@ func _ready():
 		get_node("AudioStreamPlayer").play();
 	elif element == "Ice":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_ice.png");
-		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_ice.wav");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_ice.ogg");
 		get_node("AudioStreamPlayer").play();
 	elif element == "Dark":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_dark.png");
@@ -40,7 +40,7 @@ func _ready():
 		get_node("AudioStreamPlayer").play();
 
 func _process(delta):
-	rect_position = Vector2(rect_position.x, rect_position.y - (speed * delta));
+	position = Vector2(position.x, position.y - (speed * delta));
 
 func _on_Timeout_timeout():
 	queue_free();
