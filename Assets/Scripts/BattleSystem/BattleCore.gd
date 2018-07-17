@@ -203,3 +203,6 @@ func init_enemy_battle_vars():
 
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").return_to_haven();
+
+func _on_Flee_pressed():
+	get_node("/root/BattleSceneManager").return_to_haven();

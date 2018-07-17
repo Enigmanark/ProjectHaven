@@ -290,7 +290,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="TopMenu" type="Node2D" parent="BattleMenu" index="3"]
 
-editor/display_folded = true
 position = Vector2( -208.502, -114.681 )
 scale = Vector2( 0.909091, 0.928571 )
 _sections_unfolded = [ "Transform" ]
@@ -653,15 +652,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="BattleMenu/AttackButton" to="BattleMenu/AttackButton" method="_on_AttackButton_pressed"]
 
-[connection signal="pressed" from="BattleMenu/Spells" to="BattleMenu/Spells" method="_on_AttackButton_pressed"]
-
-[connection signal="pressed" from="BattleMenu/Flee" to="BattleMenu/Flee" method="_on_AttackButton_pressed"]
-
-[connection signal="pressed" from="BattleMenu/TopMenu/Weapon" to="BattleMenu/TopMenu/Weapon" method="_on_AttackButton_pressed"]
-
-[connection signal="pressed" from="BattleMenu/TopMenu/Armor" to="BattleMenu/TopMenu/Armor" method="_on_AttackButton_pressed"]
-
-[connection signal="pressed" from="BattleMenu/TopMenu/Shield" to="BattleMenu/TopMenu/Shield" method="_on_AttackButton_pressed"]
+[connection signal="pressed" from="BattleMenu/Flee" to="Battle" method="_on_Flee_pressed"]
 
 [connection signal="pressed" from="VictoryGUI/VictoryWindow/ReturnButton" to="Battle" method="_on_ReturnButton_pressed"]
 
