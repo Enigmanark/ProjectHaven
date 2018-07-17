@@ -7,7 +7,15 @@ func return_to_haven():
 	get_tree().change_scene("res://Assets/Scenes/haven.tscn");
 
 func do_random_battle():
-	var battle = get_node("/root/RandomBattle").get_random_battle();
+	var battle = get_node("/root/BattleManager").get_random_battle();
+	setup_battle(battle);
+	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
+	
+func do_battle(battle):
+	setup_battle(battle);
+	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
+	
+func setup_battle(battle):
 	var currentBattle = get_node("/root/CurrentBattle");
 	currentBattle.maxHP = battle["MaxHP"];
 	currentBattle.maxMP = battle["MaxMP"];
@@ -35,4 +43,3 @@ func do_random_battle():
 	currentBattle.thunder = battle["Thunder"];
 	currentBattle.light = battle["Light"];
 	currentBattle.dark = battle["Dark"];
-	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
