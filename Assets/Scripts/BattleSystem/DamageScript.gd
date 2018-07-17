@@ -5,7 +5,10 @@ var element;
 var speed = 25;
 
 func _ready():
-	get_node("Text").text = str(500);
+	get_node("Text").text = str(damage);
+	if(str(damage) == "Miss!"):
+		get_node("Element").visible = false;
+		return;
 	if element == "Earth":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/attack_earth.png");
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_earth.wav");

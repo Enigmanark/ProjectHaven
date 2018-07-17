@@ -20,6 +20,12 @@ var charisma = 1;
 var currentCharisma = charisma;
 var luck = 1;
 var currentLuck = luck;
+var meleeDef = 10;
+var currentMeleeDef = meleeDef;
+var rangedDef = 10;
+var currentRangedDef = rangedDef;
+var spellDef = 10;
+var currentSpelDef = spellDef;
 var earth = 1;
 var currentEarth = earth;
 var water = 1;
@@ -68,6 +74,15 @@ func addCharisma(amount):
 func addLuck(amount):
 	luck += amount;
 	currentLuck += amount;
+
+func get_dexterity():
+	return currentDexterity;
+
+func get_meleeDef():
+	return currentMeleeDef;
+	
+func get_rangedDef():
+	return currentRangedDef;
 
 func _ready():
 	currentHP = maxhp;

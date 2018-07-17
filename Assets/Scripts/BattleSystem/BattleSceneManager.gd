@@ -19,6 +19,13 @@ func do_random_battle():
 	currentBattle.meleeDef = battle["MeleeDef"];
 	currentBattle.rangedDef = battle["RangedDef"];
 	currentBattle.spellDef = battle["SpellDef"];
+	currentBattle.strength = battle["Strength"];
+	currentBattle.dexterity = battle["Dexterity"];
+	currentBattle.endurance = battle["Endurance"];
+	currentBattle.intelligence = battle["Intelligence"];
+	currentBattle.willpower = battle["Willpower"];
+	currentBattle.charisma = battle["Charisma"];
+	currentBattle.luck = battle["Luck"];
 	currentBattle.path = battle["Path"];
 	currentBattle.earth = battle["Earth"];
 	currentBattle.water = battle["Water"];

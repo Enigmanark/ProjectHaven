@@ -19,6 +19,22 @@ var ice;
 var thunder;
 var light;
 var dark;
+var strength;
+var dexterity;
+var endurance;
+var intelligence;
+var willpower;
+var charisma;
+var luck;
 
 func _ready():
 	pass
+	
+func get_dexterity():
+	return dexterity;
+	
+func get_meleeDef():
+	return meleeDef;
+	
+func get_rangedDef():
+	return rangedDef;

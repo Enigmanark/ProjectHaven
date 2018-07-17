@@ -64,14 +64,19 @@ func update_enemy_hud():
 
 func do_enemy_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	var baseDamage = int(calculate_enemy_damage());
-	var damage = int(calculate_element_damage(enemyStats.attackElement, baseDamage, playerStats));
-	var floatD = floatDSc.instance();
-	floatD.damage = damage;
-	floatD.element = enemyStats.attackElement;
-	get_node("Player").add_child(floatD);
-	playerStats.currentHP -= damage;
-	get_node("../HUD/PlayerHUD").update_player_hud(get_parent().get_node("/root/PlayerStats"));
+	if calculate_if_hit("Melee", enemyStats, playerStats):	
+		var baseDamage = int(calculate_enemy_damage());
+		var damage = int(calculate_element_damage(enemyStats.attackElement, baseDamage, playerStats));
+		var floatD = floatDSc.instance();
+		floatD.damage = damage;
+		floatD.element = enemyStats.attackElement;
+		get_node("Player").add_child(floatD);
+		playerStats.currentHP -= damage;
+		get_node("../HUD/PlayerHUD").update_player_hud(get_parent().get_node("/root/PlayerStats"));
+	else:
+		var miss = floatDSc.instance();
+		miss.damage = "Miss!";
+		get_node("Player").add_child(miss);
 
 func calculate_element_damage(element, damage, defender):
 	if(element == "Earth"):
@@ -93,18 +98,45 @@ func calculate_element_damage(element, damage, defender):
 	elif(element == "Dark"):
 		return damage * defender.dark;
 
+func calculate_if_hit(attackType, attacker, defender):
+	var def;
+	var baseAcc;
+	var bonusAcc;
+	var accuracy;
+	var aD = attacker.get_dexterity();
+	if(attackType == "Melee"):
+		def = defender.get_meleeDef();
+		baseAcc = 95;
+		bonusAcc = aD / 10
+		accuracy = (baseAcc + bonusAcc) - def;
+	elif attackType == "Ranged":
+		def = defender.get_rangedDef();
+		baseAcc = 95;
+		bonusAcc = aD / 10
+		accuracy = (baseAcc + bonusAcc) - def;
+	var roll = rand_range(1, 100);
+	if roll <= accuracy:
+		return true;
+	else:
+		return false;
+
 func do_player_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	var baseDamage = calculate_player_damage();
-	var damage = int(calculate_element_damage(playerStats.attackElement, baseDamage, enemyStats));
-	enemyCurHP -= damage;
-	var floatD = floatDSc.instance();
-	floatD.damage = damage;
-	floatD.element = playerStats.attackElement;
-	enemyInst.add_child(floatD);
-	if(enemyCurHP <= 0):
-		enemyInst.get_node("AttackLogic").kill();
-	update_enemy_hud();
+	if calculate_if_hit("Melee", playerStats, enemyStats):
+		var baseDamage = calculate_player_damage();
+		var damage = int(calculate_element_damage(playerStats.attackElement, baseDamage, enemyStats));
+		enemyCurHP -= damage;
+		var floatD = floatDSc.instance();
+		floatD.damage = damage;
+		floatD.element = playerStats.attackElement;
+		enemyInst.add_child(floatD);
+		if(enemyCurHP <= 0):
+			enemyInst.get_node("AttackLogic").kill();
+		update_enemy_hud();
+	else:
+		var miss = floatDSc.instance();
+		miss.damage = "Miss!";
+		enemyInst.add_child(miss);
 
 #Overarching battle logic
 func _process(delta):		
