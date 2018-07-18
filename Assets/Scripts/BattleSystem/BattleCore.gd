@@ -184,7 +184,7 @@ func calculate_player_damage():
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;
 	var moddedD = mod + baseD;
-	return int(150);
+	return int(moddedD);
 
 #Gets the enemy battle vars from enemystats for easy access
 func init_enemy_battle_vars():

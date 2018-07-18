@@ -3,8 +3,8 @@
 [ext_resource path="res://Assets/Scripts/BattleSystem/Scenes/Training.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees.tres.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Prefabs/Characters/Alyonis.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Prefabs/Characters/Alyonis.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=8]
@@ -24,7 +24,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Training" type="Node2D" index="0"]
+[node name="Training" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -62,15 +62,15 @@ texture = ExtResource( 3 )
 
 [node name="Scene" type="Node2D" parent="." index="1"]
 
-[node name="Player" parent="Scene" index="0" instance=ExtResource( 4 )]
+_sections_unfolded = [ "Transform" ]
 
-position = Vector2( 129.027, 268.997 )
-scale = Vector2( 2.38, 2.14 )
+[node name="Alyonis" parent="Scene" index="0" instance=ExtResource( 4 )]
 
-[node name="Alyonis" parent="Scene" index="1" instance=ExtResource( 5 )]
+position = Vector2( 690.74, 271.852 )
 
-position = Vector2( 696.107, 269.266 )
-scale = Vector2( 2.38, 2.14 )
+[node name="Player" parent="Scene" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 121.807, 269.899 )
 
 [node name="Background" type="TextureRect" parent="Scene" index="2"]
 

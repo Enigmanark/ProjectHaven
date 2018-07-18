@@ -14,14 +14,15 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 1.5, 2 )
+position = Vector2( 0, -0.487165 )
+scale = Vector2( 3.73907, 4.6 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PlayerArm" type="Sprite" parent="Sprite" index="0"]
 
 position = Vector2( -12.1692, -3.8974 )
-rotation = 0.844739
+rotation = 0.843961
 z_index = 2
 texture = ExtResource( 2 )
 centered = false
@@ -53,5 +54,6 @@ animName = "player_idle"
 
 script = ExtResource( 7 )
 timeToMove = 1
+speed = 360
 
 

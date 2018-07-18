@@ -6,6 +6,7 @@ var isMovingRight = false;
 var isMovingLeft = false;
 var timer = 0;
 export(float) var timeToMove = 1;
+export(float) var speed = 360;
 var inPosition = false;
 var playedAttackAnim = false;
 var player;
@@ -22,7 +23,7 @@ func _process(delta):
 			if(!playedAttackAnim):
 				get_node("../AnimationPlayer").play("player_attack");
 				playedAttackAnim = true;
-			player.position = Vector2(player.position.x + (float(180) * delta), player.position.y);
+			player.position = Vector2(player.position.x + (float(speed) * delta), player.position.y);
 			timer += delta;
 			if timer >= timeToMove:
 				isMovingRight = false;
@@ -30,7 +31,7 @@ func _process(delta):
 				timer = 0;
 	#Move back to start position
 	elif isMovingLeft:
-		player.position = Vector2(player.position.x - (float(180) * delta), player.position.y);
+		player.position = Vector2(player.position.x - (float(speed) * delta), player.position.y);
 		timer += delta;
 		if timer >= timeToMove:
 			isMovingLeft = false;

@@ -15,8 +15,8 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Damage" type="Node2D" index="0"]
 
-position = Vector2( -30.568, -23.3494 )
-scale = Vector2( 1.2, 1.2 )
+position = Vector2( -72.8203, -58.9997 )
+scale = Vector2( 3, 3 )
 z_index = 5
 script = ExtResource( 1 )
 _sections_unfolded = [ "Margin", "Rect", "Transform", "Z Index", "custom_fonts" ]

@@ -6,6 +6,7 @@ var isMovingRight = false;
 var isMovingLeft = false;
 var timer = 0;
 export(float) var timeToMove = 1;
+var speed = 360;
 var inPosition = false;
 
 func _ready():
@@ -13,14 +14,14 @@ func _ready():
 	
 func _process(delta):
 	if isMovingLeft:
-		position = Vector2(position.x - (float(180) * delta), position.y);
+		position = Vector2(position.x - (float(speed) * delta), position.y);
 		timer += delta;
 		if timer >= timeToMove:
 			isMovingLeft = false;
 			inPosition = true;
 			timer = 0;
 	elif isMovingRight:
-		position = Vector2(position.x + (float(180) * delta), position.y);
+		position = Vector2(position.x + (float(speed) * delta), position.y);
 		timer += delta;
 		if timer >= timeToMove:
 			isMovingRight = false;

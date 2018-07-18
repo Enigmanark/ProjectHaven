@@ -9,6 +9,9 @@ func _on_ChooseStrength_pressed():
 	alyonis = apply_damage_level(playerStats.level, alyonis);
 	alyonis = apply_trainer_stats(playerStats, alyonis);
 	alyonis["Strength"] += 5;
+	get_node("/root/Global").trainingStat = "Strength";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 	
 func _on_Dexterity_pressed():
 	var playerStats = get_node("/root/PlayerStats");
@@ -16,6 +19,9 @@ func _on_Dexterity_pressed():
 	alyonis = apply_damage_level(playerStats.level, alyonis);
 	alyonis = apply_trainer_stats(playerStats, alyonis);
 	alyonis["Dexterity"] += 5;
+	get_node("/root/Global").trainingStat = "Dexterity";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func _on_Endurance_pressed():
 	var playerStats = get_node("/root/PlayerStats");
@@ -26,6 +32,9 @@ func _on_Endurance_pressed():
 	alyonis["MeleeDef"] = 40;
 	alyonis["RangedDef"] = 40;
 	alyonis["SpellDef"] = 40;
+	get_node("/root/Global").trainingStat = "Endurance";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func _on_Intelligence_pressed():
 	var playerStats = get_node("/root/PlayerStats");
@@ -35,6 +44,9 @@ func _on_Intelligence_pressed():
 	alyonis["Intelligence"] += 5;
 	alyonis["MeleeDef"] = 50;
 	alyonis["RangedDef"] = 50;
+	get_node("/root/Global").trainingStat = "Intelligence";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func _on_Willpower_pressed():
 	var playerStats = get_node("/root/PlayerStats");
@@ -44,6 +56,9 @@ func _on_Willpower_pressed():
 	alyonis["Willpower"] += 5;
 	alyonis["MeleeDef"] = 50;
 	alyonis["RangedDef"] = 50;
+	get_node("/root/Global").trainingStat = "Willpower";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func _on_Cunning_pressed():
 	var playerStats = get_node("/root/PlayerStats");
@@ -54,6 +69,9 @@ func _on_Cunning_pressed():
 	alyonis["MeleeDef"] = 25;
 	alyonis["RangedDef"] = 25;
 	alyonis["SpellDef"] = 50;
+	get_node("/root/Global").trainingStat = "Cunning";
+	get_node("/root/BattleSceneManager").do_battle(alyonis,
+		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func apply_trainer_stats(playerStats, trainer):
 	trainer["Strength"] = playerStats.strength;
@@ -78,31 +96,31 @@ func apply_damage_level(playerLevel, trainer):
 
 func get_base_alyonis_battle(playerLevel):
 	var alyonis = {};
-	enemy["Level"] = playerLevel+1;
-	enemy["MaxHP"] = 75;
-	enemy["Path"] = "res://Assets/Prefabs/Characters/Alyonis.tscn" ;
-	enemy["Name"] = "Alyonis";
-	enemy["ID"] = -1;
-	enemy["MaxSP"] = 25;
-	enemy["MaxMP"] = 25;
-	enemy["MeleeDef"] = 10;
-	enemy["RangedDef"] = 10;
-	enemy["SpellDef"] = 10;
-	enemy["Strength"] = 1;
-	enemy["Dexterity"] = 1;
-	enemy["Endurance"] = 1;
-	enemy["Intelligence"] = 1;
-	enemy["Willpower"] = 1;
-	enemy["Cunning"] = 1;
-	enemy["MinDamage"] = 2;
-	enemy["MaxDamage"] = 8;
-	enemy["AttackElement"] = "Light";
-	enemy["Earth"] = 1;
-	enemy["Water"] = 1;
-	enemy["Air"] = 1;
-	enemy["Fire"] = 1;
-	enemy["Ice"] = 1;
-	enemy["Thunder"] = 1;
-	enemy["Light"] = 1;
-	enemy["Dark"] = 1;
+	alyonis["Level"] = playerLevel+1;
+	alyonis["MaxHP"] = 75;
+	alyonis["Path"] = "res://Assets/Prefabs/BattleSystem/Enemies/Training/Alyonis_Battle.tscn";
+	alyonis["Name"] = "Alyonis";
+	alyonis["ID"] = -1;
+	alyonis["MaxSP"] = 25;
+	alyonis["MaxMP"] = 25;
+	alyonis["MeleeDef"] = 10;
+	alyonis["RangedDef"] = 10;
+	alyonis["SpellDef"] = 10;
+	alyonis["Strength"] = 1;
+	alyonis["Dexterity"] = 1;
+	alyonis["Endurance"] = 1;
+	alyonis["Intelligence"] = 1;
+	alyonis["Willpower"] = 1;
+	alyonis["Cunning"] = 1;
+	alyonis["MinDamage"] = 2;
+	alyonis["MaxDamage"] = 8;
+	alyonis["AttackElement"] = "Light";
+	alyonis["Earth"] = 1;
+	alyonis["Water"] = 1;
+	alyonis["Air"] = 1;
+	alyonis["Fire"] = 1;
+	alyonis["Ice"] = 1;
+	alyonis["Thunder"] = 1;
+	alyonis["Light"] = 1;
+	alyonis["Dark"] = 1;
 	return alyonis;

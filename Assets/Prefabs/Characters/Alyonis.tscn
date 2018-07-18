@@ -8,12 +8,13 @@
 
 [node name="Alyonis" type="Node2D" index="0"]
 
+scale = Vector2( 1.0554, 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -0.0858989, -0.134825 )
-scale = Vector2( 1.5, 2 )
+position = Vector2( -0.0356926, -0.415518 )
+scale = Vector2( 3.7, 4.6 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

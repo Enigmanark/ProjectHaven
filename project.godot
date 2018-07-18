@@ -20,6 +20,7 @@ PlayerStats="*res://Assets/Prefabs/BattleSystem/Players/PlayerStats.tscn"
 CurrentBattle="*res://Assets/Prefabs/BattleSystem/CurrentBattle.tscn"
 BattleSceneManager="*res://Assets/Prefabs/BattleSystem/BattleSceneManager.tscn"
 BattleManager="*res://Assets/Prefabs/BattleSystem/BattleManager.tscn"
+Global="*res://Assets/Prefabs/Global.tscn"
 
 [display]
 

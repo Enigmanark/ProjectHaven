@@ -47,27 +47,27 @@ var attackElement = "Earth";
 var minDamage = 5;
 var maxDamage = 10;
 
-func addStrength(amount):
+func add_strength(amount):
 	strength += amount;
 	currentStrength += amount;
 
-func addDexterity(amount):
+func add_dexterity(amount):
 	dexterity += amount;
 	currentDexterity += amount;
 	
-func addEndurance(amount):
+func add_endurance(amount):
 	endurance += amount;
 	currentEndurance += amount;
 	
-func addIntelligence(amount):
+func add_intelligence(amount):
 	intelligence += amount;
 	currentIntelligence += amount;
 
-func addWillpower(amount):
+func add_willpower(amount):
 	willpower += amount;
 	currentWillpower += amount;
 	
-func addCunning(amount):
+func add_cunning(amount):
 	cunning += amount;
 	currentCunning += amount;
 

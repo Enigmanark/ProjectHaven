@@ -17,8 +17,9 @@ func do_random_battle():
 	nextScenePath = "res://Assets/Scenes/haven.tscn";
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
-func do_battle(battle):
+func do_battle(battle, next):
 	setup_battle(battle);
+	nextScenePath = next;
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
 func setup_battle(battle):

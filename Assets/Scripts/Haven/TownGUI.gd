@@ -9,7 +9,7 @@ func _on_RandomBattleButton_pressed():
 	get_parent().get_node("/root/BattleSceneManager").do_random_battle();
 
 func _on_TrainerButton_pressed():
-	pass;
+	get_tree().change_scene("res://Assets/Scenes/Training/Training.tscn");
 
 func _on_DevButton_pressed():
 	get_node("Dev/InputIDBackground").visible = true;

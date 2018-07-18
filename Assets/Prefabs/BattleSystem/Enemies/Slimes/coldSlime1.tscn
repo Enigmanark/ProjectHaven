@@ -6,16 +6,19 @@
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Scripts/BattleSystem/EnemyLogic.gd" type="Script" id=5]
 
-
 [node name="Enemy" type="Node2D" index="0"]
 
+position = Vector2( -1.44638, -8.21043 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 timeToMove = 1
 
 [node name="slimeSprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 1.06763, -57.9944 )
+scale = Vector2( 2.38, 2.14 )
 texture = ExtResource( 2 )
+offset = Vector2( -0.327699, 23.8567 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]

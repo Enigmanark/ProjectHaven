@@ -9,9 +9,6 @@
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Scripts/BattleSystem/EnemyLogic.gd" type="Script" id=8]
 
-
-
-
 [node name="Enemy" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
@@ -21,8 +18,8 @@ timeToMove = 1
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 editor/display_folded = true
-position = Vector2( -0.605034, -4.11612 )
-scale = Vector2( 1.51161, 2 )
+position = Vector2( -0.605034, -4.11546 )
+scale = Vector2( 3.86761, 4.6 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
