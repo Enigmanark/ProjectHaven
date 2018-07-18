@@ -1,31 +1,38 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/PlayerHUD.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Prefabs/GUI/NameBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Prefabs/GUI/Avatars/AvatarBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Prefabs/GUI/NameBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/GUI/hud_hpBar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Art/GUI/hud_spBar.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/GUI/hud_mpBar.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
 use_mipmaps = true
 use_filter = false
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="PlayerHUD" type="Node2D" index="0"]
 
-position = Vector2( 7, 18 )
-scale = Vector2( 1.66, 1.55 )
+position = Vector2( 7.88568, 91.9169 )
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="NameBackground" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Avatar" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="PlayerHPBar" type="TextureProgress" parent="." index="1"]
+[node name="Stats" type="Node2D" parent="." index="1"]
+
+position = Vector2( 49.9426, -11.6413 )
+
+[node name="NameBackground" parent="Stats" index="0" instance=ExtResource( 3 )]
+
+[node name="PlayerHPBar" type="TextureProgress" parent="Stats" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -49,15 +56,15 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 3 )
+texture_under = ExtResource( 4 )
 texture_over = null
-texture_progress = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="HPText" type="Label" parent="PlayerHPBar" index="0"]
+[node name="HPText" type="Label" parent="Stats/PlayerHPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -83,7 +90,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="PlayerSPBar" type="TextureProgress" parent="." index="2"]
+[node name="PlayerSPBar" type="TextureProgress" parent="Stats" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -107,15 +114,15 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 3 )
+texture_under = ExtResource( 4 )
 texture_over = null
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="SPText" type="Label" parent="PlayerSPBar" index="0"]
+[node name="SPText" type="Label" parent="Stats/PlayerSPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -141,7 +148,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="PlayerMPBar" type="TextureProgress" parent="." index="3"]
+[node name="PlayerMPBar" type="TextureProgress" parent="Stats" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -163,15 +170,15 @@ page = 0.0
 value = 50.0
 exp_edit = false
 rounded = true
-texture_under = ExtResource( 3 )
+texture_under = ExtResource( 4 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 
-[node name="MPText" type="Label" parent="PlayerMPBar" index="0"]
+[node name="MPText" type="Label" parent="Stats/PlayerMPBar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

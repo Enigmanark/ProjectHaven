@@ -54,13 +54,13 @@ func update_enemy_hud():
 	var hpp = (float(enemyCurHP) / float(enemyMaxHP)) * float(100);
 	var spp = (float(enemyCurSP) / float(enemyMaxSP)) * float(100);
 	var mpp = (float(enemyCurMP) / float(enemyMaxMP)) * float(100);
-	enemyhud.get_node("NameBackground/Name").text = enemyName;
-	enemyhud.get_node("EnemyHPBar").value = hpp
-	enemyhud.get_node("EnemySPBar").value = spp;
-	enemyhud.get_node("EnemyMPBar").value = mpp;
-	enemyhud.get_node("EnemyHPBar/HPText").text = str(enemyCurHP) + "/" + str(enemyMaxHP);
-	enemyhud.get_node("EnemySPBar/SPText").text = str(enemyCurSP) + "/" + str(enemyMaxSP);
-	enemyhud.get_node("EnemyMPBar/MPText").text = str(enemyCurMP) + "/" + str(enemyMaxMP);
+	enemyhud.get_node("Stats/NameBackground/Name").text = enemyName;
+	enemyhud.get_node("Stats/EnemyHPBar").value = hpp
+	enemyhud.get_node("Stats/EnemySPBar").value = spp;
+	enemyhud.get_node("Stats/EnemyMPBar").value = mpp;
+	enemyhud.get_node("Stats/EnemyHPBar/HPText").text = str(enemyCurHP) + "/" + str(enemyMaxHP);
+	enemyhud.get_node("Stats/EnemySPBar/SPText").text = str(enemyCurSP) + "/" + str(enemyMaxSP);
+	enemyhud.get_node("Stats/EnemyMPBar/MPText").text = str(enemyCurMP) + "/" + str(enemyMaxMP);
 
 func do_enemy_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
