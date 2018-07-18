@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fireSlime1.png-835bd656feb39ab3d3cc209569de6b84.stex"
+path="res://.import/fireSlime1.png-0fc2b029a72e02824978ea1419f216c4.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Enemies/fireSlime1.png"
-dest_files=[ "res://.import/fireSlime1.png-835bd656feb39ab3d3cc209569de6b84.stex" ]
+source_file="res://Assets/Prefabs/GUI/Avatars/fireSlime1.png"
+dest_files=[ "res://.import/fireSlime1.png-0fc2b029a72e02824978ea1419f216c4.stex" ]
 
 [params]
 

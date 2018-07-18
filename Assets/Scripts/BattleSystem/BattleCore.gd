@@ -34,6 +34,7 @@ func _ready():
 	enemyStats = get_parent().get_node("/root/CurrentBattle");
 	load_enemy();
 	get_node("../HUD/PlayerHUD").update_player_hud(playerStats);
+	init_enemy_avatar();
 
 func load_enemy():
 	var enemy_x = get_node("Foe/Enemy").position.x;
@@ -200,6 +201,15 @@ func init_enemy_battle_vars():
 	enemyMeleeDef = enemyStats.meleeDef;
 	enemyRangedDef = enemyStats.rangedDef;
 	enemySpellDef = enemyStats.spellDef;
+
+func init_enemy_avatar():
+	var x_pos = get_parent().get_node("HUD/EnemyHUD/Avatar").position.x;
+	var y_pos = get_parent().get_node("HUD/EnemyHUD/Avatar").position.y;
+	get_parent().get_node("HUD/EnemyHUD/Avatar").queue_free();
+	var newAvatarScene = load(get_node("/root/CurrentBattle").pathToAvatar);
+	var newAvatar = newAvatarScene.instance();
+	newAvatar.position = Vector2(x_pos, y_pos);
+	get_parent().get_node("HUD/EnemyHUD").add_child(newAvatar);
 
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_to_next_scene();

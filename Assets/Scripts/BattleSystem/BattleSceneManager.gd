@@ -41,6 +41,7 @@ func setup_battle(battle):
 	currentBattle.willpower = battle["Willpower"];
 	currentBattle.cunning = battle["Cunning"];
 	currentBattle.path = battle["Path"];
+	currentBattle.pathToAvatar = battle["PathToAvatar"];
 	currentBattle.earth = battle["Earth"];
 	currentBattle.water = battle["Water"];
 	currentBattle.air = battle["Air"];

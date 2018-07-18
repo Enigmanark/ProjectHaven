@@ -3,6 +3,7 @@ extends Node
 var _name;
 var id;
 var path;
+var pathToAvatar;
 var maxHP;
 var maxSP;
 var maxMP;
@@ -54,6 +55,7 @@ func init_enemies():
 	_name = "Green Slime";
 	id = 1;
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/greenSlime1.tscn";
+	pathToAvatar = "res://Assets/Prefabs/GUI/Avatars/AvatarGreenSlime.tscn";
 	maxHP = 50;
 	maxSP = 25;
 	maxMP = 25;
@@ -78,13 +80,14 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, cunning,
+		strength, dexterity, endurance, intelligence, willpower, cunning, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
 	_name = "Undead Fighter";
 	id = 2;
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Undead/UndeadFighter.tscn";
+	pathToAvatar = "res://Assets/Prefabs/GUI/Avatars/AvatarUndeadFighter.tscn";
 	maxHP = 100;
 	maxSP = 75;
 	maxMP = 25;
@@ -109,13 +112,14 @@ func init_enemies():
 	light = 2;
 	dark = .50;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, cunning,
+		strength, dexterity, endurance, intelligence, willpower, cunning, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
 	_name = "Fire Slime";
 	id = 3;
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/fireSlime1.tscn";
+	pathToAvatar = "res://Assets/Prefabs/GUI/Avatars/AvatarFireSlime.tscn";
 	maxHP = 60;
 	maxSP = 25;
 	maxMP = 25;
@@ -140,13 +144,14 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, cunning,
+		strength, dexterity, endurance, intelligence, willpower, cunning, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
 	_name = "Cold Slime";
 	id = 4;
 	path = "res://Assets/Prefabs/BattleSystem/Enemies/Slimes/coldSlime1.tscn";
+	pathToAvatar = "res://Assets/Prefabs/GUI/Avatars/AvatarColdSlime.tscn";
 	maxHP = 60;
 	maxSP = 25;
 	maxMP = 25;
@@ -171,16 +176,17 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name,id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, cunning,
+		strength, dexterity, endurance, intelligence, willpower, cunning, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 
 func make_enemy(name, id, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, strength, dexterity,
-	endurance, intelligence, willpower,cunning, minD, maxD, attackElement, 
+	endurance, intelligence, willpower,cunning, pathToAvatar, minD, maxD, attackElement,
 	path, earth, water, air, fire, ice, thunder, light, dark):
 	var enemy = {};
 	enemy["MaxHP"] = maxhp;
 	enemy["Path"] = path;
+	enemy["PathToAvatar"] = pathToAvatar;
 	enemy["Name"] = name;
 	enemy["ID"] = id;
 	enemy["MaxSP"] = maxsp;

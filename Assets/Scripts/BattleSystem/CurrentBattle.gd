@@ -25,6 +25,7 @@ var endurance;
 var intelligence;
 var willpower;
 var cunning;
+var pathToAvatar;
 
 func _ready():
 	pass

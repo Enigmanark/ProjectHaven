@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/Scenes/Training.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -24,7 +25,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Training" type="Node2D"]
+[node name="Training" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -62,6 +63,7 @@ texture = ExtResource( 3 )
 
 [node name="Scene" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Alyonis" parent="Scene" index="0" instance=ExtResource( 4 )]
@@ -523,6 +525,10 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="PlayerHUD" parent="." index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 83.2467, 496.962 )
 
 [connection signal="pressed" from="Scene/Background/ChooseStat/ChooseStrength" to="." method="_on_ChooseStrength_pressed"]
 

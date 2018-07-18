@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/greenSlime1.png-af9804bd32cf103af1a32f3de73ccf8c.stex"
+path="res://.import/greenSlime1.png-1d2a2a67b99973d0e49d37881c959f97.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Enemies/greenSlime1.png"
-dest_files=[ "res://.import/greenSlime1.png-af9804bd32cf103af1a32f3de73ccf8c.stex" ]
+source_file="res://Assets/Prefabs/GUI/Avatars/greenSlime1.png"
+dest_files=[ "res://.import/greenSlime1.png-1d2a2a67b99973d0e49d37881c959f97.stex" ]
 
 [params]
 
