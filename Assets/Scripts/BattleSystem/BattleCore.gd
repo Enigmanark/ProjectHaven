@@ -145,7 +145,7 @@ func _process(delta):
 	#If we're in the battlephase, this is started from InitateAttack.gd
 	if battlePhase:
 		#If player is in start position
-		if get_node("Player").inStartPosition:
+		if get_node("Player/MoveAndAttack").inStartPosition:
 			#If enemy is in start position
 			if enemyMove.inStartPosition:
 				#If the enemy is alive
@@ -165,7 +165,7 @@ func _process(delta):
 	#If we haven't won yet and it's not in a battle phase
 	if !victory and !battlePhase:
 		#If the enemy is dead and the player is in start position
-		if !enemyLogic.alive and get_node("Player").inStartPosition:
+		if !enemyLogic.alive and get_node("Player/MoveAndAttack").inStartPosition:
 			#Show victory screen
 			victory = true;
 			get_node("../BattleMenu").visible = false;

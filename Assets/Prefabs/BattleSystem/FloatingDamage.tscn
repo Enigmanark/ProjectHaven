@@ -17,6 +17,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 position = Vector2( -30.568, -23.3494 )
 scale = Vector2( 1.2, 1.2 )
+z_index = 5
 script = ExtResource( 1 )
 _sections_unfolded = [ "Margin", "Rect", "Transform", "Z Index", "custom_fonts" ]
 
