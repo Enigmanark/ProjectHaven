@@ -24,8 +24,7 @@ var dexterity;
 var endurance;
 var intelligence;
 var willpower;
-var charisma;
-var luck;
+var cunning;
 
 func _ready():
 	pass

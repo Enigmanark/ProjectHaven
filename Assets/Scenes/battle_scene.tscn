@@ -460,7 +460,6 @@ scale = Vector2( 1, 1 )
 
 [node name="VictoryGUI" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )
@@ -606,8 +605,8 @@ anchor_bottom = 0.0
 margin_left = 12.0
 margin_top = 38.0
 margin_right = 60.0
-margin_bottom = 78.0
-rect_scale = Vector2( 0.5, 0.4 )
+margin_bottom = 58.0
+rect_scale = Vector2( 0.5, 0.3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -622,16 +621,17 @@ group = null
 texture_normal = ExtResource( 12 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Return" type="Label" parent="VictoryGUI/VictoryWindow/ReturnButton" index="0"]
+[node name="Ok" type="Label" parent="VictoryGUI/VictoryWindow/ReturnButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -2.0
-margin_right = 53.0
-margin_bottom = 25.0
-rect_scale = Vector2( 0.9, 0.9 )
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 49.0
+margin_bottom = 22.0
+rect_scale = Vector2( 1.1, 1.1 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -639,7 +639,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
-text = "Return to Town"
+text = "Okay"
 align = 1
 valign = 1
 autowrap = true

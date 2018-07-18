@@ -1,14 +1,20 @@
 extends Node
 
+var nextScenePath;
+
 func _ready():
 	pass
 
-func return_to_haven():
+func go_home():
 	get_tree().change_scene("res://Assets/Scenes/haven.tscn");
+
+func go_to_next_scene():
+	get_tree().change_scene(nextScenePath);
 
 func do_random_battle():
 	var battle = get_node("/root/BattleManager").get_random_battle();
 	setup_battle(battle);
+	nextScenePath = "res://Assets/Scenes/haven.tscn";
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
 func do_battle(battle):
@@ -32,8 +38,7 @@ func setup_battle(battle):
 	currentBattle.endurance = battle["Endurance"];
 	currentBattle.intelligence = battle["Intelligence"];
 	currentBattle.willpower = battle["Willpower"];
-	currentBattle.charisma = battle["Charisma"];
-	currentBattle.luck = battle["Luck"];
+	currentBattle.cunning = battle["Cunning"];
 	currentBattle.path = battle["Path"];
 	currentBattle.earth = battle["Earth"];
 	currentBattle.water = battle["Water"];

@@ -178,13 +178,13 @@ func calculate_enemy_damage():
 
 #Damage calculation for the player
 func calculate_player_damage():
-	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage);
+	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage + 1);
 	var strength = playerStats.currentStrength;
 	#convert to decimal
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;
 	var moddedD = mod + baseD;
-	return int(moddedD);
+	return int(150);
 
 #Gets the enemy battle vars from enemystats for easy access
 func init_enemy_battle_vars():
@@ -202,7 +202,7 @@ func init_enemy_battle_vars():
 	enemySpellDef = enemyStats.spellDef;
 
 func _on_ReturnButton_pressed():
-	get_node("/root/BattleSceneManager").return_to_haven();
+	get_node("/root/BattleSceneManager").go_to_next_scene();
 
 func _on_Flee_pressed():
-	get_node("/root/BattleSceneManager").return_to_haven();
+	get_node("/root/BattleSceneManager").go_home();

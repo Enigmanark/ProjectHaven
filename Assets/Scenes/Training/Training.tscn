@@ -1,29 +1,32 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees.tres.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Prefabs/Characters/Alyonis.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Scripts/BattleSystem/Scenes/Training.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees.tres.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Prefabs/Characters/Alyonis.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
 use_mipmaps = true
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 10
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Training" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="Terrain" type="Node2D" parent="." index="0"]
 
@@ -34,7 +37,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="TileMap" type="TileMap" parent="Terrain" index="0"]
 
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -55,16 +58,16 @@ _sections_unfolded = [ "Cell" ]
 [node name="Background" type="Sprite" parent="Terrain" index="1"]
 
 position = Vector2( 168.014, 48.0325 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Scene" type="Node2D" parent="." index="1"]
 
-[node name="Player" parent="Scene" index="0" instance=ExtResource( 3 )]
+[node name="Player" parent="Scene" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 129.027, 268.997 )
 scale = Vector2( 2.38, 2.14 )
 
-[node name="Alyonis" parent="Scene" index="1" instance=ExtResource( 4 )]
+[node name="Alyonis" parent="Scene" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 696.107, 269.266 )
 scale = Vector2( 2.38, 2.14 )
@@ -85,7 +88,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 
@@ -148,7 +151,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="AlyonisText" type="Label" parent="Scene/Background/ChooseTrainer/ChooseAlyonis" index="0"]
@@ -179,7 +182,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ChooseStat" type="Node2D" parent="Scene/Background" index="1"]
 
-editor/display_folded = true
 position = Vector2( 6.81451, -7.68487 )
 
 [node name="WhichStat?" type="RichTextLabel" parent="Scene/Background/ChooseStat" index="0"]
@@ -238,7 +240,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="StrengthText" type="Label" parent="Scene/Background/ChooseStat/ChooseStrength" index="0"]
@@ -289,7 +291,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="DexterityText" type="Label" parent="Scene/Background/ChooseStat/Dexterity" index="0"]
@@ -340,7 +342,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="EnduranceText" type="Label" parent="Scene/Background/ChooseStat/Endurance" index="0"]
@@ -391,7 +393,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="IntelligenceText" type="Label" parent="Scene/Background/ChooseStat/Intelligence" index="0"]
@@ -442,7 +444,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="WillpowerText" type="Label" parent="Scene/Background/ChooseStat/Willpower" index="0"]
@@ -471,7 +473,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Luck" type="TextureButton" parent="Scene/Background/ChooseStat" index="6"]
+[node name="Cunning" type="TextureButton" parent="Scene/Background/ChooseStat" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -493,10 +495,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="LuckText" type="Label" parent="Scene/Background/ChooseStat/Luck" index="0"]
+[node name="CunningText" type="Label" parent="Scene/Background/ChooseStat/Cunning" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -514,12 +516,24 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Luck"
+text = "Cunning"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/ChooseStrength" to="." method="_on_ChooseStrength_pressed"]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/Dexterity" to="." method="_on_Dexterity_pressed"]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/Endurance" to="." method="_on_Endurance_pressed"]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/Intelligence" to="." method="_on_Intelligence_pressed"]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/Willpower" to="." method="_on_Willpower_pressed"]
+
+[connection signal="pressed" from="Scene/Background/ChooseStat/Cunning" to="." method="_on_Cunning_pressed"]
 
 

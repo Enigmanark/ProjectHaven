@@ -8,10 +8,8 @@ func _ready():
 func _on_RandomBattleButton_pressed():
 	get_parent().get_node("/root/BattleSceneManager").do_random_battle();
 
-
 func _on_TrainerButton_pressed():
 	pass;
-
 
 func _on_DevButton_pressed():
 	get_node("Dev/InputIDBackground").visible = true;
@@ -20,4 +18,5 @@ func _on_OkayButton_pressed():
 	var id = get_node("Dev/InputIDBackground/InputID/Input").text;
 	if get_node("/root/BattleManager").has_battle_with_id(id):
 		var battle = get_node("/root/BattleManager").get_battle_with_id(id);
+		get_node("/root/BattleSceneManager").nextScenePath = "res://Assets/Scenes/haven.tscn";
 		get_node("/root/BattleSceneManager").do_battle(battle);

@@ -15,7 +15,7 @@ var endurance;
 var intelligence;
 var willpower;
 var charisma;
-var luck;
+var cunning;
 var minDamage;
 var maxDamage;
 var attackElement;
@@ -65,8 +65,7 @@ func init_enemies():
 	endurance = 1;
 	intelligence = 1;
 	willpower = 1;
-	charisma = 1;
-	luck = 1;
+	cunning = 1;
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Earth";
@@ -79,7 +78,7 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, charisma, luck,
+		strength, dexterity, endurance, intelligence, willpower, cunning,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
@@ -97,8 +96,7 @@ func init_enemies():
 	endurance = 1;
 	intelligence = 1;
 	willpower = 1;
-	charisma = 1;
-	luck = 1;
+	cunning = 1;
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Dark";
@@ -111,7 +109,7 @@ func init_enemies():
 	light = 2;
 	dark = .50;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, charisma, luck,
+		strength, dexterity, endurance, intelligence, willpower, cunning,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
@@ -129,8 +127,7 @@ func init_enemies():
 	endurance = 1;
 	intelligence = 1;
 	willpower = 1;
-	charisma = 1;
-	luck = 1;
+	cunning = 1;
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Fire";
@@ -143,7 +140,7 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, charisma, luck,
+		strength, dexterity, endurance, intelligence, willpower, cunning,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 		
@@ -161,8 +158,7 @@ func init_enemies():
 	endurance = 1;
 	intelligence = 1;
 	willpower = 1;
-	charisma = 1;
-	luck = 1;
+	cunning = 1;
 	minDamage = 2;
 	maxDamage = 8;
 	attackElement = "Ice";
@@ -175,12 +171,12 @@ func init_enemies():
 	light = 1;
 	dark = 1;
 	enemies.append(make_enemy(_name,id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
-		strength, dexterity, endurance, intelligence, willpower, charisma, luck,
+		strength, dexterity, endurance, intelligence, willpower, cunning,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
 		light, dark));
 
 func make_enemy(name, id, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, strength, dexterity,
-	endurance, intelligence, willpower, charisma, luck, minD, maxD, attackElement, 
+	endurance, intelligence, willpower,cunning, minD, maxD, attackElement, 
 	path, earth, water, air, fire, ice, thunder, light, dark):
 	var enemy = {};
 	enemy["MaxHP"] = maxhp;
@@ -197,8 +193,7 @@ func make_enemy(name, id, maxhp, maxsp, maxmp, meleeDef, rangedDef, spellDef, st
 	enemy["Endurance"] = endurance;
 	enemy["Intelligence"] = intelligence;
 	enemy["Willpower"] = willpower;
-	enemy["Charisma"] = charisma;
-	enemy["Luck"] = luck;
+	enemy["Cunning"] = cunning;
 	enemy["MinDamage"] = minD;
 	enemy["MaxDamage"] = maxD;
 	enemy["AttackElement"] = attackElement;

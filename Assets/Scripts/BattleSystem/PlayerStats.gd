@@ -1,25 +1,25 @@
 extends Node
 var _name = "Solar";
+var level = 0;
+var statPoints = 0;
 export(int) var maxhp;
 var currentHP;
 export(int) var maxsp;
 var currentSP;
 export(int) var maxmp;
 var currentMP;
-var strength = 1;
+var strength = 0;
 var currentStrength = strength;
-var dexterity = 1;
+var dexterity = 0;
 var currentDexterity = dexterity;
-var endurance = 1;
+var endurance = 0;
 var currentEndurance = endurance;
-var intelligence = 1;
+var intelligence = 0;
 var currentIntelligence = intelligence;
-var willpower = 1;
+var willpower = 0;
 var currentWillpower = willpower;
-var charisma = 1;
-var currentCharisma = charisma;
-var luck = 1;
-var currentLuck = luck;
+var cunning = 0;
+var currentCunning = cunning;
 var meleeDef = 10;
 var currentMeleeDef = meleeDef;
 var rangedDef = 10;
@@ -67,13 +67,9 @@ func addWillpower(amount):
 	willpower += amount;
 	currentWillpower += amount;
 	
-func addCharisma(amount):
-	charisma += amount;
-	currentCharisma += amount;
-	
-func addLuck(amount):
-	luck += amount;
-	currentLuck += amount;
+func addCunning(amount):
+	cunning += amount;
+	currentCunning += amount;
 
 func get_dexterity():
 	return currentDexterity;
