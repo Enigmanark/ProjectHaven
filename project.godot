@@ -22,6 +22,8 @@ CurrentBattle="*res://Assets/Prefabs/BattleSystem/CurrentBattle.tscn"
 BattleSceneManager="*res://Assets/Prefabs/BattleSystem/BattleSceneManager.tscn"
 BattleManager="*res://Assets/Prefabs/BattleSystem/BattleManager.tscn"
 Global="*res://Assets/Prefabs/Global.tscn"
+Inventory="*res://Assets/Prefabs/Inventory.tscn"
+Weapons="*res://Assets/Prefabs/Weapons.tscn"
 
 [display]
 

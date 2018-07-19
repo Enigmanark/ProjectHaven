@@ -48,10 +48,7 @@ var light = 1;
 var currentLight = light;
 var dark = 1;
 var currentDark = dark;
-
-var attackElement = "Earth";
-var minDamage = 5;
-var maxDamage = 10;
+var currentWeapon;
 
 func recover_all():
 	currentMP = maxmp;
@@ -144,7 +141,22 @@ func level_up():
 	level += 1;
 	experienceToLevelUp *= 1.2;
 
+func equip_weapon(weapon):
+	currentWeapon = weapon;
+
+func init_beginner():
+	var sword = get_node("/root/Weapons").get_weapon_by_id(1);
+	get_node("/root/Inventory").add_weapon(sword);
+	var asword = get_node("/root/Weapons").get_weapon_by_id(2);
+	get_node("/root/Inventory").add_weapon(asword);
+	var fsword = get_node("/root/Weapons").get_weapon_by_id(3);
+	get_node("/root/Inventory").add_weapon(fsword);
+
+func on_WeaponsInitialized():
+	init_beginner();
+
 func _ready():
 	currentHP = maxhp;
 	currentSP = maxsp;
 	currentMP = maxmp;
+	get_node("/root/Weapons").connect("WeaponsInitialized", self, "on_WeaponsInitialized");
