@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	var playerStats = get_parent().get_node("/root/PlayerStats");
-	get_parent().get_node("GUI/PlayerHUD").update_player_hud(playerStats);
+	get_parent().get_node("GUI/PlayerHUD").update_player_hud();
 
 
 func _on_RandomBattleButton_pressed():

@@ -33,7 +33,7 @@ func _ready():
 	enemyhud = get_parent().get_node("HUD/EnemyHUD");
 	enemyStats = get_parent().get_node("/root/CurrentBattle");
 	load_enemy();
-	get_node("../HUD/PlayerHUD").update_player_hud(playerStats);
+	get_node("../HUD/PlayerHUD").update_player_hud();
 	init_enemy_avatar();
 
 func load_enemy():
@@ -73,7 +73,7 @@ func do_enemy_attack():
 		floatD.element = enemyStats.attackElement;
 		get_node("Player").add_child(floatD);
 		playerStats.currentHP -= damage;
-		get_node("../HUD/PlayerHUD").update_player_hud(get_parent().get_node("/root/PlayerStats"));
+		get_node("../HUD/PlayerHUD").update_player_hud();
 	else:
 		var miss = floatDSc.instance();
 		miss.damage = "Miss!";

@@ -1,9 +1,10 @@
 extends Node2D
 
 func _ready():
-	pass
+	update_player_hud();
 
-func update_player_hud(playerStats):
+func update_player_hud():
+	var playerStats = get_node("/root/PlayerStats");
 	var playerCurrentHP = playerStats.currentHP;
 	var playerHP = playerStats.maxhp;
 	var playerCurrentMP = playerStats.currentMP;
