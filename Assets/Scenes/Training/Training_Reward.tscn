@@ -84,15 +84,14 @@ position = Vector2( 700.107, 260.266 )
 
 [node name="Background" type="TextureRect" parent="Scene" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 244.0
-margin_top = 60.0
-margin_right = 576.0
-margin_bottom = 331.0
+margin_left = 248.0
+margin_top = 62.0
+margin_right = 580.0
+margin_bottom = 333.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -108,6 +107,236 @@ stretch_mode = 0
 position = Vector2( 6.81451, -7.68487 )
 
 [node name="Message" type="RichTextLabel" parent="Scene/Background/Pay?" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 22.0
+margin_right = 127.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2.8, 2.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "I require payment of 500 Gold to Increase your Strength."
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "I require payment of 500 Gold to Increase your Strength."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="PayButton" type="TextureButton" parent="Scene/Background/Pay?" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 77.0
+margin_top = 140.0
+margin_right = 125.0
+margin_bottom = 160.0
+rect_scale = Vector2( 3.5, 2.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="PayText" type="Label" parent="Scene/Background/Pay?/PayButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.8, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Pay"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="CancelPayButton" type="TextureButton" parent="Scene/Background/Pay?" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 77.0
+margin_top = 195.0
+margin_right = 125.0
+margin_bottom = 215.0
+rect_scale = Vector2( 3.5, 2.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="CancelPayText" type="Label" parent="Scene/Background/Pay?/CancelPayButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.8, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cancel"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="NotEnough" type="Node2D" parent="Scene/Background" index="1"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 6.81451, -7.68487 )
+
+[node name="Message" type="RichTextLabel" parent="Scene/Background/NotEnough" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 22.0
+margin_right = 127.0
+margin_bottom = 88.0
+rect_scale = Vector2( 2.8, 2.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "Your Strength has been increased to:"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "You don't have enough Gold..."
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="DarnButton" type="TextureButton" parent="Scene/Background/NotEnough" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 77.0
+margin_top = 195.0
+margin_right = 125.0
+margin_bottom = 215.0
+rect_scale = Vector2( 3.5, 2.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="DarnText" type="Label" parent="Scene/Background/NotEnough/DarnButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.8, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Darn..."
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="GetStat" type="Node2D" parent="Scene/Background" index="2"]
+
+visible = false
+position = Vector2( 6.81451, -7.68487 )
+
+[node name="Message" type="RichTextLabel" parent="Scene/Background/GetStat" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -139,7 +368,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Increase" type="Label" parent="Scene/Background/Pay?/Message" index="1"]
+[node name="Increase" type="Label" parent="Scene/Background/GetStat/Message" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -156,7 +385,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.984741, 0.0234375, 1 )
 text = "5!"
 align = 1
@@ -166,7 +395,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="ReturnButton" type="TextureButton" parent="Scene/Background/Pay?" index="1"]
+[node name="ReturnButton" type="TextureButton" parent="Scene/Background/GetStat" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -191,7 +420,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="OkayText" type="Label" parent="Scene/Background/Pay?/ReturnButton" index="0"]
+[node name="OkayText" type="Label" parent="Scene/Background/GetStat/ReturnButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -208,7 +437,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Okay"
 align = 1
 valign = 1
@@ -221,6 +450,12 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 position = Vector2( 83.4248, 496.82 )
 
-[connection signal="pressed" from="Scene/Background/Pay?/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="Scene/Background/Pay?/PayButton" to="." method="_on_PayButton_pressed"]
+
+[connection signal="pressed" from="Scene/Background/Pay?/CancelPayButton" to="." method="_on_CancelPayButton_pressed"]
+
+[connection signal="pressed" from="Scene/Background/NotEnough/DarnButton" to="." method="_on_DarnButton_pressed"]
+
+[connection signal="pressed" from="Scene/Background/GetStat/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 
 

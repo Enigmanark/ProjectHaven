@@ -225,7 +225,7 @@ func get_reward():
 		get_node("Player").add_child(floatD);
 	playerStats.add_gold(enemyStats.gold);
 	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
-	get_parent().get_node("HUD/PlayerHUD").update_player_hud(playerStats);
+	get_parent().get_node("HUD/PlayerHUD").update_player_hud();
 	
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_to_next_scene();

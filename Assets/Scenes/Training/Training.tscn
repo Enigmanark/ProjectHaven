@@ -63,8 +63,7 @@ texture = ExtResource( 3 )
 
 [node name="Scene" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Alyonis" parent="Scene" index="0" instance=ExtResource( 4 )]
 
@@ -74,7 +73,12 @@ position = Vector2( 690.74, 271.852 )
 
 position = Vector2( 121.807, 269.899 )
 
-[node name="Background" type="TextureRect" parent="Scene" index="2"]
+[node name="TrainingWindow" type="Node2D" parent="Scene" index="2"]
+
+z_index = 1
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Background" type="TextureRect" parent="Scene/TrainingWindow" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -83,7 +87,7 @@ anchor_bottom = 0.0
 margin_left = 251.0
 margin_top = 28.0
 margin_right = 583.0
-margin_bottom = 442.0
+margin_bottom = 477.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -94,22 +98,23 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 
-[node name="ChooseTrainer" type="Node2D" parent="Scene/Background" index="0"]
+[node name="DontHaveEnough" type="Node2D" parent="Scene/TrainingWindow/Background" index="0"]
 
 editor/display_folded = true
 visible = false
+position = Vector2( 30.874, 0 )
 
-[node name="Who?" type="RichTextLabel" parent="Scene/Background/ChooseTrainer" index="0"]
+[node name="DontHaveMessage" type="RichTextLabel" parent="Scene/TrainingWindow/Background/DontHaveEnough" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 9.0
-margin_top = 30.0
-margin_right = 263.0
-margin_bottom = 95.0
-rect_scale = Vector2( 3, 3 )
+margin_left = -18.0
+margin_top = 23.0
+margin_right = 112.0
+margin_bottom = 91.0
+rect_scale = Vector2( 2.5, 2.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -119,20 +124,21 @@ size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
-bbcode_text = "Train with who?"
+bbcode_text = "You don't have enough training points."
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Train with who?"
+text = "You don't have enough training points."
 scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="ChooseAlyonis" type="TextureButton" parent="Scene/Background/ChooseTrainer" index="1"]
+[node name="Return" type="TextureButton" parent="Scene/TrainingWindow/Background/DontHaveEnough" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -156,7 +162,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="AlyonisText" type="Label" parent="Scene/Background/ChooseTrainer/ChooseAlyonis" index="0"]
+[node name="ReturnText" type="Label" parent="Scene/TrainingWindow/Background/DontHaveEnough/Return" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -174,7 +180,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Alyonis"
+text = "Okay"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -182,11 +188,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="ChooseStat" type="Node2D" parent="Scene/Background" index="1"]
+[node name="ChooseStat" type="Node2D" parent="Scene/TrainingWindow/Background" index="1"]
 
-position = Vector2( 6.81451, -7.68487 )
+editor/display_folded = true
+visible = false
+position = Vector2( 7.62909, -1.1688 )
+scale = Vector2( 1, 0.9 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="WhichStat?" type="RichTextLabel" parent="Scene/Background/ChooseStat" index="0"]
+[node name="WhichStat?" type="RichTextLabel" parent="Scene/TrainingWindow/Background/ChooseStat" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -220,7 +230,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="ChooseStrength" type="TextureButton" parent="Scene/Background/ChooseStat" index="1"]
+[node name="ChooseStrength" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -245,7 +255,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="StrengthText" type="Label" parent="Scene/Background/ChooseStat/ChooseStrength" index="0"]
+[node name="StrengthText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/ChooseStrength" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -271,7 +281,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Dexterity" type="TextureButton" parent="Scene/Background/ChooseStat" index="2"]
+[node name="Dexterity" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -296,7 +306,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="DexterityText" type="Label" parent="Scene/Background/ChooseStat/Dexterity" index="0"]
+[node name="DexterityText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Dexterity" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -322,7 +332,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Endurance" type="TextureButton" parent="Scene/Background/ChooseStat" index="3"]
+[node name="Endurance" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -347,7 +357,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="EnduranceText" type="Label" parent="Scene/Background/ChooseStat/Endurance" index="0"]
+[node name="EnduranceText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Endurance" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -373,7 +383,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Intelligence" type="TextureButton" parent="Scene/Background/ChooseStat" index="4"]
+[node name="Intelligence" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -398,7 +408,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="IntelligenceText" type="Label" parent="Scene/Background/ChooseStat/Intelligence" index="0"]
+[node name="IntelligenceText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Intelligence" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -424,7 +434,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Willpower" type="TextureButton" parent="Scene/Background/ChooseStat" index="5"]
+[node name="Willpower" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -449,7 +459,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="WillpowerText" type="Label" parent="Scene/Background/ChooseStat/Willpower" index="0"]
+[node name="WillpowerText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Willpower" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -475,7 +485,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Cunning" type="TextureButton" parent="Scene/Background/ChooseStat" index="6"]
+[node name="Cunning" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -500,7 +510,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="CunningText" type="Label" parent="Scene/Background/ChooseStat/Cunning" index="0"]
+[node name="CunningText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Cunning" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -526,20 +536,220 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="CancelTrainingButton" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 414.0
+margin_right = 124.0
+margin_bottom = 434.0
+rect_scale = Vector2( 3.5, 2.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="GoHomeText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/CancelTrainingButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 57.0
+margin_bottom = 15.0
+rect_scale = Vector2( 0.8, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cancel"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="ToPay" type="Node2D" parent="Scene/TrainingWindow/Background" index="2"]
+
+visible = false
+position = Vector2( 30.874, 0 )
+
+[node name="PayMessage" type="RichTextLabel" parent="Scene/TrainingWindow/Background/ToPay" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = 21.0
+margin_right = 105.0
+margin_bottom = 89.0
+rect_scale = Vector2( 2.5, 2.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "Training Strength will cost 75 Gold"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Training Strength will cost 75 Gold"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="TrainButton" type="TextureButton" parent="Scene/TrainingWindow/Background/ToPay" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 117.0
+margin_right = 104.0
+margin_bottom = 137.0
+rect_scale = Vector2( 3, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="TrainText" type="Label" parent="Scene/TrainingWindow/Background/ToPay/TrainButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 15.0
+rect_scale = Vector2( 1.2, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Train!"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="CancelButton" type="TextureButton" parent="Scene/TrainingWindow/Background/ToPay" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 161.0
+margin_right = 104.0
+margin_bottom = 181.0
+rect_scale = Vector2( 3, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="CancelText" type="Label" parent="Scene/TrainingWindow/Background/ToPay/CancelButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 15.0
+rect_scale = Vector2( 1.2, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Cancel"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
 [node name="PlayerHUD" parent="." index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 83.2467, 496.962 )
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/ChooseStrength" to="." method="_on_ChooseStrength_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/DontHaveEnough/Return" to="." method="_on_Return_pressed"]
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/Dexterity" to="." method="_on_Dexterity_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/ChooseStrength" to="." method="_on_ChooseStrength_pressed"]
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/Endurance" to="." method="_on_Endurance_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Dexterity" to="." method="_on_Dexterity_pressed"]
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/Intelligence" to="." method="_on_Intelligence_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Endurance" to="." method="_on_Endurance_pressed"]
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/Willpower" to="." method="_on_Willpower_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Intelligence" to="." method="_on_Intelligence_pressed"]
 
-[connection signal="pressed" from="Scene/Background/ChooseStat/Cunning" to="." method="_on_Cunning_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Willpower" to="." method="_on_Willpower_pressed"]
+
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Cunning" to="." method="_on_Cunning_pressed"]
+
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/CancelTrainingButton" to="." method="_on_CancelTrainingButton_pressed"]
+
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ToPay/TrainButton" to="." method="_on_TrainButton_pressed"]
+
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ToPay/CancelButton" to="." method="_on_CancelButton_pressed"]
 
 

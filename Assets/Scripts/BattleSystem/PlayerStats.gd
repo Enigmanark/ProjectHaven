@@ -2,9 +2,9 @@ extends Node
 var _name = "Solar";
 var level = 0;
 var experience = 0;
-var gold = 0;
+var gold = 200;
 var experienceToLevelUp = 100;
-var trainingPoints = 0;
+var trainingPoints = 1;
 export(int) var maxhp;
 var currentHP;
 export(int) var maxsp;
@@ -47,8 +47,8 @@ var dark = 1;
 var currentDark = dark;
 
 var attackElement = "Earth";
-var minDamage = 5;
-var maxDamage = 10;
+var minDamage = 50;
+var maxDamage = 75;
 
 func add_strength(amount):
 	strength += amount;

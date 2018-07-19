@@ -31,7 +31,7 @@ func update_stats():
 	#Update stats
 	get_node("Background/Line7/Strength").text = "Strength " + str(stats.get_strength());
 	get_node("Background/Line8/Dexterity").text = "Dexterity " + str(stats.get_dexterity());
-	get_node("Background/Line9/Endurance").text = "Endurance" + str(stats.get_endurance());
+	get_node("Background/Line9/Endurance").text = "Endurance " + str(stats.get_endurance());
 	get_node("Background/Line12/Intelligence").text = "Intellect " + str(stats.get_intelligence());
 	get_node("Background/Line10/Willpower").text = "Willpower " + str(stats.get_willpower());
 	get_node("Background/Line11/Cunning").text = "Cunning " + str(stats.get_cunning());
