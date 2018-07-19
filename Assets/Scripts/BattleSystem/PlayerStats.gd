@@ -47,8 +47,8 @@ var dark = 1;
 var currentDark = dark;
 
 var attackElement = "Earth";
-var minDamage = 50;
-var maxDamage = 100;
+var minDamage = 5;
+var maxDamage = 10;
 
 func add_strength(amount):
 	strength += amount;

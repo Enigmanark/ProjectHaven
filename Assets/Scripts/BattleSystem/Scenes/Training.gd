@@ -97,8 +97,11 @@ func apply_damage_level(playerLevel, trainer):
 func get_base_alyonis_battle(playerLevel):
 	var alyonis = {};
 	alyonis["Level"] = playerLevel+1;
+	alyonis["Experience"] = 0;
+	alyonis["Gold"] = 0;
 	alyonis["MaxHP"] = 75;
 	alyonis["Path"] = "res://Assets/Prefabs/BattleSystem/Enemies/Training/Alyonis_Battle.tscn";
+	alyonis["PathToAvatar"] = "res://Assets/Prefabs/GUI/Avatars/AvatarTrainerAlyonis.tscn";
 	alyonis["Name"] = "Alyonis";
 	alyonis["ID"] = -1;
 	alyonis["MaxSP"] = 25;

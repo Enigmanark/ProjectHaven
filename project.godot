@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Main="*res://Assets/Prefabs/Main.tscn"
 PlayerStats="*res://Assets/Prefabs/BattleSystem/Players/PlayerStats.tscn"
 CurrentBattle="*res://Assets/Prefabs/BattleSystem/CurrentBattle.tscn"
 BattleSceneManager="*res://Assets/Prefabs/BattleSystem/BattleSceneManager.tscn"
