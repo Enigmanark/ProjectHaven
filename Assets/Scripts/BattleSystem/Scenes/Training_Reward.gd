@@ -49,6 +49,8 @@ func _on_PayButton_pressed():
 		playerStats.remove_gold(get_node("/root/Global").trainingCost);
 		increase_stat();
 		playerStats.trainingPoints -= 1;
+		get_node("PlayerHUD").update_player_hud();
+		get_node("PlayerHUD/Avatar/StatWindow").update();
 		get_node("Scene/Background/GetStat").visible = true;
 		get_node("Scene/Background/Pay?").visible = false;
 	else:

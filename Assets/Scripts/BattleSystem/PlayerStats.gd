@@ -2,14 +2,17 @@ extends Node
 var _name = "Solar";
 var level = 0;
 var experience = 0;
-var gold = 200;
+var gold = 500;
 var experienceToLevelUp = 100;
-var trainingPoints = 1;
-export(int) var maxhp;
+var trainingPoints = 2;
+var baseHP = 75;
+var maxhp = 75;
 var currentHP;
-export(int) var maxsp;
+var baseSP = 25;
+var maxsp = 25;
 var currentSP;
-export(int) var maxmp;
+var baseMP = 0;
+var maxmp = 0;
 var currentMP;
 var strength = 0;
 var currentStrength = strength;
@@ -50,6 +53,11 @@ var attackElement = "Earth";
 var minDamage = 50;
 var maxDamage = 75;
 
+func recover_all():
+	currentMP = maxmp;
+	currentSP = maxsp;
+	currentHP = maxhp;
+
 func add_strength(amount):
 	strength += amount;
 	currentStrength += amount;
@@ -61,10 +69,13 @@ func add_dexterity(amount):
 func add_endurance(amount):
 	endurance += amount;
 	currentEndurance += amount;
+	update_max_health();
+	update_max_sp();
 	
 func add_intelligence(amount):
 	intelligence += amount;
 	currentIntelligence += amount;
+	update_max_mp();
 
 func add_willpower(amount):
 	willpower += amount;
@@ -106,6 +117,15 @@ func add_experience(xp):
 		return true;
 	else:
 		 return false;
+
+func update_max_mp():
+	maxmp = baseMP + (currentIntelligence * 15);
+	
+func update_max_sp():
+	maxsp = baseSP + (currentEndurance * 2);
+
+func update_max_health():
+	maxhp = baseHP + (currentEndurance * 10)
 
 func add_gold(g):
 	gold += g;

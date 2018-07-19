@@ -64,8 +64,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 4.0
 margin_top = 16.0
-margin_right = 83.0
-margin_bottom = 98.0
+margin_right = 91.0
+margin_bottom = 103.0
 rect_scale = Vector2( 3, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -86,7 +86,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 3.0
 margin_top = 2.0
-margin_right = 132.0
+margin_right = 145.0
 margin_bottom = 104.0
 rect_scale = Vector2( 0.6, 0.6 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -116,11 +116,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_top = 50.0
-margin_right = 62.0
-margin_bottom = 70.0
-rect_scale = Vector2( 1, 0.6 )
+margin_left = 3.0
+margin_top = 46.0
+margin_right = 51.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.8, 0.7 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -162,17 +162,69 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="TrainerButton" type="TextureButton" parent="GUI/WindowBackground" index="2"]
+[node name="RestButton" type="TextureButton" parent="GUI/WindowBackground" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 14.0
-margin_top = 64.0
-margin_right = 62.0
-margin_bottom = 84.0
-rect_scale = Vector2( 1, 0.6 )
+margin_left = 44.0
+margin_top = 46.0
+margin_right = 92.0
+margin_bottom = 66.0
+rect_scale = Vector2( 0.8, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="RestText" type="Label" parent="GUI/WindowBackground/RestButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -11.0
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 22.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Rest"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="TrainerButton" type="TextureButton" parent="GUI/WindowBackground" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 62.0
+margin_right = 51.0
+margin_bottom = 82.0
+rect_scale = Vector2( 0.8, 0.7 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -409,6 +461,8 @@ max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="GUI/WindowBackground/RandomBattleButton" to="GUI" method="_on_RandomBattleButton_pressed"]
+
+[connection signal="pressed" from="GUI/WindowBackground/RestButton" to="GUI" method="_on_RestButton_pressed"]
 
 [connection signal="pressed" from="GUI/WindowBackground/TrainerButton" to="GUI" method="_on_TrainerButton_pressed"]
 

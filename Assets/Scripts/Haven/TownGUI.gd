@@ -19,3 +19,8 @@ func _on_OkayButton_pressed():
 	if get_node("/root/BattleManager").has_battle_with_id(id):
 		var battle = get_node("/root/BattleManager").get_battle_with_id(id);
 		get_node("/root/BattleSceneManager").do_battle(battle, "res://Assets/Scenes/haven.tscn");
+
+
+func _on_RestButton_pressed():
+	get_node("/root/PlayerStats").recover_all();
+	get_node("PlayerHUD").update_player_hud();
