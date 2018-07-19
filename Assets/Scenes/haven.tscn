@@ -541,7 +541,7 @@ anchor_bottom = 0.0
 margin_left = 97.0
 margin_top = 34.0
 margin_right = 145.0
-margin_bottom = 73.0
+margin_bottom = 54.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -593,7 +593,7 @@ anchor_bottom = 0.0
 margin_left = 97.0
 margin_top = 91.0
 margin_right = 145.0
-margin_bottom = 131.0
+margin_bottom = 111.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -645,7 +645,7 @@ anchor_bottom = 0.0
 margin_left = 97.0
 margin_top = 72.0
 margin_right = 145.0
-margin_bottom = 112.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -697,7 +697,7 @@ anchor_bottom = 0.0
 margin_left = 97.0
 margin_top = 53.0
 margin_right = 145.0
-margin_bottom = 93.0
+margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -818,6 +818,26 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot1Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot2" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="1"]
 
 position = Vector2( 0.106613, 11.9556 )
@@ -868,6 +888,27 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot2Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot3" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="2"]
 
@@ -920,6 +961,27 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot3Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3/Slot3Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot4" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="3"]
 
 position = Vector2( 0.25705, 35.8857 )
@@ -970,6 +1032,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot4Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4/Slot4Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot5" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="4"]
 
@@ -1022,6 +1104,26 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot5Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5/Slot5Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot6" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="5"]
 
 position = Vector2( 0.257019, 59.4638 )
@@ -1072,6 +1174,27 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot6Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6/Slot6Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot7" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="6"]
 
@@ -1124,6 +1247,27 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot7Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7/Slot7Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot8" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="7"]
 
 position = Vector2( 0.445953, 83.0079 )
@@ -1174,6 +1318,26 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot8Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8/Slot8Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot9" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="8"]
 
@@ -1226,9 +1390,31 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot9Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9/Slot9Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot10" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="9"]
 
 position = Vector2( 0.445953, 106.359 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Slot10Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10" index="0"]
 
@@ -1276,6 +1462,27 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot10Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10/Slot10Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="DescriptionContainer" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground" index="1"]
 
@@ -1360,9 +1567,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 12.0
-margin_top = 103.0
+margin_top = 88.0
 margin_right = 90.0
-margin_bottom = 124.0
+margin_bottom = 109.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1387,10 +1594,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 12.0
-margin_top = 117.0
-margin_right = 90.0
-margin_bottom = 138.0
+margin_left = 13.0
+margin_top = 102.0
+margin_right = 91.0
+margin_bottom = 123.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1415,10 +1622,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 22.0
-margin_top = 84.0
-margin_right = 70.0
-margin_bottom = 124.0
+margin_left = 21.0
+margin_top = 63.0
+margin_right = 69.0
+margin_bottom = 103.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1479,6 +1686,26 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/ArmorButton" to="EquipmentWindow" method="_on_ArmorButton_pressed"]
 
 [connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/ShieldButton" to="EquipmentWindow" method="_on_ShieldButton_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background/Slot1Button" to="EquipmentWindow" method="_on_Slot1Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background/Slot2Button" to="EquipmentWindow" method="_on_Slot2Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3/Slot3Background/Slot3Button" to="EquipmentWindow" method="_on_Slot3Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4/Slot4Background/Slot4Button" to="EquipmentWindow" method="_on_Slot4Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5/Slot5Background/Slot5Button" to="EquipmentWindow" method="_on_Slot5Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6/Slot6Background/Slot6Button" to="EquipmentWindow" method="_on_Slot6Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7/Slot7Background/Slot7Button" to="EquipmentWindow" method="_on_Slot7Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8/Slot8Background/Slot8Button" to="EquipmentWindow" method="_on_Slot8Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9/Slot9Background/Slot9Button" to="EquipmentWindow" method="_on_Slot9Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10/Slot10Background/Slot10Button" to="EquipmentWindow" method="_on_Slot10Button_pressed"]
 
 [connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton" to="EquipmentWindow" method="_on_ShieldButton_pressed"]
 

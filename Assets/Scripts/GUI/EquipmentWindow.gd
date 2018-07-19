@@ -79,3 +79,102 @@ func _on_EquipmentButton_pressed():
 	else:
 		get_parent().get_node("TownGUI").visible = true;
 		visible = false;
+
+
+func _on_Slot1Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot1 = inventory.get_weapon_slot(0);
+	if(weaponSlot1 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot1["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot1["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot1["MinDamage"]) + " - " + str(weaponSlot1["MaxDamage"]) + " " + str(weaponSlot1["Element"]);
+
+func _on_Slot2Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot2 = inventory.get_weapon_slot(1);
+	if(weaponSlot2 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot2["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot2["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot2["MinDamage"]) + " - " + str(weaponSlot2["MaxDamage"]) + " " + str(weaponSlot2["Element"]);
+
+
+func _on_Slot3Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot3 = inventory.get_weapon_slot(2);
+	if(weaponSlot3 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot3["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot3["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot3["MinDamage"]) + " - " + str(weaponSlot3["MaxDamage"]) + " " + str(weaponSlot3["Element"]);
+
+
+func _on_Slot4Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot4 = inventory.get_weapon_slot(3);
+	if(weaponSlot4 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot4["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot4["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot4["MinDamage"]) + " - " + str(weaponSlot4["MaxDamage"]) + " " + str(weaponSlot4["Element"]);
+
+
+func _on_Slot5Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot5 = inventory.get_weapon_slot(4);
+	if(weaponSlot5 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot5["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot5["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot5["MinDamage"]) + " - " + str(weaponSlot5["MaxDamage"]) + " " + str(weaponSlot5["Element"]);
+
+
+func _on_Slot6Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot6 = inventory.get_weapon_slot(5);
+	if(weaponSlot6 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot6["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot6["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot6["MinDamage"]) + " - " + str(weaponSlot6["MaxDamage"]) + " " + str(weaponSlot6["Element"]);
+
+
+func _on_Slot7Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot7 = inventory.get_weapon_slot(6);
+	if(weaponSlot7 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot7["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot7["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot7["MinDamage"]) + " - " + str(weaponSlot7["MaxDamage"]) + " " + str(weaponSlot7["Element"]);
+
+
+func _on_Slot8Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot8 = inventory.get_weapon_slot(7);
+	if(weaponSlot8 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot8["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot8["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot8["MinDamage"]) + " - " + str(weaponSlot8["MaxDamage"]) + " " + str(weaponSlot8["Element"]);
+
+
+func _on_Slot9Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot9 = inventory.get_weapon_slot(8);
+	if(weaponSlot9 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot9["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot9["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot9["MinDamage"]) + " - " + str(weaponSlot9["MaxDamage"]) + " " + str(weaponSlot9["Element"]);
+
+
+func _on_Slot10Button_pressed():
+	var inventory = get_node("/root/Inventory");
+	var weaponSlot10 = inventory.get_weapon_slot(9);
+	if(weaponSlot10 != null):
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot10["Description"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot10["Type"];
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot10["MinDamage"]) + " - " + str(weaponSlot10["MaxDamage"]) + " " + str(weaponSlot10["Element"]);
