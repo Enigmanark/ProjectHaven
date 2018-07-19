@@ -224,7 +224,9 @@ func get_reward():
 		floatD.damage = "Level Up!";
 		get_node("Player").add_child(floatD);
 	playerStats.add_gold(enemyStats.gold);
-
+	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
+	get_parent().get_node("HUD/PlayerHUD").update_player_hud(playerStats);
+	
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_to_next_scene();
 

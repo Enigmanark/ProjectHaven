@@ -10,13 +10,19 @@ func update_player_hud(playerStats):
 	var playerMP = playerStats.maxmp;
 	var playerCurrentSP = playerStats.currentSP;
 	var playerSP = playerStats.maxsp;
+	var playerXP = playerStats.experience;
+	var playerXPToLevel = playerStats.experienceToLevelUp;
 	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
 	var spp = (float(playerCurrentSP) / float(playerSP)) * float(100);
 	var mpp = (float(playerCurrentMP) / float(playerMP)) * float(100);
+	var xpp = (float(playerXP) / float(playerXPToLevel)) * float(100);
 	get_node("Stats/NameBackground/Name").text = playerStats._name;
 	get_node("Stats/PlayerHPBar").value = hpp;
 	get_node("Stats/PlayerSPBar").value = spp;
 	get_node("Stats/PlayerMPBar").value = mpp;
+	get_node("Stats/PlayerXPBar").value = xpp;
 	get_node("Stats/PlayerHPBar/HPText").text = str(playerCurrentHP) + "/" + str(playerHP);
 	get_node("Stats/PlayerSPBar/SPText").text = str(playerCurrentSP) + "/" + str(playerSP);
 	get_node("Stats/PlayerMPBar/MPText").text = str(playerCurrentMP) + "/" + str(playerMP);
+	get_node("Stats/PlayerXPBar/XPText").text = str(playerXP) + "/" + str(playerXPToLevel);
+	
