@@ -5,8 +5,8 @@ var open = false;
 func _ready():
 	update_stats();
 	
-func _on_Button_pressed():
-	var statwindow = get_parent().get_node("StatWindow");
+func _on_StatButton_pressed():
+	var statwindow = get_parent().get_node("EnemyStatWindow");
 	if(open):
 		statwindow.visible = false;
 		open = false;
@@ -16,11 +16,10 @@ func _on_Button_pressed():
 		open = true;
 		
 func update_stats():
-	var stats = get_node("/root/PlayerStats");
+	var stats = get_node("/root/CurrentBattle");
 	#Update name and level and gold
 	get_node("Background/Line1/NameLabel").text = stats._name;
 	get_node("Background/Line1/Level").text = "Level " + str(stats.level);
-	get_node("Background/Line11/Training").text = "Training " + str(stats.trainingPoints);
 	get_node("Background/Line2/Gold").text = "Gold " + str(stats.gold);
 	
 	#Update defenses

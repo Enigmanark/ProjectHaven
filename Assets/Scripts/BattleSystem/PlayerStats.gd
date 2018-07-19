@@ -2,9 +2,9 @@ extends Node
 var _name = "Solar";
 var level = 0;
 var experience = 0;
-var gold = 500;
+var gold = 0;
 var experienceToLevelUp = 100;
-var trainingPoints = 2;
+var trainingPoints = 0;
 var baseHP = 75;
 var maxhp = 75;
 var currentHP;
@@ -50,8 +50,8 @@ var dark = 1;
 var currentDark = dark;
 
 var attackElement = "Earth";
-var minDamage = 50;
-var maxDamage = 75;
+var minDamage = 5;
+var maxDamage = 10;
 
 func recover_all():
 	currentMP = maxmp;
