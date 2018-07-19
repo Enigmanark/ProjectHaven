@@ -171,6 +171,8 @@ func _process(delta):
 			victory = true;
 			get_node("../BattleMenu").visible = false;
 			get_node("../VictoryGUI").visible = true;
+			setup_victory_window();
+			get_reward();
 
 #Damage calculation for the enemy
 func calculate_enemy_damage():
@@ -210,6 +212,18 @@ func init_enemy_avatar():
 	var newAvatar = newAvatarScene.instance();
 	newAvatar.position = Vector2(x_pos, y_pos);
 	get_parent().get_node("HUD/EnemyHUD").add_child(newAvatar);
+
+func setup_victory_window():
+	get_parent().get_node("VictoryGUI/VictoryWindow/EXP").text = str(enemyStats.experience) + " Experience!";
+	get_parent().get_node("VictoryGUI/VictoryWindow/Gold").text = str(enemyStats.gold) + " Gold!";
+
+func get_reward():
+	if playerStats.add_experience(enemyStats.experience):
+		var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
+		var floatD = floatDSc.instance();
+		floatD.damage = "Level Up!";
+		get_node("Player").add_child(floatD);
+	playerStats.add_gold(enemyStats.gold);
 
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_to_next_scene();

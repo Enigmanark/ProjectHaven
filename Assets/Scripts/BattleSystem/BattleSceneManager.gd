@@ -24,6 +24,9 @@ func do_battle(battle, next):
 	
 func setup_battle(battle):
 	var currentBattle = get_node("/root/CurrentBattle");
+	currentBattle.level = battle["Level"];
+	currentBattle.experience = battle["Experience"];
+	currentBattle.gold = battle["Gold"];
 	currentBattle.maxHP = battle["MaxHP"];
 	currentBattle.maxMP = battle["MaxMP"];
 	currentBattle.maxSP = battle["MaxSP"];

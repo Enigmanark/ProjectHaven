@@ -48,6 +48,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="GUI" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 0, -10.2913 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]

@@ -441,7 +441,6 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="VictoryGUI" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )

@@ -9,6 +9,11 @@ func _ready():
 	if(str(damage) == "Miss!"):
 		get_node("Element").visible = false;
 		return;
+	elif(str(damage) == "Level Up!"):
+		get_node("Element").visible = false;
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_light.wav");
+		get_node("AudioStreamPlayer").play();
+		return;
 	if element == "Earth":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/Battle/attack_earth.png");
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_earth.wav");

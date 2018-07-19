@@ -1,6 +1,9 @@
 extends Node
 
 var _name;
+var level;
+var experience;
+var gold;
 var maxHP;
 var maxSP;
 var maxMP;
