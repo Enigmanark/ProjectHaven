@@ -1,7 +1,9 @@
 extends Node
 var _name = "Solar";
 var level = 0;
-var statPoints = 0;
+var experience = 0;
+var experienceToLevelUp = 100;
+var trainingPoints = 0;
 export(int) var maxhp;
 var currentHP;
 export(int) var maxsp;
@@ -71,6 +73,21 @@ func add_cunning(amount):
 	cunning += amount;
 	currentCunning += amount;
 
+func get_strength():
+	return currentStrength;
+
+func get_endurance():
+	return currentEndurance;
+	
+func get_intelligence():
+	return currentIntelligence;
+	
+func get_willpower():
+	return currentWillpower;
+	
+func get_cunning():
+	return currentCunning;
+	
 func get_dexterity():
 	return currentDexterity;
 
@@ -79,6 +96,17 @@ func get_meleeDef():
 	
 func get_rangedDef():
 	return currentRangedDef;
+
+func add_experience(xp):
+	experience += xp;
+	if experience >= experienceToLevelUp:
+		experience -= experienceToLevelUp;
+		level_up();
+
+func level_up():
+	trainingPoints += 1;
+	level += 1;
+	experienceToLevelUp *= 1.2;
 
 func _ready():
 	currentHP = maxhp;
