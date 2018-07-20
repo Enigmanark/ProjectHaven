@@ -35,7 +35,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="test_sword" type="Sprite" parent="Sprite/undead_fighter_Layer 1" index="0"]
 
-position = Vector2( -6.75385, -4.42263 )
+position = Vector2( -6.35931, -26.0778 )
 z_as_relative = false
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
