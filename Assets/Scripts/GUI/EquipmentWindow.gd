@@ -214,3 +214,10 @@ func _on_EquipButton_pressed():
 		get_node("/root/PlayerStats").equip_weapon(selectedWeapon);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
 		
+func _on_BattleWeaponButton_pressed():
+	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = true;
+	_on_WeaponButton_pressed();
+
+func _on_BattleCloseButton_pressed():
+	get_node("PopupEquipmentContainer/PopupInventory").visible = false;
+	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = false;

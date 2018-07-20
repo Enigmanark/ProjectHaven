@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/BattleCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/Prefabs/GUI/EnemyHUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Scripts/GUI/EquipmentWindow.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -53,12 +55,29 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="BattleScene" type="Node2D"]
+[sub_resource type="DynamicFont" id=6]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="BattleScene" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
 [node name="Battle" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -108,7 +127,7 @@ position = Vector2( 107.368, 204.54 )
 
 position = Vector2( 532.868, 324.063 )
 scale = Vector2( 2.86, 2.8 )
-z_index = 3
+z_index = 2
 z_as_relative = false
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -268,9 +287,10 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="TopMenu" type="Node2D" parent="BattleMenu" index="3"]
 
 position = Vector2( -224.438, -114.944 )
-_sections_unfolded = [ "Transform" ]
+z_index = 3
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Weapon" type="TextureButton" parent="BattleMenu/TopMenu" index="0"]
+[node name="BattleWeaponButton" type="TextureButton" parent="BattleMenu/TopMenu" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -296,7 +316,7 @@ texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="WeaponsText" type="Label" parent="BattleMenu/TopMenu/Weapon" index="0"]
+[node name="WeaponsText" type="Label" parent="BattleMenu/TopMenu/BattleWeaponButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -321,7 +341,59 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Armor" type="TextureButton" parent="BattleMenu/TopMenu" index="1"]
+[node name="BattleCloseButton" type="TextureButton" parent="BattleMenu/TopMenu" index="1"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 54.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 48, 20 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+script = ExtResource( 7 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="CloseText" type="Label" parent="BattleMenu/TopMenu/BattleCloseButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 44.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Close"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="BattleArmorButton" type="TextureButton" parent="BattleMenu/TopMenu" index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -347,7 +419,7 @@ texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 
-[node name="ArmorText" type="Label" parent="BattleMenu/TopMenu/Armor" index="0"]
+[node name="ArmorText" type="Label" parent="BattleMenu/TopMenu/BattleArmorButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -372,7 +444,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Shield" type="TextureButton" parent="BattleMenu/TopMenu" index="2"]
+[node name="BattleShieldButton" type="TextureButton" parent="BattleMenu/TopMenu" index="3"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -398,7 +470,7 @@ texture_normal = ExtResource( 6 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 
-[node name="ShieldsText" type="Label" parent="BattleMenu/TopMenu/Shield" index="0"]
+[node name="ShieldsText" type="Label" parent="BattleMenu/TopMenu/BattleShieldButton" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -425,6 +497,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="HUD" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 129.513, 456.453 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -439,6 +512,7 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="VictoryGUI" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -81.2254, -38.8077 )
 scale = Vector2( 1.7, 1.7 )
@@ -627,10 +701,978 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
+[node name="EquipmentWindow" type="Node2D" parent="." index="4"]
+
+scale = Vector2( 2.5, 2.5 )
+z_index = 3
+script = ExtResource( 13 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="PopupEquipmentContainer" type="Node2D" parent="EquipmentWindow" index="0"]
+
+scale = Vector2( 1, 1 )
+
+[node name="PopupInventory" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer" index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -90.2695, 14.9959 )
+scale = Vector2( 1, 1 )
+
+[node name="InventoryBackground" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 2.0
+margin_right = 251.0
+margin_bottom = 174.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 0
+
+[node name="SlotContainer" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground" index="0"]
+
+position = Vector2( 1.46542, -0.213833 )
+scale = Vector2( 1.05, 1.2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Slot1" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="0"]
+
+[node name="Slot1Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot1Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 131.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot1Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot2" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="1"]
+
+position = Vector2( 0.106613, 11.9556 )
+
+[node name="Slot2Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot2Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 131.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot2Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot3" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="2"]
+
+position = Vector2( 0.106613, 23.9207 )
+
+[node name="Slot3Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot3Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3/Slot3Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 132.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot3Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3/Slot3Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot4" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="3"]
+
+position = Vector2( 0.25705, 35.8857 )
+
+[node name="Slot4Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot4Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4/Slot4Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot4Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4/Slot4Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot5" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="4"]
+
+position = Vector2( 0.257034, 47.6747 )
+
+[node name="Slot5Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot5Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5/Slot5Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 132.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot5Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5/Slot5Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot6" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="5"]
+
+position = Vector2( 0.257019, 59.4638 )
+
+[node name="Slot6Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot6Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6/Slot6Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 132.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot6Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6/Slot6Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot7" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="6"]
+
+position = Vector2( 0.257019, 71.2358 )
+
+[node name="Slot7Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot7Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7/Slot7Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot7Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7/Slot7Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot8" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="7"]
+
+position = Vector2( 0.445953, 83.0079 )
+
+[node name="Slot8Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot8Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8/Slot8Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot8Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8/Slot8Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 93.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot9" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="8"]
+
+position = Vector2( 0.445953, 94.7799 )
+
+[node name="Slot9Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot9Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9/Slot9Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot9Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9/Slot9Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="Slot10" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer" index="9"]
+
+position = Vector2( 0.445953, 106.359 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Slot10Background" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 97.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="Slot10Name" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10/Slot10Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -3.0
+margin_right = 132.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Iron Sword"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot10Button" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10/Slot10Background" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 94.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
+[node name="DescriptionContainer" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground" index="1"]
+
+visible = false
+position = Vector2( -0.0498009, 1.78814e-07 )
+
+[node name="DescriptionContainerBackground" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 106.0
+margin_right = 213.0
+margin_bottom = 172.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 0
+
+[node name="DescriptionBackground" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.99998
+margin_top = 15.0
+margin_right = 101.0
+margin_bottom = 155.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 0
+
+[node name="ItemDescription" type="RichTextLabel" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 147.0
+margin_bottom = 110.0
+rect_scale = Vector2( 0.6, 0.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "Just a basic Iron Sword, what else do you want me to say?"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Just a basic Iron Sword, what else do you want me to say?"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="TypeText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 88.0
+margin_right = 90.0
+margin_bottom = 109.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Melee Weapon"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="DamageText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 102.0
+margin_right = 91.0
+margin_bottom = 123.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "5 - 10 Earth"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="EquipButton" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 63.0
+margin_right = 69.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="EquipText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -11.0
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 22.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "Equip"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
 [connection signal="pressed" from="BattleMenu/AttackButton" to="BattleMenu/AttackButton" method="_on_AttackButton_pressed"]
 
 [connection signal="pressed" from="BattleMenu/Flee" to="Battle" method="_on_Flee_pressed"]
 
+[connection signal="pressed" from="BattleMenu/TopMenu/BattleWeaponButton" to="EquipmentWindow" method="_on_BattleWeaponButton_pressed"]
+
+[connection signal="pressed" from="BattleMenu/TopMenu/BattleCloseButton" to="EquipmentWindow" method="_on_BattleCloseButton_pressed"]
+
 [connection signal="pressed" from="VictoryGUI/VictoryWindow/ReturnButton" to="Battle" method="_on_ReturnButton_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background/Slot1Button" to="EquipmentWindow" method="_on_Slot1Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background/Slot2Button" to="EquipmentWindow" method="_on_Slot2Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot3/Slot3Background/Slot3Button" to="EquipmentWindow" method="_on_Slot3Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot4/Slot4Background/Slot4Button" to="EquipmentWindow" method="_on_Slot4Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot5/Slot5Background/Slot5Button" to="EquipmentWindow" method="_on_Slot5Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot6/Slot6Background/Slot6Button" to="EquipmentWindow" method="_on_Slot6Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot7/Slot7Background/Slot7Button" to="EquipmentWindow" method="_on_Slot7Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot8/Slot8Background/Slot8Button" to="EquipmentWindow" method="_on_Slot8Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot9/Slot9Background/Slot9Button" to="EquipmentWindow" method="_on_Slot9Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot10/Slot10Background/Slot10Button" to="EquipmentWindow" method="_on_Slot10Button_pressed"]
+
+[connection signal="pressed" from="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton" to="EquipmentWindow" method="_on_EquipButton_pressed"]
 
 
