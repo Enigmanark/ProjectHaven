@@ -77,8 +77,10 @@ func do_enemy_attack():
 		floatD.damage = damage;
 		floatD.element = enemyStats.attackElement;
 		get_node("Player").add_child(floatD);
-		playerStats.currentHP -= damage;
+		playerStats.damage_health(damage);
 		get_node("../HUD/PlayerHUD").update_player_hud();
+		if(playerStats.currentHP <= 0):
+			lose_fight();
 	else:
 		var miss = floatDSc.instance();
 		miss.damage = "Miss!";
@@ -138,6 +140,7 @@ func do_player_attack():
 		floatD.element = element;
 		enemyInst.add_child(floatD);
 		if(enemyCurHP <= 0):
+			enemyCurHP = 0;
 			enemyInst.get_node("AttackLogic").kill();
 		update_enemy_hud();
 	else:
@@ -240,3 +243,8 @@ func _on_ReturnButton_pressed():
 
 func _on_Flee_pressed():
 	get_node("/root/BattleSceneManager").go_home();
+	
+func lose_fight():
+	get_node("/root/BattleSceneManager").go_home();
+	playerStats.damage_experience();
+	playerStats.recover_all();

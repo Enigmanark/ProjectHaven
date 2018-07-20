@@ -5,11 +5,11 @@ var experience = 0;
 var gold = 0;
 var experienceToLevelUp = 100;
 var trainingPoints = 0;
-var baseHP = 75;
-var maxhp = 75;
+var baseHP = 50;
+var maxhp = 0;
 var currentHP;
-var baseSP = 25;
-var maxsp = 25;
+var baseSP = 15;
+var maxsp = 0;
 var currentSP;
 var baseMP = 0;
 var maxmp = 0;
@@ -182,11 +182,31 @@ func init_beginner():
 	get_node("/root/Inventory").add_weapon(weapon);
 	
 
+func damage_health(amount):
+	currentHP -= amount;
+	if(currentHP < 0):
+		currentHP = 0;
+
+func damage_stamina(amount):
+	currentSP -= amount;
+	if(currentSP < 0):
+		currentSP = 0;
+
+func damage_mana(amount):
+	currentMP -= amount;
+	if(currentMP < 0):
+		currentMP = 0;
+
+func damage_experience():
+	var damage = experienceToLevelUp * 0.1;
+	experience -= damage;
+
 func on_WeaponsInitialized():
 	init_beginner();
 
 func _ready():
-	currentHP = maxhp;
-	currentSP = maxsp;
-	currentMP = maxmp;
+	update_max_health();
+	update_max_sp();
+	update_max_mp();
+	recover_all();
 	get_node("/root/Weapons").connect("WeaponsInitialized", self, "on_WeaponsInitialized");

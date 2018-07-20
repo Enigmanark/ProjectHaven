@@ -15,7 +15,9 @@ func update_player_hud():
 	var playerXPToLevel = playerStats.experienceToLevelUp;
 	var hpp = (float(playerCurrentHP) / float(playerHP)) * float(100);
 	var spp = (float(playerCurrentSP) / float(playerSP)) * float(100);
-	var mpp = (float(playerCurrentMP) / float(playerMP)) * float(100);
+	var mpp = 0;
+	if(playerMP != 0):
+		mpp = (float(playerCurrentMP) / float(playerMP)) * float(100);
 	var xpp = (float(playerXP) / float(playerXPToLevel)) * float(100);
 	get_node("Stats/NameBackground/Name").text = playerStats._name;
 	get_node("Stats/PlayerHPBar").value = hpp;
