@@ -1,7 +1,8 @@
 extends Node2D
 
 var open = false;
-
+var selectedWeapon;
+var canEquip = false;
 func _ready():
 	pass
 
@@ -85,6 +86,8 @@ func _on_Slot1Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot1 = inventory.get_weapon_slot(0);
 	if(weaponSlot1 != null):
+		selectedWeapon = weaponSlot1;
+		is_already_equipped(weaponSlot1);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot1["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot1["Type"];
@@ -94,6 +97,8 @@ func _on_Slot2Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot2 = inventory.get_weapon_slot(1);
 	if(weaponSlot2 != null):
+		selectedWeapon = weaponSlot2;
+		is_already_equipped(weaponSlot2);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot2["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot2["Type"];
@@ -104,6 +109,8 @@ func _on_Slot3Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot3 = inventory.get_weapon_slot(2);
 	if(weaponSlot3 != null):
+		selectedWeapon = weaponSlot3;
+		is_already_equipped(weaponSlot3);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot3["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot3["Type"];
@@ -114,6 +121,8 @@ func _on_Slot4Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot4 = inventory.get_weapon_slot(3);
 	if(weaponSlot4 != null):
+		selectedWeapon = weaponSlot4;
+		is_already_equipped(weaponSlot4);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot4["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot4["Type"];
@@ -124,6 +133,8 @@ func _on_Slot5Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot5 = inventory.get_weapon_slot(4);
 	if(weaponSlot5 != null):
+		selectedWeapon = weaponSlot5;
+		is_already_equipped(weaponSlot5);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot5["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot5["Type"];
@@ -134,6 +145,8 @@ func _on_Slot6Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot6 = inventory.get_weapon_slot(5);
 	if(weaponSlot6 != null):
+		selectedWeapon = weaponSlot6;
+		is_already_equipped(weaponSlot6);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot6["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot6["Type"];
@@ -144,6 +157,8 @@ func _on_Slot7Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot7 = inventory.get_weapon_slot(6);
 	if(weaponSlot7 != null):
+		selectedWeapon = weaponSlot7;
+		is_already_equipped(weaponSlot7);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot7["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot7["Type"];
@@ -154,6 +169,8 @@ func _on_Slot8Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot8 = inventory.get_weapon_slot(7);
 	if(weaponSlot8 != null):
+		selectedWeapon = weaponSlot8;
+		is_already_equipped(weaponSlot8);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot8["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot8["Type"];
@@ -164,6 +181,8 @@ func _on_Slot9Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot9 = inventory.get_weapon_slot(8);
 	if(weaponSlot9 != null):
+		selectedWeapon = weaponSlot9;
+		is_already_equipped(weaponSlot9);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot9["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot9["Type"];
@@ -174,7 +193,24 @@ func _on_Slot10Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot10 = inventory.get_weapon_slot(9);
 	if(weaponSlot10 != null):
+		selectedWeapon = weaponSlot10;
+		is_already_equipped(weaponSlot10);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer").visible = true;
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot10["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot10["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot10["MinDamage"]) + " - " + str(weaponSlot10["MaxDamage"]) + " " + str(weaponSlot10["Element"]);
+
+func is_already_equipped(weaponSlot):
+	var playerWeaponID = get_node("/root/PlayerStats").currentWeapon["ID"];
+	if(selectedWeapon["ID"] == playerWeaponID):
+		canEquip = false;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
+	else:
+		canEquip = true;
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equip";	
+
+func _on_EquipButton_pressed():
+	if(canEquip):
+		get_node("/root/PlayerStats").equip_weapon(selectedWeapon);
+		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
+		

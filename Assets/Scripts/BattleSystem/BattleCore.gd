@@ -125,11 +125,12 @@ func do_player_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
 	if calculate_if_hit("Melee", playerStats, enemyStats):
 		var baseDamage = calculate_player_damage();
-		var damage = int(calculate_element_damage(playerStats.attackElement, baseDamage, enemyStats));
+		var element = playerStats.get_weapon()["Element"];
+		var damage = int(calculate_element_damage(element, baseDamage, enemyStats));
 		enemyCurHP -= damage;
 		var floatD = floatDSc.instance();
 		floatD.damage = damage;
-		floatD.element = playerStats.attackElement;
+		floatD.element = element;
 		enemyInst.add_child(floatD);
 		if(enemyCurHP <= 0):
 			enemyInst.get_node("AttackLogic").kill();
@@ -181,7 +182,9 @@ func calculate_enemy_damage():
 
 #Damage calculation for the player
 func calculate_player_damage():
-	var baseD = rand_range(playerStats.minDamage, playerStats.maxDamage + 1);
+	var minDamage = playerStats.get_weapon()["MinDamage"];
+	var maxDamage = playerStats.get_weapon()["MaxDamage"];
+	var baseD = rand_range(minDamage, maxDamage + 1);
 	var strength = playerStats.currentStrength;
 	#convert to decimal
 	var dec = str("0." + str(strength));

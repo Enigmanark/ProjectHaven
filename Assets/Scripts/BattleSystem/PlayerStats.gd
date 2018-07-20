@@ -144,9 +144,13 @@ func level_up():
 func equip_weapon(weapon):
 	currentWeapon = weapon;
 
+func get_weapon():
+	return currentWeapon;
+
 func init_beginner():
 	var sword = get_node("/root/Weapons").get_weapon_by_id(1);
 	get_node("/root/Inventory").add_weapon(sword);
+	equip_weapon(sword);
 	var asword = get_node("/root/Weapons").get_weapon_by_id(2);
 	get_node("/root/Inventory").add_weapon(asword);
 	var fsword = get_node("/root/Weapons").get_weapon_by_id(3);
