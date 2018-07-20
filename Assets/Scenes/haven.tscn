@@ -120,12 +120,12 @@ size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
-bbcode_text = "Welcome to Project Haven v0.3.1 You can only do random battles and train and level up right now! Touch or click below to get started!"
+bbcode_text = "Welcome to Project Haven v0.4.5! Added some new enemies, new weapons, potions, and trainers! Touch or click below to get started!"
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Welcome to Project Haven v0.3.1 You can only do random battles and train and level up right now! Touch or click below to get started!"
+text = "Welcome to Project Haven v0.4.5! Added some new enemies, new weapons, potions, and trainers! Touch or click below to get started!"
 scroll_active = false
 scroll_following = false
 selection_enabled = false
@@ -536,6 +536,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="EquipmentButton" type="TextureButton" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -810,6 +811,8 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="PopupInventory" parent="EquipmentWindow/PopupEquipmentContainer" index="4" instance=ExtResource( 10 )]
 
 [node name="Potions" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
 
 [node name="PotionButton" type="TextureButton" parent="Potions" index="0"]
 

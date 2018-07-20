@@ -163,6 +163,7 @@ func get_weapon():
 	return currentWeapon;
 
 func init_beginner():
+	get_node("/root/Inventory").refill_potions();
 	var weapon = get_node("/root/Weapons").get_weapon_by_id(1);
 	get_node("/root/Inventory").add_weapon(weapon);
 	equip_weapon(weapon);
