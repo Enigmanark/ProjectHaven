@@ -32,9 +32,14 @@ func _ready():
 	playerhud = get_parent().get_node("HUD/PlayerHUD");
 	enemyhud = get_parent().get_node("HUD/EnemyHUD");
 	enemyStats = get_parent().get_node("/root/CurrentBattle");
+	load_player();
 	load_enemy();
 	get_node("../HUD/PlayerHUD").update_player_hud();
 	init_enemy_avatar();
+
+func load_player():
+	var weaponPath = get_node("/root/PlayerStats").get_weapon()["Path"];
+	get_node("Player/Sprite/PlayerArm/weapon").texture = load(weaponPath);
 
 func load_enemy():
 	var enemy_x = get_node("Foe/Enemy").position.x;

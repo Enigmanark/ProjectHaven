@@ -3,6 +3,7 @@ extends Node2D
 var open = false;
 var selectedWeapon;
 var canEquip = false;
+var inBattle = false;
 func _ready():
 	pass
 
@@ -74,6 +75,7 @@ func _on_ShieldButton_pressed():
 
 
 func _on_EquipmentButton_pressed():
+	inBattle = false;
 	if(!open):
 		get_parent().get_node("TownGUI").visible = false;
 		visible = true;
@@ -213,9 +215,12 @@ func _on_EquipButton_pressed():
 	if(canEquip):
 		get_node("/root/PlayerStats").equip_weapon(selectedWeapon);
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
+		if(inBattle):
+			get_node("../Battle").load_player();
 		
 func _on_BattleWeaponButton_pressed():
 	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = true;
+	inBattle = true;
 	_on_WeaponButton_pressed();
 
 func _on_BattleCloseButton_pressed():

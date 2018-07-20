@@ -710,14 +710,11 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PopupEquipmentContainer" type="Node2D" parent="EquipmentWindow" index="0"]
 
-scale = Vector2( 1, 1 )
-
 [node name="PopupInventory" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer" index="0"]
 
 editor/display_folded = true
 visible = false
 position = Vector2( -90.2695, 14.9959 )
-scale = Vector2( 1, 1 )
 
 [node name="InventoryBackground" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory" index="0"]
 
