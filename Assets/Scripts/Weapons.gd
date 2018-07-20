@@ -19,7 +19,6 @@ func _ready():
 func get_weapon_by_id(i):
 	for weapon in weapons:
 		if weapon["ID"] == i:
-			print("returning " + str(i));
 			return weapon;
 	return null;
 	

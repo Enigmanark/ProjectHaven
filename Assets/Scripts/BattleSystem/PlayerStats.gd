@@ -115,6 +115,21 @@ func add_experience(xp):
 	else:
 		 return false;
 
+func restore_health(amount):
+	currentHP += amount;
+	if(currentHP > maxhp):
+		currentHP = maxhp;
+		
+func restore_stamina(amount):
+	currentSP += amount;
+	if(currentSP > maxsp):
+		currentSP = maxsp;
+		
+func restore_mana(amount):
+	currentMP += amount;
+	if(currentMP > maxmp):
+		currentMP = maxmp;
+
 func update_max_mp():
 	maxmp = baseMP + (currentIntelligence * 15);
 	

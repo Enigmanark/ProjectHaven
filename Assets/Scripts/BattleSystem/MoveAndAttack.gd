@@ -1,6 +1,6 @@
 extends Node
 
-var inStartPosition = false;
+var inStartPosition = true;
 var movingBack = false;
 var isMovingRight = false;
 var isMovingLeft = false;

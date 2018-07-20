@@ -24,3 +24,7 @@ func _on_OkayButton_pressed():
 func _on_RestButton_pressed():
 	get_node("/root/PlayerStats").recover_all();
 	get_parent().get_node("PlayerHUD").update_player_hud();
+
+
+func _on_RefillPotButton_pressed():
+	get_node("/root/Inventory").refill_potions();
