@@ -23,9 +23,9 @@ func get_weapon_by_id(i):
 	return null;
 	
 func init_items():
-	_name = "Iron Sword";
+	_name = "Adventurer's Sword";
 	id = 1;
-	path = "res://Assets/Art/Sprites/Battle/Weapons/test_sword.png";
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_adventurersword.png";
 	description = "Just a simple Iron Sword, what more do you want me to say?";
 	type = "Melee";
 	minDamage = 5;
@@ -62,7 +62,72 @@ func init_items():
 	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
 		bonusCritRate, element);
 	
+	_name = "Cursed Ice Sword";
+	id = 4;
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_broadIceSword.png";
+	description = "The sword of a fallen warrior that has been frozen over by a curse.";
+	type = "Melee";
+	minDamage = 10;
+	maxDamage = 15;
+	bonusAccuracy = 0;
+	bonusCritRate = 0;
+	element = "Ice";
+	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
+		bonusCritRate, element);
+		
+	_name = "Zap Sword";
+	id = 5;
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_electricSword.png";
+	description = "A sword that seems to be incredibly zappy!";
+	type = "Melee";
+	minDamage = 8;
+	maxDamage = 13;
+	bonusAccuracy = 0;
+	bonusCritRate = 0;
+	element = "Thunder";
+	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
+		bonusCritRate, element);
 	
+	
+	_name = "Dark Sword";
+	id = 6;
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_darkSword.png";
+	description = "A sword infused with the dark element";
+	type = "Melee";
+	minDamage = 12;
+	maxDamage = 16;
+	bonusAccuracy = 0;
+	bonusCritRate = 0;
+	element = "Dark";
+	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
+		bonusCritRate, element);
+
+	_name = "Wind Saber";
+	id = 7;
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_windSaber.png";
+	description = "A saber infused with the wind element.";
+	type = "Melee";
+	minDamage = 8;
+	maxDamage = 14;
+	bonusAccuracy = 10;
+	bonusCritRate = 0;
+	element = "Air";
+	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
+		bonusCritRate, element);
+
+	_name = "Light Reaver";
+	id = 8;
+	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_lightReaver.png";
+	description = "A large ceremonial sword once resting in a church. Good for slaying undead!";
+	type = "Melee";
+	minDamage = 9;
+	maxDamage = 16;
+	bonusAccuracy = 5;
+	bonusCritRate = 0;
+	element = "Light";
+	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
+		bonusCritRate, element);
+
 	emit_signal("WeaponsInitialized");
 	
 func makeWeapon(n, i, p, desc, t, minD, maxD, bA, bCR, e):

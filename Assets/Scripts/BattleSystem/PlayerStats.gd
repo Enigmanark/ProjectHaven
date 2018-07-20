@@ -163,13 +163,24 @@ func get_weapon():
 	return currentWeapon;
 
 func init_beginner():
-	var sword = get_node("/root/Weapons").get_weapon_by_id(1);
-	get_node("/root/Inventory").add_weapon(sword);
-	equip_weapon(sword);
-	var asword = get_node("/root/Weapons").get_weapon_by_id(2);
-	get_node("/root/Inventory").add_weapon(asword);
-	var fsword = get_node("/root/Weapons").get_weapon_by_id(3);
-	get_node("/root/Inventory").add_weapon(fsword);
+	var weapon = get_node("/root/Weapons").get_weapon_by_id(1);
+	get_node("/root/Inventory").add_weapon(weapon);
+	equip_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(2);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(3);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(4);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(5);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(6);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(7);
+	get_node("/root/Inventory").add_weapon(weapon);
+	weapon = get_node("/root/Weapons").get_weapon_by_id(8);
+	get_node("/root/Inventory").add_weapon(weapon);
+	
 
 func on_WeaponsInitialized():
 	init_beginner();
