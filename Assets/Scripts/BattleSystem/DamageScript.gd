@@ -8,6 +8,8 @@ func _ready():
 	get_node("Text").text = str(damage);
 	if(str(damage) == "Miss!"):
 		get_node("Element").visible = false;
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/miss.wav");
+		get_node("AudioStreamPlayer").play();
 		return;
 	elif(str(damage) == "Level Up!"):
 		get_node("Element").visible = false;
