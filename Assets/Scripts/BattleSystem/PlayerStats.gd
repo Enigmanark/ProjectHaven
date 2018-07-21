@@ -162,27 +162,6 @@ func equip_weapon(weapon):
 func get_weapon():
 	return currentWeapon;
 
-func init_beginner():
-	get_node("/root/Inventory").refill_potions();
-	var weapon = get_node("/root/Weapons").get_weapon_by_id(1);
-	get_node("/root/Inventory").add_weapon(weapon);
-	equip_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(2);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(3);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(4);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(5);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(6);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(7);
-	get_node("/root/Inventory").add_weapon(weapon);
-	weapon = get_node("/root/Weapons").get_weapon_by_id(8);
-	get_node("/root/Inventory").add_weapon(weapon);
-	
-
 func damage_health(amount):
 	currentHP -= amount;
 	if(currentHP < 0):
@@ -202,12 +181,8 @@ func damage_experience():
 	var damage = experienceToLevelUp * 0.1;
 	experience -= damage;
 
-func on_WeaponsInitialized():
-	init_beginner();
-
 func _ready():
 	update_max_health();
 	update_max_sp();
 	update_max_mp();
 	recover_all();
-	get_node("/root/Weapons").connect("WeaponsInitialized", self, "on_WeaponsInitialized");

@@ -11,7 +11,6 @@ var bonusAccuracy;
 var bonusCritRate;
 var element;
 var weapons = [];
-signal WeaponsInitialized;
 
 func _ready():
 	init_items();
@@ -127,8 +126,6 @@ func init_items():
 	element = "Light";
 	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
 		bonusCritRate, element);
-
-	emit_signal("WeaponsInitialized");
 	
 func makeWeapon(n, i, p, desc, t, minD, maxD, bA, bCR, e):
 	var weapon = {};

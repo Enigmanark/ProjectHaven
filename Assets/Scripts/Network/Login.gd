@@ -1,4 +1,5 @@
 extends Node
+
 func _ready():
 	pass;
 
@@ -52,6 +53,10 @@ func _on_SendButton_pressed():
 	var text = response.get_string_from_ascii()
 	print(text);
 	if(text == "Success"):
+		print("Logged in");
+		get_node("/root/LastSave").username = username;
+		get_node("/root/LastSave").password = password;
+		get_last_save();
 		get_tree().change_scene("res://Assets/Scenes/haven.tscn");
 	elif(text == "200"):
 		print("There is no account with that password");
@@ -116,6 +121,9 @@ func _on_SubmitButton_pressed():
 		print("Passwords did not match");
 
 
+func get_last_save():
+	get_node("/root/LastSave").get_last_save();
+	
 func _on_NewAccountButton_pressed():
 	get_node("Home").visible = false;
 	get_node("NewAccount").visible = true;
