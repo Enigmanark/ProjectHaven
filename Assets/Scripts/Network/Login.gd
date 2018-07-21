@@ -10,7 +10,7 @@ func _on_SendButton_pressed():
 	var err;
 	err = http.connect_to_host("http://127.0.0.1", 6007);
 	
-	# Wait until resolved and connected
+	# Wait until resolved
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
 		http.poll();
 		print("Connecting..");
@@ -31,25 +31,25 @@ func _on_SendButton_pressed():
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling until the request is going on
 		http.poll()
-		print("Sending..")
+		print("Logging in..")
 		OS.delay_msec(500)
 	
 	print("response? ", http.has_response())
 	
-	var rb = PoolByteArray() # Array that will hold the data
+	var response = PoolByteArray() # Array that will hold the data
 
 	while http.get_status() == HTTPClient.STATUS_BODY:
-		# While there is body left to be read
+		# While there is body left
 		http.poll()
 		var chunk = http.read_response_body_chunk() # Get a chunk
 		if chunk.size() == 0:
 			# Got nothing, wait for buffers to fill a bit
 			OS.delay_usec(500)
 		else:
-			rb = rb + chunk # Append to read buffer
+			response = response + chunk # Append to read buffer
 	# Done!
-	print("bytes got: ", rb.size())
-	var text = rb.get_string_from_ascii()
+	print("bytes got: ", response.size())
+	var text = response.get_string_from_ascii()
 	print(text);
 	if(text == "Success"):
 		get_tree().change_scene("res://Assets/Scenes/haven.tscn");
