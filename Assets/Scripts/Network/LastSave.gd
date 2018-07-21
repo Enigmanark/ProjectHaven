@@ -1,7 +1,5 @@
 extends Node
 
-var username;
-var password;
 var characterData;
 
 var save;
@@ -29,7 +27,9 @@ func get_last_save():
 		"User-Agent: ProjectHaven (0.4.5)",
 		"Content-Type: application/json"
     ];
-	var data = { "Email" : username, "Password" : password };
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var data = { "Email" : email, "Password" : password };
 	data = to_json(data);
 	err = http.request(HTTPClient.METHOD_GET, "/getcharacter", headers, data);
 	
@@ -52,8 +52,6 @@ func get_last_save():
 			OS.delay_usec(500)
 		else:
 			rb = rb + chunk # Append to read buffer
-	# Done!
-	print("bytes got: ", rb.size())
 	var text = rb.get_string_from_ascii()
 	if(text == "300"):
 		print("Somehow account data was invalid");

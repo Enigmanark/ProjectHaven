@@ -1,5 +1,7 @@
 extends Node
 
+signal LoggedIn;
+
 func _ready():
 	pass;
 
@@ -48,16 +50,14 @@ func _on_SendButton_pressed():
 			OS.delay_usec(500)
 		else:
 			response = response + chunk # Append to read buffer
-	# Done!
-	print("bytes got: ", response.size())
 	var text = response.get_string_from_ascii()
-	print(text);
 	if(text == "Success"):
 		print("Logged in");
-		get_node("/root/LastSave").username = username;
-		get_node("/root/LastSave").password = password;
-		get_last_save();
-		get_tree().change_scene("res://Assets/Scenes/haven.tscn");
+		get_node("/root/Global").email = username;
+		get_node("/root/Global").password = password;
+		get_node("ChooseCharacter").visible = true;
+		get_node("Home").visible = false;
+		emit_signal("LoggedIn");
 	elif(text == "200"):
 		print("There is no account with that password");
 
