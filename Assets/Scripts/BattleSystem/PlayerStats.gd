@@ -1,188 +1,212 @@
 extends Node
-var _name = "Solar";
-var level = 0;
-var experience = 0;
-var gold = 0;
-var experienceToLevelUp = 100;
-var trainingPoints = 0;
-var baseHP = 50;
-var maxhp = 0;
-var currentHP;
-var baseSP = 15;
-var maxsp = 0;
-var currentSP;
-var baseMP = 0;
-var maxmp = 0;
-var currentMP;
-var strength = 0;
-var currentStrength = strength;
-var dexterity = 0;
-var currentDexterity = dexterity;
-var endurance = 0;
-var currentEndurance = endurance;
-var intelligence = 0;
-var currentIntelligence = intelligence;
-var willpower = 0;
-var currentWillpower = willpower;
-var cunning = 0;
-var currentCunning = cunning;
-var meleeDef = 10;
-var currentMeleeDef = meleeDef;
-var rangedDef = 10;
-var currentRangedDef = rangedDef;
-var spellDef = 10;
-var currentSpelDef = spellDef;
-var earth = 1;
-var currentEarth = earth;
-var water = 1;
-var currentWater = water;
-var air = 1;
-var currentAir = air;
-var fire = 1;
-var currentFire = fire;
-var ice = 1;
-var currentIce = ice;
-var thunder = 1;
-var currentThunder = thunder;
-var light = 1;
-var currentLight = light;
-var dark = 1;
-var currentDark = dark;
-var currentWeapon;
+var player = {};
 
 func recover_all():
-	currentMP = maxmp;
-	currentSP = maxsp;
-	currentHP = maxhp;
+	player["CurrentMP"] = player["MaxMP"];
+	player["CurrentSP"] = player["MaxSP"];
+	player["CurrentHP"] = player["MaxHP"];
 
 func add_strength(amount):
-	strength += amount;
-	currentStrength += amount;
+	player["Strength"] += amount;
+	player["CurrentStrength"] += amount;
 
 func add_dexterity(amount):
-	dexterity += amount;
-	currentDexterity += amount;
+	player["Dexterity"] += amount;
+	player["CurrentDexterity"] += amount;
 	
 func add_endurance(amount):
-	endurance += amount;
-	currentEndurance += amount;
+	player["Endurance"] += amount;
+	player["CurrentEndurance"] += amount;
 	update_max_health();
 	update_max_sp();
 	
 func add_intelligence(amount):
-	intelligence += amount;
-	currentIntelligence += amount;
+	player["Intelligence"] += amount;
+	player["CurrentIntelligence"] += amount;
 	update_max_mp();
 
 func add_willpower(amount):
-	willpower += amount;
-	currentWillpower += amount;
+	player["Willpower"] += amount;
+	player["CurrentWillpower"] += amount;
 	
-func add_cunning(amount):
-	cunning += amount;
-	currentCunning += amount;
+func add_agility(amount):
+	player["Agility"] += amount;
+	player["CurrentAgility"] += amount;
+
+func get_dark():
+	return player["CurrentDark"];
+	
+func get_light():
+	return player["CurrentLight"];
+	
+func get_earth():
+	return player["CurrentEarth"];
+	
+func get_water():
+	return player["CurrentWater"];
+	
+func get_air():
+	return player["CurrentAir"];
+	
+func get_fire():
+	return player["CurrentFire"];
+	
+func get_ice():
+	return player["CurrentIce"];
+	
+func get_thunder():
+	return player["CurrentThunder"];
 
 func get_strength():
-	return currentStrength;
+	return player["CurrentStrength"];
 
 func get_endurance():
-	return currentEndurance;
+	return player["CurrentEndurance"];
 	
 func get_intelligence():
-	return currentIntelligence;
+	return player["CurrentIntelligence"];
 	
 func get_willpower():
-	return currentWillpower;
+	return player["CurrentWillpower"];
 	
-func get_cunning():
-	return currentCunning;
+func get_agility():
+	return player["CurrentAgility"];
 	
 func get_dexterity():
-	return currentDexterity;
+	return player["CurrentDexterity"];
 
 func get_meleeDef():
-	return currentMeleeDef;
+	return player["CurrentMeleeDef"];
 	
 func get_rangedDef():
-	return currentRangedDef;
+	return player["CurrentRangedDef"];
 
 func add_experience(xp):
-	experience += xp;
-	if experience >= experienceToLevelUp:
-		experience -= experienceToLevelUp;
+	player["Experience"] += xp;
+	if player["Experience"] >= player["ExperienceToLevelUp"]:
+		player["Experience"] -= player["ExperienceToLevelUp"];
 		level_up();
 		return true;
 	else:
 		 return false;
 
 func restore_health(amount):
-	currentHP += amount;
-	if(currentHP > maxhp):
-		currentHP = maxhp;
+	player["CurrentHP"] += amount;
+	if(player["CurrentHP"] > player["MaxHP"]):
+		player["CurrentHP"] = player["MaxHP"];
 		
 func restore_stamina(amount):
-	currentSP += amount;
-	if(currentSP > maxsp):
-		currentSP = maxsp;
+	player["CurrentSP"] += amount;
+	if(player["CurrentSP"] > player["MaxSP"]):
+		player["CurrentSP"] = player["MaxSP"];
 		
 func restore_mana(amount):
-	currentMP += amount;
-	if(currentMP > maxmp):
-		currentMP = maxmp;
+	player["CurrentMP"] += amount;
+	if(player["CurrentMP"] > player["MaxMP"]):
+		player["CurrentMP"] = player["MaxMP"];
 
 func update_max_mp():
-	maxmp = baseMP + (currentIntelligence * 15);
+	player["MaxMP"] = player["BaseMP"] + (player["CurrentIntelligence"] * 15);
 	
 func update_max_sp():
-	maxsp = baseSP + (currentEndurance * 2);
+	player["MaxSP"] = player["BaseSP"] + (player["CurrentEndurance"] * 2);
 
 func update_max_health():
-	maxhp = baseHP + (currentEndurance * 10)
+	player["MaxHP"] = player["BaseHP"] + (player["CurrentEndurance"] * 10);
 
 func add_gold(g):
-	gold += g;
+	player["Gold"] += g;
 
 func remove_gold(amount):
-	gold -= amount;
+	player["Gold"] -= amount;
 	
 func has_gold(amount):
-	if(gold >= amount):
+	if(player["Gold"] >= amount):
 		return true;
 	else:
 		return false;
 
 func level_up():
-	trainingPoints += 1;
-	level += 1;
-	experienceToLevelUp *= 1.2;
+	player["TrainingPoints"] += 1;
+	player["Level"] += 1;
+	player["ExperienceToLevelUp"] *= 1.2;
 
 func equip_weapon(weapon):
-	currentWeapon = weapon;
+	player["CurrentWeapon"] = weapon;
 
 func get_weapon():
-	return currentWeapon;
+	return player["CurrentWeapon"];
 
 func damage_health(amount):
-	currentHP -= amount;
-	if(currentHP < 0):
-		currentHP = 0;
+	player["CurrentHP"] -= amount;
+	if(player["CurrentHP"] < 0):
+		player["CurrentHP"] = 0;
 
 func damage_stamina(amount):
-	currentSP -= amount;
-	if(currentSP < 0):
-		currentSP = 0;
+	player["CurrentSP"] -= amount;
+	if(player["CurrentSP"] < 0):
+		player["CurrentSP"] = 0;
 
 func damage_mana(amount):
-	currentMP -= amount;
-	if(currentMP < 0):
-		currentMP = 0;
-
+	player["CurrentMP"] -= amount;
+	if(player["CurrentMP"] < 0):
+		player["CurrentMP"] = 0;
+		
 func damage_experience():
-	var damage = experienceToLevelUp * 0.1;
-	experience -= damage;
+	var damage = player["ExperienceToLevelUp"] * 0.1;
+	player["Experience"] -= damage;
+
+func init_stats():
+	player["Name"] = "";
+	player["Level"] = 0;
+	player["Experience"] = 0;
+	player["Gold"] = 0;
+	player["ExperienceToLevelUp"] = 0;
+	player["TrainingPoints"] = 0;
+	player["BaseHP"] = 0;
+	player["MaxHP"] = 0;
+	player["CurrentHP"] = 0;
+	player["BaseSP"] = 0;
+	player["MaxSP"] = 0;
+	player["CurrentSP"] = 0;
+	player["BaseMP"] = 0;
+	player["MaxMP"] = 0;
+	player["CurrentMP"] = 0;
+	player["Strength"] = 0;
+	player["Endurance"] = 0;
+	player["Dexterity"] = 0;
+	player["Intelligence"] = 0;
+	player["Willpower"] = 0;
+	player["Agility"] = 0;
+	player["CurrentStrength"] = 0;
+	player["CurrentEndurance"] = 0;
+	player["CurrentDexterity"] = 0;
+	player["CurrentIntelligence"] = 0;
+	player["CurrentWillpower"] = 0;
+	player["CurrentAgility"] = 0;
+	player["MeleeDef"] = 0;
+	player["CurrentMeleeDef"] = 0;
+	player["RangedDef"] = 0;
+	player["CurrentRangedDef"] = 0;
+	player["SpellDef"] = 0;
+	player["CurrentSpellDef"] = 0;
+	player["Earth"] = 0;
+	player["CurrentEarth"] = 0;
+	player["Water"] = 0;
+	player["CurrentWater"] = 0;
+	player["Air"] = 0;
+	player["CurrentAir"] = 0;
+	player["Fire"] = 0;
+	player["CurrentFire"] = 0;
+	player["Ice"] = 0;
+	player["CurrentIce"] = 0;
+	player["Thunder"] = 0;
+	player["CurrentThunder"] = 0;
+	player["Light"] = 0;
+	player["CurrentLight"] = 0;
+	player["Dark"] = 0;
+	player["CurrentDark"] = 0;
+	player["CurrentWeapon"] = 0;
 
 func _ready():
-	update_max_health();
-	update_max_sp();
-	update_max_mp();
-	recover_all();
+	init_stats();

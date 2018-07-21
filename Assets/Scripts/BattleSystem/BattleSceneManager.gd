@@ -42,7 +42,7 @@ func setup_battle(battle):
 	currentBattle.endurance = battle["Endurance"];
 	currentBattle.intelligence = battle["Intelligence"];
 	currentBattle.willpower = battle["Willpower"];
-	currentBattle.cunning = battle["Cunning"];
+	currentBattle.agility = battle["Agility"];
 	currentBattle.path = battle["Path"];
 	currentBattle.pathToAvatar = battle["PathToAvatar"];
 	currentBattle.earth = battle["Earth"];

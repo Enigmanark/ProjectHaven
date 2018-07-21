@@ -27,7 +27,7 @@ var dexterity;
 var endurance;
 var intelligence;
 var willpower;
-var cunning;
+var agility;
 var pathToAvatar;
 
 func _ready():
@@ -48,8 +48,8 @@ func get_intelligence():
 func get_willpower():
 	return willpower;
 	
-func get_cunning():
-	return cunning;
+func get_agility():
+	return agility;
 	
 func get_meleeDef():
 	return meleeDef;
@@ -59,3 +59,27 @@ func get_rangedDef():
 	
 func get_spellDef():
 	return spellDef;
+	
+func get_dark():
+	return dark;
+	
+func get_light():
+	return light;
+	
+func get_earth():
+	return earth;
+	
+func get_water():
+	return water;
+	
+func get_air():
+	return air;
+	
+func get_fire():
+	return fire;
+	
+func get_ice():
+	return ice;
+	
+func get_thunder():
+	return thunder;

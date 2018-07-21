@@ -33,7 +33,7 @@ func update_stats():
 	get_node("Background/Line9/Endurance").text = "Endurance " + str(stats.get_endurance());
 	get_node("Background/Line12/Intelligence").text = "Intellect " + str(stats.get_intelligence());
 	get_node("Background/Line10/Willpower").text = "Willpower " + str(stats.get_willpower());
-	get_node("Background/Line11/Cunning").text = "Cunning " + str(stats.get_cunning());
+	get_node("Background/Line11/Agility").text = "Agility " + str(stats.get_agility());
 	
 	#Update elements
 	get_node("Background/Line2/Earth").text = "Earth " + str(stats.earth * 100);

@@ -79,7 +79,7 @@ func do_enemy_attack():
 		get_node("Player").add_child(floatD);
 		playerStats.damage_health(damage);
 		get_node("../HUD/PlayerHUD").update_player_hud();
-		if(playerStats.currentHP <= 0):
+		if(playerStats.player["CurrentHP"] <= 0):
 			lose_fight();
 	else:
 		var miss = floatDSc.instance();
@@ -88,23 +88,23 @@ func do_enemy_attack():
 
 func calculate_element_damage(element, damage, defender):
 	if(element == "Earth"):
-		return damage * defender.earth;
+		return damage * defender.get_earth();
 	elif(element == "Water"):
-		return damage * defender.water;
+		return damage * defender.get_water();
 	elif(element == "Air"):
-		return damage * defender.air;
+		return damage * defender.get_air();
 	elif(element == "Fire"):
-		return damage * defender.fire;
+		return damage * defender.get_fire();
 	elif(element == "Water"):
-		return damage * defender.water;
+		return damage * defender.get_water();
 	elif(element == "Ice"):
-		return damage * defender.ice;
+		return damage * defender.get_ice();
 	elif(element == "Thunder"):
-		return damage * defender.thunder;
+		return damage * defender.get_thunder();
 	elif(element == "Light"):
-		return damage * defender.light;
+		return damage * defender.get_light();
 	elif(element == "Dark"):
-		return damage * defender.dark;
+		return damage * defender.get_dark();
 
 func calculate_if_hit(attackType, attacker, defender):
 	var def;
@@ -193,7 +193,7 @@ func calculate_player_damage():
 	var minDamage = playerStats.get_weapon()["MinDamage"];
 	var maxDamage = playerStats.get_weapon()["MaxDamage"];
 	var baseD = rand_range(minDamage, maxDamage + 1);
-	var strength = playerStats.currentStrength;
+	var strength = playerStats.player["CurrentStrength"];
 	#convert to decimal
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;
