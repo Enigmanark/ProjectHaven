@@ -4,7 +4,7 @@ var version = "0.5";
 var server = "http://project-haven.herokuapp.com";
 #var server = "127.0.0.1";
 var serverPort = 80;
-var networkDelay = 200;
+var networkDelay = 400;
 var email;
 var password;
 var trainingStat;

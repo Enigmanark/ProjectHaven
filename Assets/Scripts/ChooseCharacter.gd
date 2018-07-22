@@ -63,6 +63,7 @@ func get_character(nameOfCharacter):
 		var json = valid_character(text);
 		if(json):
 			get_node("/root/Network").load_character(json);
+			get_node("/root/Main").set_orientation();
 			get_tree().change_scene("res://Assets/Scenes/haven.tscn");
 
 func _on_Char1_pressed():

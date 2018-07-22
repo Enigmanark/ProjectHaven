@@ -34,35 +34,40 @@ func _on_SendButton_pressed():
 	var data = {"Email" : username, "Password" : password};
 	data = to_json(data);
 	err = http.request(HTTPClient.METHOD_POST, "/login", headers, data);
+	assert(err == OK)
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling until the request is going on
-		http.poll()
 		print("Logging in..")
+		http.poll()
 		OS.delay_msec(get_node("/root/Global").networkDelay)
 	
-	print("response? ", http.has_response())
+	assert(http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED)
 	
-	var response = PoolByteArray() # Array that will hold the data
-
-	while http.get_status() == HTTPClient.STATUS_BODY:
-		# While there is body left
-		http.poll()
-		var chunk = http.read_response_body_chunk() # Get a chunk
-		if chunk.size() == 0:
-			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(get_node("/root/Global").networkDelay)
+	print("response? ", http.has_response())
+	if(http.has_response()):
+		var response = PoolByteArray() # Array that will hold the data
+	
+		while http.get_status() == HTTPClient.STATUS_BODY:
+			# While there is body left
+			http.poll()
+			var chunk = http.read_response_body_chunk() # Get a chunk
+			if chunk.size() == 0:
+				# Got nothing, wait for buffers to fill a bit
+				OS.delay_usec(get_node("/root/Global").networkDelay)
+			else:
+				response = response + chunk # Append to read buffer
+		var text = response.get_string_from_ascii()
+		if(text == "200"):
+			print("Logged in");
+			get_node("/root/Global").email = username;
+			get_node("/root/Global").password = password;
+			get_node("ChooseCharacter").visible = true;
+			get_node("Home").visible = false;
+			emit_signal("LoggedIn");
+		elif(text == "300"):
+			print("There is no account with that password");
 		else:
-			response = response + chunk # Append to read buffer
-	var text = response.get_string_from_ascii()
-	if(text == "Success"):
-		print("Logged in");
-		get_node("/root/Global").email = username;
-		get_node("/root/Global").password = password;
-		get_node("ChooseCharacter").visible = true;
-		get_node("Home").visible = false;
-		emit_signal("LoggedIn");
-	elif(text == "200"):
-		print("There is no account with that password");
+			print("Didn't get the response ;.;");
 
 func _on_SubmitButton_pressed():
 	var email = get_node("NewAccount/Email2").text;
@@ -113,13 +118,9 @@ func _on_SubmitButton_pressed():
 			# Done!
 			print("bytes got: ", rb.size())
 			var text = rb.get_string_from_ascii()
-			if(text == "Success"):
+			if(text == "200"):
 				get_node("Home").visible = true;
 				get_node("NewAccount").visible = false;
-			elif(text == "100"):
-				pass;
-			else:
-				quit();
 	else:
 		print("Passwords did not match");
 

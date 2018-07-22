@@ -20,7 +20,6 @@ func get_reward(character, experience, gold):
 	else:
 		quit();
 	var headers = [
-		"User-Agent: ProjectHaven (" + get_node("/root/Global").version + ")",
 		"Content-Type: application/json"
     ];
 	var email = get_node("/root/Global").email;
@@ -76,7 +75,6 @@ func get_last_save():
 	else:
 		quit();
 	var headers = [
-		"User-Agent: ProjectHaven (" + get_node("/root/Global").version + ")",
 		"Content-Type: application/json"
     ];
 	var email = get_node("/root/Global").email;
@@ -111,6 +109,7 @@ func get_last_save():
 		print("Got character!");
 		var characterData = valid_json(text);
 		load_character(characterData);
+		
 
 func valid_json(text):
 	print("Checking json");
