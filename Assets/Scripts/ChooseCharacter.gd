@@ -148,6 +148,9 @@ func get_characters():
 	if(text == "300"):
 		print("Somehow account data was invalid");
 		return false;
+	elif(text == "2000"):
+		print("No characters");
+		load_buttons([]);
 	else:
 		var json = valid_json(text);
 		if(!json):

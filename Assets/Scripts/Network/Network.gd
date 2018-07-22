@@ -231,4 +231,5 @@ func load_character(characterData):
 	stats.player["CurrentLight"] = data["CurrentLight"];
 	stats.player["Dark"] = data["Dark"];
 	stats.player["CurrentDark"] = data["CurrentDark"];
-	stats.player["CurrentWeaponID"] = data["CurrentWeaponID"]; 
+	stats.player["CurrentWeaponID"] = data["CurrentWeaponID"];
+	get_node("/root/Inventory").load_portable_inventory(data["Inventory"]);

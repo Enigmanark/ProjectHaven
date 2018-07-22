@@ -77,7 +77,7 @@ func load_portable_inventory(inv):
 	manaPotion = inv["ManaPotions"];
 	staminaPotion = inv["StaminaPotions"];
 	
-	weps = inv["Weapons"];
+	var weps = inv["Weapons"];
 	weapons[0] = weps[0];
 	weapons[1] = weps[1];
 	weapons[2] = weps[2];
