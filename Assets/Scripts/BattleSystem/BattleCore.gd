@@ -229,14 +229,16 @@ func setup_victory_window():
 	get_parent().get_node("VictoryGUI/VictoryWindow/Gold").text = str(enemyStats.gold) + " Gold!";
 
 func get_reward():
-	if playerStats.add_experience(enemyStats.experience):
+	var level = playerStats.player["Level"];
+	get_node("/root/Network").get_reward(playerStats.player, enemyStats.experience, enemyStats.gold);
+	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
+	get_parent().get_node("HUD/PlayerHUD").update_player_hud();
+	if(playerStats.player["Level"] > level):
 		var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
 		var floatD = floatDSc.instance();
 		floatD.damage = "Level Up!";
 		get_node("Player").add_child(floatD);
-	playerStats.add_gold(enemyStats.gold);
-	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
-	get_parent().get_node("HUD/PlayerHUD").update_player_hud();
+
 	
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_to_next_scene();

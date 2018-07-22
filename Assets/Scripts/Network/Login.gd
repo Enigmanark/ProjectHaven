@@ -8,34 +8,37 @@ func _ready():
 func _on_SendButton_pressed():
 	var username = get_node("Home/Email").text;
 	var password = get_node("Home/Password").text;
-	
 	var http = HTTPClient.new();
 	var err;
-	err = http.connect_to_host("http://127.0.0.1", 6007);
-	
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	# Wait until resolved
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
 		http.poll();
 		print("Connecting..");
-		OS.delay_msec(500);
+		OS.delay_msec(get_node("/root/Global").networkDelay);
 	
 	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
 		print("Connected!");
+	elif(http.get_status() == HTTPClient.STATUS_CANT_RESOLVE):
+		print("Couldn't find that server");
+		return;
+	elif(http.get_status() == HTTPClient.STATUS_CANT_CONNECT):
+		print("Could not connect!");
+		return;
 	else:
-		quit();
+		print("Couldn't connect for some reason :(");
+		return;
 	var headers = [
-		"User-Agent: ProjectHaven (0.4.5)",
 		"Content-Type: application/json"
     ];
 	var data = {"Email" : username, "Password" : password};
 	data = to_json(data);
 	err = http.request(HTTPClient.METHOD_POST, "/login", headers, data);
-	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling until the request is going on
 		http.poll()
 		print("Logging in..")
-		OS.delay_msec(500)
+		OS.delay_msec(get_node("/root/Global").networkDelay)
 	
 	print("response? ", http.has_response())
 	
@@ -47,7 +50,7 @@ func _on_SendButton_pressed():
 		var chunk = http.read_response_body_chunk() # Get a chunk
 		if chunk.size() == 0:
 			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(500)
+			OS.delay_usec(get_node("/root/Global").networkDelay)
 		else:
 			response = response + chunk # Append to read buffer
 	var text = response.get_string_from_ascii()
@@ -68,13 +71,13 @@ func _on_SubmitButton_pressed():
 	if(password == password2):
 			var http = HTTPClient.new();
 			var err;
-			err = http.connect_to_host("http://127.0.0.1", 6007);
+			err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 			
 			# Wait until resolved and connected
 			while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
 				http.poll();
 				print("Connecting..");
-				OS.delay_msec(500);
+				OS.delay_msec(get_node("/root/Global").networkDelay);
 			
 			if(http.get_status() == HTTPClient.STATUS_CONNECTED):
 				print("Connected!");
@@ -92,7 +95,7 @@ func _on_SubmitButton_pressed():
 				# Keep polling until the request is going on
 				http.poll()
 				print("Sending..")
-				OS.delay_msec(500)
+				OS.delay_msec(get_node("/root/Global").networkDelay)
 			
 			print("response? ", http.has_response())
 			
@@ -104,7 +107,7 @@ func _on_SubmitButton_pressed():
 				var chunk = http.read_response_body_chunk() # Get a chunk
 				if chunk.size() == 0:
 					# Got nothing, wait for buffers to fill a bit
-					OS.delay_usec(500)
+					OS.delay_usec(get_node("/root/Global").networkDelay)
 				else:
 					rb = rb + chunk # Append to read buffer
 			# Done!

@@ -11,7 +11,7 @@ func get_character(nameOfCharacter):
 	print("Attempting to retrieve character..");
 	var http = HTTPClient.new();
 	var err;
-	err = http.connect_to_host("http://127.0.0.1", 6007);
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
@@ -62,8 +62,7 @@ func get_character(nameOfCharacter):
 	else:
 		var json = valid_character(text);
 		if(json):
-			get_node("/root/LastSave").characterData = json;
-			get_node("/root/LastSave").load_character();
+			get_node("/root/Network").load_character(json);
 			get_tree().change_scene("res://Assets/Scenes/haven.tscn");
 
 func _on_Char1_pressed():
@@ -101,7 +100,7 @@ func get_characters():
 	print("Attempting to retrieve characters..");
 	var http = HTTPClient.new();
 	var err;
-	err = http.connect_to_host("http://127.0.0.1", 6007);
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
@@ -191,7 +190,7 @@ func make_new_character():
 	print("Attempting to make new character..");
 	var http = HTTPClient.new();
 	var err;
-	err = http.connect_to_host("http://127.0.0.1", 6007);
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:

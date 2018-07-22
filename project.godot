@@ -24,7 +24,7 @@ BattleManager="*res://Assets/Prefabs/BattleSystem/BattleManager.tscn"
 Global="*res://Assets/Prefabs/Global.tscn"
 Inventory="*res://Assets/Prefabs/Inventory.tscn"
 Weapons="*res://Assets/Prefabs/Weapons.tscn"
-LastSave="*res://Assets/Prefabs/LastSave.tscn"
+Network="*res://Assets/Prefabs/Network.tscn"
 
 [display]
 

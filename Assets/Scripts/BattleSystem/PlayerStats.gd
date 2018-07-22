@@ -135,7 +135,7 @@ func equip_weapon(weapon):
 	player["CurrentWeapon"] = weapon;
 
 func get_weapon():
-	return player["CurrentWeapon"];
+	return get_node("/root/Weapons").get_weapon_by_id(player["CurrentWeaponID"]);
 
 func damage_health(amount):
 	player["CurrentHP"] -= amount;
@@ -206,7 +206,7 @@ func init_stats():
 	player["CurrentLight"] = 0;
 	player["Dark"] = 0;
 	player["CurrentDark"] = 0;
-	player["CurrentWeapon"] = 0;
+	player["CurrentWeaponID"] = 0;
 
 func _ready():
 	init_stats();

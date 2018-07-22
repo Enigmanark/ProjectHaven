@@ -1,43 +1,40 @@
 extends Node
 
-var characterData;
-
-var save;
-
 func _ready():
 	pass;
 
-func get_last_save():
-	print("Running last save");
+func get_reward(character, experience, gold):
+	print("Getting reward..");
 	var http = HTTPClient.new();
 	var err;
-	err = http.connect_to_host("http://127.0.0.1", 6007);
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
 		http.poll();
 		print("Connecting..");
-		OS.delay_msec(500);
+		OS.delay_msec(get_node("/root/Global").networkDelay);
 	
 	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
 		print("Connected!");
 	else:
 		quit();
 	var headers = [
-		"User-Agent: ProjectHaven (0.4.5)",
+		"User-Agent: ProjectHaven (" + get_node("/root/Global").version + ")",
 		"Content-Type: application/json"
     ];
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
-	var data = { "Email" : email, "Password" : password };
+	var data = { "Email" : email, "Password" : password, "Character": character,
+		"Experience" : experience, "Gold" : gold };
 	data = to_json(data);
-	err = http.request(HTTPClient.METHOD_GET, "/getcharacter", headers, data);
+	err = http.request(HTTPClient.METHOD_POST, "/updatecharacter", headers, data);
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling until the request is going on
 		http.poll()
-		print("Retrieving Character..")
-		OS.delay_msec(500)
+		print("Updating Character..")
+		OS.delay_msec(get_node("/root/Global").networkDelay)
 	
 	print("response? ", http.has_response());
 	
@@ -49,7 +46,62 @@ func get_last_save():
 		var chunk = http.read_response_body_chunk() # Get a chunk
 		if chunk.size() == 0:
 			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(500)
+			OS.delay_usec(get_node("/root/Global").networkDelay)
+		else:
+			rb = rb + chunk # Append to read buffer
+	var text = rb.get_string_from_ascii()
+	if(text == "300"):
+		print("Somehow account data was invalid");
+	elif(text == "400"):
+		print("COULD NOT FIND CHARACTER!?");
+	else:
+		print("Retrieved updated character");
+		var characterData = valid_json(text);
+		load_character(characterData);
+	
+func get_last_save():
+	print("Running last save");
+	var http = HTTPClient.new();
+	var err;
+	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
+	
+	# Wait until resolved and connected
+	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		http.poll();
+		print("Connecting..");
+		OS.delay_msec(get_node("/root/Global").networkDelay);
+	
+	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
+		print("Connected!");
+	else:
+		quit();
+	var headers = [
+		"User-Agent: ProjectHaven (" + get_node("/root/Global").version + ")",
+		"Content-Type: application/json"
+    ];
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var data = { "Email" : email, "Password" : password };
+	data = to_json(data);
+	err = http.request(HTTPClient.METHOD_POST, "/getcharacter", headers, data);
+	
+	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		# Keep polling until the request is going on
+		http.poll()
+		print("Retrieving Character..")
+		OS.delay_msec(get_node("/root/Global").networkDelay)
+	
+	print("response? ", http.has_response());
+	
+	var rb = PoolByteArray() # Array that will hold the data
+
+	while http.get_status() == HTTPClient.STATUS_BODY:
+		# While there is body left to be read
+		http.poll()
+		var chunk = http.read_response_body_chunk() # Get a chunk
+		if chunk.size() == 0:
+			# Got nothing, wait for buffers to fill a bit
+			OS.delay_usec(get_node("/root/Global").networkDelay)
 		else:
 			rb = rb + chunk # Append to read buffer
 	var text = rb.get_string_from_ascii()
@@ -57,8 +109,8 @@ func get_last_save():
 		print("Somehow account data was invalid");
 	else:
 		print("Got character!");
-		characterData = valid_json(text);
-		load_character();
+		var characterData = valid_json(text);
+		load_character(characterData);
 
 func valid_json(text):
 	print("Checking json");
@@ -73,7 +125,7 @@ func valid_json(text):
 	else:
 		print("Json error");
 		
-func load_character():
+func load_character(characterData):
 	print("Loading character");
 	var data = characterData;
 	var stats = get_node("/root/PlayerStats");
@@ -126,4 +178,4 @@ func load_character():
 	stats.player["CurrentLight"] = data["CurrentLight"];
 	stats.player["Dark"] = data["Dark"];
 	stats.player["CurrentDark"] = data["CurrentDark"];
-	stats.player["CurrentWeapon"] = get_node("/root/Weapons").get_weapon_by_id(data["CurrentWeaponID"]); 
+	stats.player["CurrentWeaponID"] = data["CurrentWeaponID"]; 
