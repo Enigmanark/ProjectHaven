@@ -247,6 +247,5 @@ func _on_Flee_pressed():
 	get_node("/root/BattleSceneManager").go_home();
 	
 func lose_fight():
+	get_node("/root/Network").player_death(playerStats.player);
 	get_node("/root/BattleSceneManager").go_home();
-	playerStats.damage_experience();
-	playerStats.recover_all();
