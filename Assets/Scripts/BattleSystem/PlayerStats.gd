@@ -81,15 +81,6 @@ func get_meleeDef():
 func get_rangedDef():
 	return player["CurrentRangedDef"];
 
-func add_experience(xp):
-	player["Experience"] += xp;
-	if player["Experience"] >= player["ExperienceToLevelUp"]:
-		player["Experience"] -= player["ExperienceToLevelUp"];
-		level_up();
-		return true;
-	else:
-		 return false;
-
 func restore_health(amount):
 	player["CurrentHP"] += amount;
 	if(player["CurrentHP"] > player["MaxHP"]):
@@ -113,23 +104,12 @@ func update_max_sp():
 
 func update_max_health():
 	player["MaxHP"] = player["BaseHP"] + (player["CurrentEndurance"] * 10);
-
-func add_gold(g):
-	player["Gold"] += g;
-
-func remove_gold(amount):
-	player["Gold"] -= amount;
 	
 func has_gold(amount):
 	if(player["Gold"] >= amount):
 		return true;
 	else:
 		return false;
-
-func level_up():
-	player["TrainingPoints"] += 1;
-	player["Level"] += 1;
-	player["ExperienceToLevelUp"] *= 1.2;
 
 func equip_weapon(weapon):
 	player["CurrentWeapon"] = weapon;
@@ -151,10 +131,6 @@ func damage_mana(amount):
 	player["CurrentMP"] -= amount;
 	if(player["CurrentMP"] < 0):
 		player["CurrentMP"] = 0;
-		
-func damage_experience():
-	var damage = player["ExperienceToLevelUp"] * 0.1;
-	player["Experience"] -= damage;
 
 func init_stats():
 	player["Name"] = "";

@@ -27,8 +27,8 @@ func init_items():
 	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_adventurersword.png";
 	description = "Just a simple Iron Sword, what more do you want me to say?";
 	type = "Melee";
-	minDamage = 50;
-	maxDamage = 100;
+	minDamage = 5;
+	maxDamage = 10;
 	bonusAccuracy = 0;
 	bonusCritRate = 0;
 	element = "Earth";

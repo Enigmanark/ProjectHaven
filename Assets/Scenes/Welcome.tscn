@@ -14,6 +14,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Welcome" type="Node" index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Home" type="Node2D" parent="." index="0"]

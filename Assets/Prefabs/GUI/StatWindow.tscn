@@ -14,8 +14,9 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="StatWindow" type="Node2D" index="0"]
 
+z_index = 4
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
