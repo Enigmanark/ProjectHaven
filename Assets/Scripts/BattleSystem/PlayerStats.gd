@@ -112,7 +112,7 @@ func has_gold(amount):
 		return false;
 
 func equip_weapon(weapon):
-	player["CurrentWeapon"] = weapon;
+	player["CurrentWeaponID"] = weapon;
 
 func get_weapon():
 	return get_node("/root/Weapons").get_weapon_by_id(player["CurrentWeaponID"]);

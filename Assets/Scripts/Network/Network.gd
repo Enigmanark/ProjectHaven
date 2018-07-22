@@ -3,7 +3,7 @@ extends Node
 func _ready():
 	pass;
 
-func player_death(character):
+func player_death(stats):
 	print("Updating on player death..");
 	var http = HTTPClient.new();
 	var err;
@@ -24,6 +24,8 @@ func player_death(character):
     ];
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
+	var character = stats;
+	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
 	var data = { "Email" : email, "Password" : password, "Character": character };
 	data = to_json(data);
 	err = http.request(HTTPClient.METHOD_POST, "/playerdie", headers, data);
@@ -57,7 +59,7 @@ func player_death(character):
 		var characterData = valid_json(text);
 		load_character(characterData);
 
-func get_reward(character, experience, gold):
+func get_reward(stats, experience, gold):
 	print("Getting reward..");
 	var http = HTTPClient.new();
 	var err;
@@ -78,6 +80,8 @@ func get_reward(character, experience, gold):
     ];
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
+	var character = stats;
+	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
 	var data = { "Email" : email, "Password" : password, "Character": character,
 		"Experience" : experience, "Gold" : gold };
 	data = to_json(data);
@@ -111,59 +115,6 @@ func get_reward(character, experience, gold):
 		print("Retrieved updated character");
 		var characterData = valid_json(text);
 		load_character(characterData);
-	
-func get_last_save():
-	print("Running last save");
-	var http = HTTPClient.new();
-	var err;
-	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
-	# Wait until resolved and connected
-	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
-		http.poll();
-		print("Connecting..");
-		OS.delay_msec(get_node("/root/Global").networkDelay);
-	
-	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
-		print("Connected!");
-	else:
-		quit();
-	var headers = [
-		"Content-Type: application/json"
-    ];
-	var email = get_node("/root/Global").email;
-	var password = get_node("/root/Global").password;
-	var data = { "Email" : email, "Password" : password };
-	data = to_json(data);
-	err = http.request(HTTPClient.METHOD_POST, "/getcharacter", headers, data);
-	
-	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		# Keep polling until the request is going on
-		http.poll()
-		print("Retrieving Character..")
-		OS.delay_msec(get_node("/root/Global").networkDelay)
-	
-	print("response? ", http.has_response());
-	
-	var rb = PoolByteArray() # Array that will hold the data
-
-	while http.get_status() == HTTPClient.STATUS_BODY:
-		# While there is body left to be read
-		http.poll()
-		var chunk = http.read_response_body_chunk() # Get a chunk
-		if chunk.size() == 0:
-			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(get_node("/root/Global").networkDelay)
-		else:
-			rb = rb + chunk # Append to read buffer
-	var text = rb.get_string_from_ascii()
-	if(text == "300"):
-		print("Somehow account data was invalid");
-	else:
-		print("Got character!");
-		var characterData = valid_json(text);
-		load_character(characterData);
-		
 
 func valid_json(text):
 	print("Checking json");
