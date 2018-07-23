@@ -36,6 +36,8 @@ func _ready():
 	load_enemy();
 	get_node("../HUD/PlayerHUD").update_player_hud();
 	init_enemy_avatar();
+	var texturePath = get_node("/root/CurrentBattle").battleBackgroundPath;
+	get_node("battle_background").texture = load(texturePath);
 
 func load_player():
 	var weaponPath = get_node("/root/PlayerStats").get_weapon()["Path"];
@@ -109,6 +111,7 @@ func calculate_element_damage(element, damage, defender):
 		return damage * defender.get_dark();
 
 func calculate_if_hit(attackType, attacker, defender):
+	randomize();
 	var def;
 	var baseAcc;
 	var bonusAcc;
@@ -187,11 +190,13 @@ func _process(delta):
 
 #Damage calculation for the enemy
 func calculate_enemy_damage():
+	randomize();
 	var baseD = rand_range(enemyStats.minDamage, enemyStats.maxDamage);
 	return int(baseD);
 
 #Damage calculation for the player
 func calculate_player_damage():
+	randomize();
 	var minDamage = playerStats.get_weapon()["MinDamage"];
 	var maxDamage = playerStats.get_weapon()["MaxDamage"];
 	var baseD = rand_range(minDamage, maxDamage + 1);

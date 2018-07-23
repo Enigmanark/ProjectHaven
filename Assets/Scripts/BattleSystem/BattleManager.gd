@@ -1,40 +1,12 @@
 extends Node
 
-var _name;
-var level
-var gold;
-var experience;
-var id;
-var path;
-var pathToAvatar;
-var maxHP;
-var maxSP;
-var maxMP;
-var meleeDef;
-var rangedDef;
-var spellDef;
-var strength;
-var dexterity;
-var endurance;
-var intelligence;
-var willpower;
-var charisma;
-var agility;
-var minDamage;
-var maxDamage;
-var attackElement;
-var earth;
-var water;
-var air;
-var fire;
-var ice;
-var thunder;
-var light;
-var dark;
+var locations;
 
 var enemies = [];
 
 func _ready():
+	locations = {};
+	init_locations();
 	init_enemies();
 
 func has_battle_with_id(id):
@@ -49,12 +21,72 @@ func get_battle_with_id(id):
 			return enemy;
 	return null;
 
-func get_random_battle():
+func get_random_location():
 	randomize();
-	var rand = rand_range(0, enemies.size());
-	return enemies[int(rand)];
+	var rand = int(rand_range(0, 5));
+	if(rand == 0):
+		return("Forest");
+	elif(rand == 1):
+		return("Dungeon");
+	elif(rand == 2):
+		return("Volcano");
+	elif(rand == 3):
+		return("Glacier");
+	elif(rand == 4):
+		return("Dark Forest");
+
+func get_random_enemy_from_location(location):
+	randomize();
+	var enemies = locations[location];
+	var rand = int(rand_range(0, enemies.size()));
+	return get_battle_with_id(enemies[rand]);
 	
-func init_enemies():
+func init_locations():
+	locations = {
+		"Forest" : [],
+		"Dungeon" : [],
+		"Plains" : [],
+		"Volcano" : [],
+		"Glacier" : [],
+		"Dark Forest" : [],
+		"Desert" : [],
+		"Beach" : [],
+		"Mountains" : [],
+	};
+	
+func init_enemies():	
+	var _name;
+	var level
+	var gold;
+	var experience;
+	var id;
+	var path;
+	var pathToAvatar;
+	var maxHP;
+	var maxSP;
+	var maxMP;
+	var meleeDef;
+	var rangedDef;
+	var spellDef;
+	var strength;
+	var dexterity;
+	var endurance;
+	var intelligence;
+	var willpower;
+	var charisma;
+	var agility;
+	var minDamage;
+	var maxDamage;
+	var attackElement;
+	var earth;
+	var water;
+	var air;
+	var fire;
+	var ice;
+	var thunder;
+	var light;
+	var dark;
+	
 	_name = "Green Slime";
 	level = 1;
 	experience = 20;
@@ -85,6 +117,9 @@ func init_enemies():
 	thunder = .5;
 	light = 1;
 	dark = 1;
+	locations["Forest"].append(id);
+	locations["Dark Forest"].append(id);
+	locations["Dungeon"].append(id);
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		strength, dexterity, endurance, intelligence, willpower, agility, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
@@ -120,6 +155,8 @@ func init_enemies():
 	thunder = .9;
 	light = 2;
 	dark = .50;
+	locations["Dungeon"].append(id);
+	locations["Dark Forest"].append(id);
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		strength, dexterity, endurance, intelligence, willpower, agility, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
@@ -155,6 +192,8 @@ func init_enemies():
 	thunder = .5;
 	light = 1;
 	dark = 1;
+	locations["Volcano"].append(id);
+	locations["Dungeon"].append(id);
 	enemies.append(make_enemy(_name, id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		strength, dexterity, endurance, intelligence, willpower, agility, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,
@@ -190,6 +229,8 @@ func init_enemies():
 	thunder = 1;
 	light = 1;
 	dark = 1;
+	locations["Glacier"].append(id);
+	locations["Dungeon"].append(id);
 	enemies.append(make_enemy(_name,id, maxHP, maxSP, maxMP, meleeDef, rangedDef, spellDef,
 		strength, dexterity, endurance, intelligence, willpower, agility, pathToAvatar,
 		minDamage, maxDamage, attackElement, path, earth, water, air, fire, ice, thunder,

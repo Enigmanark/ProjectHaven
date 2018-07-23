@@ -3,7 +3,7 @@ extends Node
 var nextScenePath;
 
 func _ready():
-	pass
+	pass;
 
 func go_home():
 	get_tree().change_scene("res://Assets/Scenes/haven.tscn");
@@ -12,18 +12,41 @@ func go_to_next_scene():
 	get_tree().change_scene(nextScenePath);
 
 func do_random_battle():
-	var battle = get_node("/root/BattleManager").get_random_battle();
-	setup_battle(battle);
+	var manager = get_node("/root/BattleManager");
+	var location = manager.get_random_location();
+	var battle = manager.get_random_enemy_from_location(location);
+	setup_battle(battle, location);
 	nextScenePath = "res://Assets/Scenes/haven.tscn";
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
+func get_background_path(location):
+	if(location == "Forest"):
+		return("res://Assets/Art/Battle_Backgrounds/background_trees2.png");
+	elif(location == "Dark Forest"):
+		return("res://Assets/Art/Battle_Backgrounds/background_darkForest.png");
+	elif(location == "Beach"):
+		return("res://Assets/Art/Battle_Backgrounds/background_beach.png");
+	elif(location == "Desert"):
+		return("res://Assets/Art/Battle_Backgrounds/background_desert.png");
+	elif(location == "Dungeon"):
+		return("res://Assets/Art/Battle_Backgrounds/background_dungeon.png");
+	elif(location == "Glacier"):
+		return("res://Assets/Art/Battle_Backgrounds/background_glacier.png");
+	elif(location == "Mountains"):
+		return("res://Assets/Art/Battle_Backgrounds/background_mountains.png");
+	elif(location == "Plains"):
+		return("res://Assets/Art/Battle_Backgrounds/background_plains.png");
+	elif(location == "Volcano"):
+		return("res://Assets/Art/Battle_Backgrounds/background_volcano.png");
+		
 func do_battle(battle, next):
 	setup_battle(battle);
 	nextScenePath = next;
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
-func setup_battle(battle):
+func setup_battle(battle, location):
 	var currentBattle = get_node("/root/CurrentBattle");
+	currentBattle.battleBackgroundPath = get_background_path(location);
 	currentBattle.level = battle["Level"];
 	currentBattle.experience = battle["Experience"];
 	currentBattle.gold = battle["Gold"];

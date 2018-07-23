@@ -29,6 +29,7 @@ var intelligence;
 var willpower;
 var agility;
 var pathToAvatar;
+var battleBackgroundPath;
 
 func _ready():
 	pass
