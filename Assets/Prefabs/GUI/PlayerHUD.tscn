@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="PlayerHUD" type="Node2D" index="0"]
+[node name="PlayerHUD" type="Node2D"]
 
 position = Vector2( 83.2823, 497.54 )
 scale = Vector2( 1.5, 1.5 )
@@ -30,11 +30,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="StatWindow" parent="Avatar" index="1" instance=ExtResource( 3 )]
 
-visible = false
 position = Vector2( -54.859, -331.705 )
 scale = Vector2( 0.7, 0.65 )
-z_index = 3
-_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Button" type="TextureButton" parent="Avatar" index="2"]
 
@@ -60,7 +57,9 @@ group = null
 
 [node name="Stats" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 50.236, -28.6595 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="NameBackground" parent="Stats" index="0" instance=ExtResource( 4 )]
 

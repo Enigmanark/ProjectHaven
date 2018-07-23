@@ -24,7 +24,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="EnemyHUD" type="Node2D" index="0"]
+[node name="EnemyHUD" type="Node2D"]
 
 position = Vector2( -5.88213, 12.4735 )
 _sections_unfolded = [ "Transform" ]
@@ -34,8 +34,8 @@ _sections_unfolded = [ "Transform" ]
 visible = false
 position = Vector2( -97.0752, -310.984 )
 scale = Vector2( 0.7, 0.65 )
-z_index = 3
-_sections_unfolded = [ "Transform", "Z Index" ]
+z_index = 10
+z_as_relative = false
 
 [node name="StatButton" type="TextureButton" parent="." index="1"]
 

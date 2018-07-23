@@ -43,6 +43,7 @@ func _on_PayButton_pressed():
 		if(get_node("/root/Network").get_training(playerStats.player, get_node("/root/Global").trainingStat)):
 			get_node("PlayerHUD").update_player_hud();
 			get_node("PlayerHUD/Avatar/StatWindow").update();
+			increase_stat_message();
 			get_node("Scene/Background/GetStat").visible = true;
 			get_node("Scene/Background/Pay?").visible = false;
 		else:

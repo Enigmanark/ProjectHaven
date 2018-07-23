@@ -76,7 +76,7 @@ func setup_strength():
 	alyonis["SpellDef"] = 50;
 	get_node("/root/Global").trainingStat = "Strength";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func setup_dexterity():
@@ -90,7 +90,7 @@ func setup_dexterity():
 	alyonis["SpellDef"] = 50;
 	get_node("/root/Global").trainingStat = "Dexterity";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");
 
 func setup_endurance():
@@ -104,7 +104,7 @@ func setup_endurance():
 	alyonis["SpellDef"] = 40;
 	get_node("/root/Global").trainingStat = "Endurance";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
 
 func setup_intelligence():
@@ -117,7 +117,7 @@ func setup_intelligence():
 	alyonis["RangedDef"] = 50;
 	get_node("/root/Global").trainingStat = "Intelligence";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
 
 func setup_willpower():
@@ -130,7 +130,7 @@ func setup_willpower():
 	alyonis["RangedDef"] = 50;
 	get_node("/root/Global").trainingStat = "Willpower";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
 
 func setup_agility():
@@ -144,7 +144,7 @@ func setup_agility():
 	alyonis["SpellDef"] = 50;
 	get_node("/root/Global").trainingStat = "Agility";
 	get_node("/root/Global").trainingCost = cost;
-	get_node("/root/BattleSceneManager").do_battle(alyonis,
+	get_node("/root/BattleSceneManager").do_battle(alyonis, "Forest",
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
 
 func _on_ChooseStrength_pressed():
@@ -250,6 +250,7 @@ func _on_Return_pressed():
 	get_node("/root/BattleSceneManager").go_home();
 
 func _on_TrainButton_pressed():
+	print("Train button pressed");
 	if(toTrain == "Strength"):
 		setup_strength();
 	elif(toTrain == "Dexterity"):

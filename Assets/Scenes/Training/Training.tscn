@@ -2,13 +2,14 @@
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/Scenes/Training.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees.tres.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Battle_Backgrounds/background_trees2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Prefabs/Characters/Alyonis.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Prefabs/BattleSystem/Players/test_character_battle1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -74,7 +75,7 @@ position = Vector2( 121.807, 269.899 )
 
 [node name="TrainingWindow" type="Node2D" parent="Scene" index="2"]
 
-editor/display_folded = true
+position = Vector2( 17.249, -17.2491 )
 z_index = 1
 _sections_unfolded = [ "Z Index" ]
 
@@ -190,6 +191,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ChooseStat" type="Node2D" parent="Scene/TrainingWindow/Background" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 7.62909, -1.1688 )
 scale = Vector2( 1, 0.9 )
@@ -597,10 +599,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -21.0
+margin_left = 1.0
 margin_top = 21.0
-margin_right = 105.0
-margin_bottom = 89.0
+margin_right = 108.0
+margin_bottom = 58.0
 rect_scale = Vector2( 2.5, 2.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -630,10 +632,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 56.0
-margin_top = 117.0
-margin_right = 104.0
-margin_bottom = 137.0
+margin_left = 58.0
+margin_top = 129.0
+margin_right = 106.0
+margin_bottom = 149.0
 rect_scale = Vector2( 3, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -677,15 +679,14 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="CancelButton" type="TextureButton" parent="Scene/TrainingWindow/Background/ToPay" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 56.0
-margin_top = 161.0
-margin_right = 104.0
-margin_bottom = 181.0
+margin_left = 58.0
+margin_top = 195.0
+margin_right = 106.0
+margin_bottom = 215.0
 rect_scale = Vector2( 3, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
