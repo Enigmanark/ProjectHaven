@@ -95,15 +95,6 @@ func restore_mana(amount):
 	player["CurrentMP"] += amount;
 	if(player["CurrentMP"] > player["MaxMP"]):
 		player["CurrentMP"] = player["MaxMP"];
-
-func update_max_mp():
-	player["MaxMP"] = player["BaseMP"] + (player["CurrentIntelligence"] * 15);
-	
-func update_max_sp():
-	player["MaxSP"] = player["BaseSP"] + (player["CurrentEndurance"] * 2);
-
-func update_max_health():
-	player["MaxHP"] = player["BaseHP"] + (player["CurrentEndurance"] * 10);
 	
 func has_gold(amount):
 	if(player["Gold"] >= amount):

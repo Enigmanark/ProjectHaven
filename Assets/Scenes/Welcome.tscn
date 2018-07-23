@@ -12,14 +12,12 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Welcome" type="Node" index="0"]
+[node name="Welcome" type="Node"]
 
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Home" type="Node2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -369.7, -10.5161 )
 scale = Vector2( 1.4, 1 )
 _sections_unfolded = [ "Transform" ]
@@ -194,8 +192,34 @@ text = "Create Account"
 flat = false
 align = 1
 
+[node name="DevLogin" type="Button" parent="Home" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 484.0
+margin_top = 155.0
+margin_right = 626.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "DevLogin"
+flat = false
+align = 1
+
 [node name="ChooseCharacter" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -128.153, -27.4483 )
 scale = Vector2( 1.3, 1 )
@@ -626,6 +650,8 @@ align = 1
 [connection signal="pressed" from="Home/SendButton" to="." method="_on_SendButton_pressed"]
 
 [connection signal="pressed" from="Home/NewAccountButton" to="." method="_on_NewAccountButton_pressed"]
+
+[connection signal="pressed" from="Home/DevLogin" to="." method="_on_DevLogin_pressed"]
 
 [connection signal="pressed" from="ChooseCharacter/NewCharacter?/Make" to="ChooseCharacter" method="_on_Make_pressed"]
 

@@ -190,7 +190,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ChooseStat" type="Node2D" parent="Scene/TrainingWindow/Background" index="1"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 7.62909, -1.1688 )
 scale = Vector2( 1, 0.9 )
@@ -485,7 +484,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Cunning" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="6"]
+[node name="Agility" type="TextureButton" parent="Scene/TrainingWindow/Background/ChooseStat" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -510,7 +509,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="CunningText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Cunning" index="0"]
+[node name="AgilityText" type="Label" parent="Scene/TrainingWindow/Background/ChooseStat/Agility" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -528,7 +527,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Cunning"
+text = "Agility"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -744,7 +743,7 @@ position = Vector2( 83.2467, 496.962 )
 
 [connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Willpower" to="." method="_on_Willpower_pressed"]
 
-[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Cunning" to="." method="_on_Cunning_pressed"]
+[connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/Agility" to="." method="_on_Agility_pressed"]
 
 [connection signal="pressed" from="Scene/TrainingWindow/Background/ChooseStat/CancelTrainingButton" to="." method="_on_CancelTrainingButton_pressed"]
 

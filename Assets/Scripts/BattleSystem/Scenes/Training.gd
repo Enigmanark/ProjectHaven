@@ -5,7 +5,7 @@ var cost;
 
 func _ready():
 	var playerStats = get_node("/root/PlayerStats");
-	if playerStats.trainingPoints >= 1:
+	if playerStats.player["TrainingPoints"] >= 1:
 		get_node("Scene/TrainingWindow/Background/ChooseStat").visible = true;
 	else:
 		get_node("Scene/TrainingWindow/Background/DontHaveEnough").visible = true;
@@ -58,13 +58,22 @@ func show_payrequired_window():
 			cost) + " Gold.";
 		get_node("Scene/TrainingWindow/Background/ToPay/PayMessage").text = message;
 		get_node("Scene/TrainingWindow/Background/ToPay").visible = true;
+	elif(toTrain == "Agility"):
+		var newAgility = get_node("/root/PlayerStats").get_agility() + 5;
+		cost = get_cost(newAgility);
+		var message = "Training Agility to " + str(newAgility) + " will cost " + str(
+			cost) + " Gold.";
+		get_node("Scene/TrainingWindow/Background/ToPay/PayMessage").text = message;
+		get_node("Scene/TrainingWindow/Background/ToPay").visible = true;
 
 func setup_strength():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
 	alyonis["Strength"] += 5;
+	alyonis["RangedDef"] = 50;
+	alyonis["SpellDef"] = 50;
 	get_node("/root/Global").trainingStat = "Strength";
 	get_node("/root/Global").trainingCost = cost;
 	get_node("/root/BattleSceneManager").do_battle(alyonis,
@@ -72,10 +81,13 @@ func setup_strength():
 
 func setup_dexterity():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
 	alyonis["Dexterity"] += 5;
+	alyonis["MeleeDef"] = 20;
+	alyonis["RangedDef"] = 20;
+	alyonis["SpellDef"] = 50;
 	get_node("/root/Global").trainingStat = "Dexterity";
 	get_node("/root/Global").trainingCost = cost;
 	get_node("/root/BattleSceneManager").do_battle(alyonis,
@@ -83,9 +95,9 @@ func setup_dexterity():
 
 func setup_endurance():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
 	alyonis["Endurance"] += 5;
 	alyonis["MeleeDef"] = 40;
 	alyonis["RangedDef"] = 40;
@@ -97,9 +109,9 @@ func setup_endurance():
 
 func setup_intelligence():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
 	alyonis["Intelligence"] += 5;
 	alyonis["MeleeDef"] = 50;
 	alyonis["RangedDef"] = 50;
@@ -110,9 +122,9 @@ func setup_intelligence():
 
 func setup_willpower():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
 	alyonis["Willpower"] += 5;
 	alyonis["MeleeDef"] = 50;
 	alyonis["RangedDef"] = 50;
@@ -121,12 +133,12 @@ func setup_willpower():
 	get_node("/root/BattleSceneManager").do_battle(alyonis,
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
 
-func setup_cunning():
+func setup_agility():
 	var playerStats = get_node("/root/PlayerStats");
-	var alyonis = get_base_alyonis_battle(playerStats.level);
-	alyonis = apply_damage_level(playerStats.level, alyonis);
-	alyonis = apply_trainer_stats(playerStats, alyonis);
-	alyonis["Cunning"] += 5;
+	var alyonis = get_base_alyonis_battle(playerStats.player["Level"]);
+	alyonis = apply_damage_level(playerStats.player["Level"], alyonis);
+	alyonis = apply_trainer_stats(playerStats.player, alyonis);
+	alyonis["Agility"] += 5;
 	alyonis["MeleeDef"] = 25;
 	alyonis["RangedDef"] = 25;
 	alyonis["SpellDef"] = 50;
@@ -160,20 +172,32 @@ func _on_Willpower_pressed():
 	toTrain = "Willpower";
 	show_payrequired_window();
 
-func _on_Cunning_pressed():
+func _on_Agility_pressed():
 	get_node("Scene/TrainingWindow/Background/ChooseStat").visible = false;
-	toTrain = "Cunning";
+	toTrain = "Agility";
 	show_payrequired_window();
 
-func apply_trainer_stats(playerStats, trainer):
-	trainer["Strength"] = playerStats.strength;
-	trainer["Dexterity"] = playerStats.dexterity;
-	trainer["Endurance"] = playerStats.endurance;
-	trainer["Intelligence"] = playerStats.intelligence;
-	trainer["Willpower"] = playerStats.willpower;
-	trainer["Cunning"] = playerStats.cunning;
+func apply_trainer_stats(player, trainer):
+	trainer["Strength"] = player["Strength"];
+	trainer["Dexterity"] = player["Dexterity"];
+	trainer["Endurance"] = player["Endurance"];
+	trainer["Intelligence"] = player["Intelligence"];
+	trainer["Willpower"] = player["Willpower"];
+	trainer["Agility"] = player["Agility"];
+	scale_hp();
+	scale_sp();
+	scale_mp();
 	return trainer;
 
+func scale_hp():
+	trainer["MaxHP"] = trainer["BaseHP"] + (trainer["Endurance"] * get_node("/root/Global").healthEnduranceMod);
+	
+func scale_sp():
+	trainer["MaxSP"] = trainer["BaseSP"] + (trainer["Endurance"] * get_node("/root/Global").staminaEnduranceMod);
+
+func scale_mp():
+	trainer["MaxMP"] = trainer["BaseMP"] + (trainer["Intelligence"] * get_node("/root/Global").manaIntelligenceMod);
+	
 func apply_damage_level(playerLevel, trainer):
 	if playerLevel < 10:
 		return trainer;
@@ -191,7 +215,9 @@ func get_base_alyonis_battle(playerLevel):
 	alyonis["Level"] = playerLevel+1;
 	alyonis["Experience"] = 0;
 	alyonis["Gold"] = 0;
-	alyonis["MaxHP"] = 75;
+	alyonis["BaseHP"] = 50;
+	alyonis["BaseSP"] = 10;
+	alyonis["BaseMP"] = 0;
 	alyonis["Path"] = "res://Assets/Prefabs/BattleSystem/Enemies/Training/Alyonis_Battle.tscn";
 	alyonis["PathToAvatar"] = "res://Assets/Prefabs/GUI/Avatars/AvatarTrainerAlyonis.tscn";
 	alyonis["Name"] = "Alyonis";
@@ -206,7 +232,7 @@ func get_base_alyonis_battle(playerLevel):
 	alyonis["Endurance"] = 1;
 	alyonis["Intelligence"] = 1;
 	alyonis["Willpower"] = 1;
-	alyonis["Cunning"] = 1;
+	alyonis["Agility"] = 1;
 	alyonis["MinDamage"] = 2;
 	alyonis["MaxDamage"] = 8;
 	alyonis["AttackElement"] = "Light";
@@ -234,8 +260,8 @@ func _on_TrainButton_pressed():
 		setup_intelligence();
 	elif(toTrain == "Willpower"):
 		setup_willpower();
-	elif(toTrain == "Cunning"):
-		setup_cunning();
+	elif(toTrain == "Agility"):
+		setup_agility();
 	
 func _on_CancelButton_pressed():
 	get_node("Scene/TrainingWindow/Background/ToPay").visible = false;

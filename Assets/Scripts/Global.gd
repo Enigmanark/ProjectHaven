@@ -15,5 +15,9 @@ var char3;
 var char4;
 var char5;
 
+var healthEnduranceMod = 10;
+var staminaEnduranceMod = 2;
+var manaIntelligenceMod = 15;
+
 func _ready():
 	pass

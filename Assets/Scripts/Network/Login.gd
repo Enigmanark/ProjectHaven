@@ -133,3 +133,7 @@ func get_last_save():
 func _on_NewAccountButton_pressed():
 	get_node("Home").visible = false;
 	get_node("NewAccount").visible = true;
+
+func _on_DevLogin_pressed():
+	get_node("Home/Email").text = "johnathan.crocker@gmail.com";
+	get_node("Home/Password").text = "johnathan9!";
