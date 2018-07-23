@@ -3,8 +3,7 @@ extends Node
 func _ready():
 	pass;
 
-func player_death(stats):
-	print("Updating on player death..");
+func connect(route, data):
 	var http = HTTPClient.new();
 	var err;
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
@@ -17,104 +16,103 @@ func player_death(stats):
 	
 	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
 		print("Connected!");
-	else:
-		quit();
+
 	var headers = [
 		"Content-Type: application/json"
     ];
+	data = to_json(data);
+	err = http.request(HTTPClient.METHOD_POST, route, headers, data);
+	
+	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		# Keep polling until the request is going on
+		http.poll()
+		print("Updating Character..")
+		OS.delay_msec(get_node("/root/Global").networkDelay)
+	
+	print("response? ", http.has_response());
+	
+	var rb = PoolByteArray() # Array that will hold the data
+
+	while http.get_status() == HTTPClient.STATUS_BODY:
+		# While there is body left to be read
+		http.poll()
+		var chunk = http.read_response_body_chunk() # Get a chunk
+		if chunk.size() == 0:
+			# Got nothing, wait for buffers to fill a bit
+			OS.delay_usec(get_node("/root/Global").networkDelay)
+		else:
+			rb = rb + chunk # Append to read buffer
+	var text = rb.get_string_from_ascii()
+	return text;
+
+func get_training(stats, trainingStat):
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var character = stats;
+	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
+	var data = { "Email" : email, "Password" : password, "Character": character, "TrainingStat" : trainingStat };
+	
+	print("Getting training..");
+	var response = connect("/getTraining", data);
+	if(response == "300"):
+		print("Invalid account");
+		return false;
+	elif(response == "400"):
+		print("Could not find character");
+		return false;
+	else:
+		var json = valid_json(response);
+		if(json != null):
+			print("Character updated!");
+			load_character(json);
+			return true;
+		else:
+			print("Server error");
+			return false;
+	
+
+func player_death(stats):
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
 	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
 	var data = { "Email" : email, "Password" : password, "Character": character };
-	data = to_json(data);
-	err = http.request(HTTPClient.METHOD_POST, "/playerdie", headers, data);
 	
-	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		# Keep polling until the request is going on
-		http.poll()
-		print("Updating Character..")
-		OS.delay_msec(get_node("/root/Global").networkDelay)
-	
-	print("response? ", http.has_response());
-	
-	var rb = PoolByteArray() # Array that will hold the data
-
-	while http.get_status() == HTTPClient.STATUS_BODY:
-		# While there is body left to be read
-		http.poll()
-		var chunk = http.read_response_body_chunk() # Get a chunk
-		if chunk.size() == 0:
-			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(get_node("/root/Global").networkDelay)
-		else:
-			rb = rb + chunk # Append to read buffer
-	var text = rb.get_string_from_ascii()
-	if(text == "300"):
-		print("Somehow account data was invalid");
-	elif(text == "400"):
-		print("COULD NOT FIND CHARACTER!?");
+	print("Updating on player death..");
+	var response = connect("/playerdie", data);
+	if(response == "300"):
+		print("Invalid account");
+	elif(response == "400"):
+		print("Could not find character");
 	else:
-		print("Retrieved updated character");
-		var characterData = valid_json(text);
-		load_character(characterData);
+		var json = valid_json(response);
+		if(json != null):
+			print("Character updated!");
+			load_character(json);
+		else:
+			print("Server error");
 
 func get_reward(stats, experience, gold):
-	print("Getting reward..");
-	var http = HTTPClient.new();
-	var err;
-	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
-	# Wait until resolved and connected
-	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
-		http.poll();
-		print("Connecting..");
-		OS.delay_msec(get_node("/root/Global").networkDelay);
-	
-	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
-		print("Connected!");
-	else:
-		quit();
-	var headers = [
-		"Content-Type: application/json"
-    ];
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
 	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
-	var data = { "Email" : email, "Password" : password, "Character": character,
-		"Experience" : experience, "Gold" : gold };
-	data = to_json(data);
-	err = http.request(HTTPClient.METHOD_POST, "/updatecharacter", headers, data);
+	var data = { "Email" : email, "Password" : password, "Character": character, "Experience" : experience,
+		"Gold" : gold };
 	
-	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		# Keep polling until the request is going on
-		http.poll()
-		print("Updating Character..")
-		OS.delay_msec(get_node("/root/Global").networkDelay)
-	
-	print("response? ", http.has_response());
-	
-	var rb = PoolByteArray() # Array that will hold the data
-
-	while http.get_status() == HTTPClient.STATUS_BODY:
-		# While there is body left to be read
-		http.poll()
-		var chunk = http.read_response_body_chunk() # Get a chunk
-		if chunk.size() == 0:
-			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(get_node("/root/Global").networkDelay)
-		else:
-			rb = rb + chunk # Append to read buffer
-	var text = rb.get_string_from_ascii()
-	if(text == "300"):
-		print("Somehow account data was invalid");
-	elif(text == "400"):
-		print("COULD NOT FIND CHARACTER!?");
+	print("Getting battle reward..");
+	var response = connect("/updatecharacter", data);
+	if(response == "300"):
+		print("Invalid account");
+	elif(response == "400"):
+		print("Could not find character");
 	else:
-		print("Retrieved updated character");
-		var characterData = valid_json(text);
-		load_character(characterData);
+		var json = valid_json(response);
+		if(json != null):
+			print("Character updated!");
+			load_character(json);
+		else:
+			print("Server error");
 
 func valid_json(text):
 	print("Checking json");
@@ -126,8 +124,10 @@ func valid_json(text):
 			return data;
 		else:
 			print("Property not present");
+			return null;
 	else:
 		print("Json error");
+		return null;
 		
 func load_character(characterData):
 	print("Loading character");
@@ -154,33 +154,16 @@ func load_character(characterData):
 	stats.player["Intelligence"] = data["Intelligence"];
 	stats.player["Willpower"] = data["Willpower"];
 	stats.player["Agility"] = data["Agility"];
-	stats.player["CurrentStrength"] = data["CurrentStrength"];
-	stats.player["CurrentEndurance"] = data["CurrentEndurance"];
-	stats.player["CurrentDexterity"] = data["CurrentDexterity"]; 
-	stats.player["CurrentIntelligence"] = data["CurrentIntelligence"];
-	stats.player["CurrentWillpower"] = data["CurrentWillpower"];
-	stats.player["CurrentAgility"] = data["CurrentAgility"]; 
 	stats.player["MeleeDef"] = data["MeleeDef"];
-	stats.player["CurrentMeleeDef"] = data["CurrentMeleeDef"];
 	stats.player["RangedDef"] = data["RangedDef"];
-	stats.player["CurrentRangedDef"] = data["CurrentRangedDef"];
 	stats.player["SpellDef"] = data["SpellDef"]; 
-	stats.player["CurrentSpellDef"] = data["CurrentSpellDef"]; 
 	stats.player["Earth"] = data["Earth"];
-	stats.player["CurrentEarth"] = data["CurrentEarth"];
 	stats.player["Water"] = data["Water"];
-	stats.player["CurrentWater"] = data["CurrentWater"];
 	stats.player["Air"] = data["Air"];
-	stats.player["CurrentAir"] = data["CurrentAir"];
 	stats.player["Fire"] = data["Fire"];
-	stats.player["CurrentFire"] = data["CurrentFire"];
 	stats.player["Ice"] = data["Ice"];
-	stats.player["CurrentIce"] = data["CurrentIce"];
 	stats.player["Thunder"] = data["Thunder"];
-	stats.player["CurrentThunder"] = data["CurrentThunder"];
 	stats.player["Light"] = data["Light"];
-	stats.player["CurrentLight"] = data["CurrentLight"];
 	stats.player["Dark"] = data["Dark"];
-	stats.player["CurrentDark"] = data["CurrentDark"];
 	stats.player["CurrentWeaponID"] = data["CurrentWeaponID"];
 	get_node("/root/Inventory").load_portable_inventory(data["Inventory"]);

@@ -7,35 +7,29 @@ func _ready():
 		cost) + " to increase your " + str(stat) + ".";
 	get_node("Scene/Background/Pay?").visible = true;
 
-func increase_stat():
+func increase_stat_message():
 	var stat = get_node("/root/Global").trainingStat;
 	var playerStats = get_node("/root/PlayerStats");
 	var messageText = get_node("Scene/Background/GetStat/Message");
 	var statText = get_node("Scene/Background/GetStat/Message/Increase");
 	if(stat == "Strength"):
-			playerStats.add_strength(5);
 			messageText.text = "Your Strength has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").strength);
+			statText.text = str(get_node("/root/PlayerStats").player["Strength"]);
 	elif(stat == "Dexterity"):
-			playerStats.add_dexterity(5);
 			messageText.text = "Your Dexterity has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").dexterity);		
+			statText.text = str(get_node("/root/PlayerStats").player["Dexterity"]);
 	elif(stat == "Endurance"):
-			playerStats.add_endurance(5);
 			messageText.text = "Your Endurance has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").endurance);
+			statText.text = str(get_node("/root/PlayerStats").player["Endurance"]);
 	elif(stat == "Intelligence"):
-			playerStats.add_intelligence(5);
 			messageText.text = "Your Intelligence has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").intelligence);
+			statText.text = str(get_node("/root/PlayerStats").player["Intelligence"]);
 	elif(stat == "Willpower"):
-			playerStats.add_willpower(5);
 			messageText.text = "Your Willpower has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").willpower);
-	elif(stat == "Cunning"):
-			playerStats.add_cunning(5);
-			messageText.text = "Your Cunning has been increased to:";
-			statText.text = str(get_node("/root/PlayerStats").cunning);
+			statText.text = str(get_node("/root/PlayerStats").player["Willpower"]);
+	elif(stat == "Agility"):
+			messageText.text = "Your Agility has been increased to:";
+			statText.text = str(get_node("/root/PlayerStats").player["Agility"]);
 
 func _on_ReturnButton_pressed():
 	get_node("/root/BattleSceneManager").go_home();
@@ -46,13 +40,15 @@ func _on_CancelPayButton_pressed():
 func _on_PayButton_pressed():
 	var playerStats = get_node("/root/PlayerStats");
 	if(playerStats.has_gold(get_node("/root/Global").trainingCost)):
-		playerStats.remove_gold(get_node("/root/Global").trainingCost);
-		increase_stat();
-		playerStats.trainingPoints -= 1;
-		get_node("PlayerHUD").update_player_hud();
-		get_node("PlayerHUD/Avatar/StatWindow").update();
-		get_node("Scene/Background/GetStat").visible = true;
-		get_node("Scene/Background/Pay?").visible = false;
+		if(get_node("/root/Network").get_training(playerStats.player, get_node("/root/Global").trainingStat)):
+			get_node("PlayerHUD").update_player_hud();
+			get_node("PlayerHUD/Avatar/StatWindow").update();
+			get_node("Scene/Background/GetStat").visible = true;
+			get_node("Scene/Background/Pay?").visible = false;
+		else:
+			#Failed to save character
+			print("Failed to save character");
+			get_node("/root/BattleSceneManager").go_home();
 	else:
 		get_node("Scene/Background/NotEnough").visible = true;
 		get_node("Scene/Background/Pay?").visible = false;

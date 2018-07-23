@@ -6,80 +6,53 @@ func recover_all():
 	player["CurrentSP"] = player["MaxSP"];
 	player["CurrentHP"] = player["MaxHP"];
 
-func add_strength(amount):
-	player["Strength"] += amount;
-	player["CurrentStrength"] += amount;
-
-func add_dexterity(amount):
-	player["Dexterity"] += amount;
-	player["CurrentDexterity"] += amount;
-	
-func add_endurance(amount):
-	player["Endurance"] += amount;
-	player["CurrentEndurance"] += amount;
-	update_max_health();
-	update_max_sp();
-	
-func add_intelligence(amount):
-	player["Intelligence"] += amount;
-	player["CurrentIntelligence"] += amount;
-	update_max_mp();
-
-func add_willpower(amount):
-	player["Willpower"] += amount;
-	player["CurrentWillpower"] += amount;
-	
-func add_agility(amount):
-	player["Agility"] += amount;
-	player["CurrentAgility"] += amount;
-
 func get_dark():
-	return player["CurrentDark"];
+	return player["Dark"];
 	
 func get_light():
-	return player["CurrentLight"];
+	return player["Light"];
 	
 func get_earth():
-	return player["CurrentEarth"];
+	return player["Earth"];
 	
 func get_water():
-	return player["CurrentWater"];
+	return player["Water"];
 	
 func get_air():
-	return player["CurrentAir"];
+	return player["Air"];
 	
 func get_fire():
-	return player["CurrentFire"];
+	return player["Fire"];
 	
 func get_ice():
-	return player["CurrentIce"];
+	return player["Ice"];
 	
 func get_thunder():
-	return player["CurrentThunder"];
+	return player["Thunder"];
 
 func get_strength():
-	return player["CurrentStrength"];
+	return player["Strength"];
 
 func get_endurance():
-	return player["CurrentEndurance"];
+	return player["Endurance"];
 	
 func get_intelligence():
-	return player["CurrentIntelligence"];
+	return player["Intelligence"];
 	
 func get_willpower():
-	return player["CurrentWillpower"];
+	return player["Willpower"];
 	
 func get_agility():
-	return player["CurrentAgility"];
+	return player["Agility"];
 	
 func get_dexterity():
-	return player["CurrentDexterity"];
+	return player["Dexterity"];
 
 func get_meleeDef():
-	return player["CurrentMeleeDef"];
+	return player["MeleeDef"];
 	
 func get_rangedDef():
-	return player["CurrentRangedDef"];
+	return player["RangedDef"];
 
 func restore_health(amount):
 	player["CurrentHP"] += amount;
@@ -145,34 +118,17 @@ func init_stats():
 	player["Intelligence"] = 0;
 	player["Willpower"] = 0;
 	player["Agility"] = 0;
-	player["CurrentStrength"] = 0;
-	player["CurrentEndurance"] = 0;
-	player["CurrentDexterity"] = 0;
-	player["CurrentIntelligence"] = 0;
-	player["CurrentWillpower"] = 0;
-	player["CurrentAgility"] = 0;
 	player["MeleeDef"] = 0;
-	player["CurrentMeleeDef"] = 0;
 	player["RangedDef"] = 0;
-	player["CurrentRangedDef"] = 0;
 	player["SpellDef"] = 0;
-	player["CurrentSpellDef"] = 0;
 	player["Earth"] = 0;
-	player["CurrentEarth"] = 0;
 	player["Water"] = 0;
-	player["CurrentWater"] = 0;
 	player["Air"] = 0;
-	player["CurrentAir"] = 0;
 	player["Fire"] = 0;
-	player["CurrentFire"] = 0;
 	player["Ice"] = 0;
-	player["CurrentIce"] = 0;
 	player["Thunder"] = 0;
-	player["CurrentThunder"] = 0;
 	player["Light"] = 0;
-	player["CurrentLight"] = 0;
 	player["Dark"] = 0;
-	player["CurrentDark"] = 0;
 	player["CurrentWeaponID"] = 0;
 
 func _ready():

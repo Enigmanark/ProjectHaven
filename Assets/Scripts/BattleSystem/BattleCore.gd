@@ -59,7 +59,9 @@ func load_enemy():
 func update_enemy_hud():
 	var hpp = (float(enemyCurHP) / float(enemyMaxHP)) * float(100);
 	var spp = (float(enemyCurSP) / float(enemyMaxSP)) * float(100);
-	var mpp = (float(enemyCurMP) / float(enemyMaxMP)) * float(100);
+	var mpp = 0;
+	if(enemyMaxMP != 0):
+		mpp = (float(enemyCurMP) / float(enemyMaxMP)) * float(100);
 	enemyhud.get_node("Stats/NameBackground/Name").text = enemyName;
 	enemyhud.get_node("Stats/EnemyHPBar").value = hpp
 	enemyhud.get_node("Stats/EnemySPBar").value = spp;
@@ -193,7 +195,7 @@ func calculate_player_damage():
 	var minDamage = playerStats.get_weapon()["MinDamage"];
 	var maxDamage = playerStats.get_weapon()["MaxDamage"];
 	var baseD = rand_range(minDamage, maxDamage + 1);
-	var strength = playerStats.player["CurrentStrength"];
+	var strength = playerStats.player["Strength"];
 	#convert to decimal
 	var dec = str("0." + str(strength));
 	var mod = float(dec) * strength;

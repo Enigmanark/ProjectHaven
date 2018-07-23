@@ -24,9 +24,9 @@ func update_stats():
 	get_node("Background/Line2/Gold").text = "Gold " + str(stats.player["Gold"]);
 	
 	#Update defenses
-	get_node("Background/Line4/Melee").text = "Melee " + str(stats.player["CurrentMeleeDef"]);
-	get_node("Background/Line5/Ranged").text = "Ranged " + str(stats.player["CurrentRangedDef"]);
-	get_node("Background/Line6/Spell").text = "Spell " + str(stats.player["CurrentSpellDef"]);
+	get_node("Background/Line4/Melee").text = "Melee " + str(stats.player["MeleeDef"]);
+	get_node("Background/Line5/Ranged").text = "Ranged " + str(stats.player["RangedDef"]);
+	get_node("Background/Line6/Spell").text = "Spell " + str(stats.player["SpellDef"]);
 	
 	#Update stats
 	get_node("Background/Line7/Strength").text = "Strength " + str(stats.get_strength());
@@ -37,11 +37,11 @@ func update_stats():
 	get_node("Background/Line11/Agility").text = "Agility " + str(stats.get_agility());
 	
 	#Update elements
-	get_node("Background/Line2/Earth").text = "Earth " + str(stats.player["CurrentEarth"] * 100);
-	get_node("Background/Line3/Water").text = "Water " + str(stats.player["CurrentWater"] * 100);
-	get_node("Background/Line4/Air").text = "Air " + str(stats.player["CurrentAir"] * 100);
-	get_node("Background/Line5/Fire").text = "Fire " + str(stats.player["CurrentFire"] * 100);
-	get_node("Background/Line6/Ice").text = "Ice " + str(stats.player["CurrentIce"] * 100);
-	get_node("Background/Line7/Thunder").text = "Thunder " + str(stats.player["CurrentThunder"] * 100);
-	get_node("Background/Line8/Light").text = "Light " + str(stats.player["CurrentLight"] * 100);
-	get_node("Background/Line9/Dark").text = "Dark " + str(stats.player["CurrentDark"] * 100);
+	get_node("Background/Line2/Earth").text = "Earth " + str(stats.player["Earth"] * 100);
+	get_node("Background/Line3/Water").text = "Water " + str(stats.player["Water"] * 100);
+	get_node("Background/Line4/Air").text = "Air " + str(stats.player["Air"] * 100);
+	get_node("Background/Line5/Fire").text = "Fire " + str(stats.player["Fire"] * 100);
+	get_node("Background/Line6/Ice").text = "Ice " + str(stats.player["Ice"] * 100);
+	get_node("Background/Line7/Thunder").text = "Thunder " + str(stats.player["Thunder"] * 100);
+	get_node("Background/Line8/Light").text = "Light " + str(stats.player["Light"] * 100);
+	get_node("Background/Line9/Dark").text = "Dark " + str(stats.player["Dark"] * 100);

@@ -142,7 +142,7 @@ func setup_agility():
 	alyonis["MeleeDef"] = 25;
 	alyonis["RangedDef"] = 25;
 	alyonis["SpellDef"] = 50;
-	get_node("/root/Global").trainingStat = "Cunning";
+	get_node("/root/Global").trainingStat = "Agility";
 	get_node("/root/Global").trainingCost = cost;
 	get_node("/root/BattleSceneManager").do_battle(alyonis,
 		"res://Assets/Scenes/Training/Training_Reward.tscn");	
@@ -184,18 +184,18 @@ func apply_trainer_stats(player, trainer):
 	trainer["Intelligence"] = player["Intelligence"];
 	trainer["Willpower"] = player["Willpower"];
 	trainer["Agility"] = player["Agility"];
-	scale_hp();
-	scale_sp();
-	scale_mp();
+	scale_hp(trainer);
+	scale_sp(trainer);
+	scale_mp(trainer);
 	return trainer;
 
-func scale_hp():
+func scale_hp(trainer):
 	trainer["MaxHP"] = trainer["BaseHP"] + (trainer["Endurance"] * get_node("/root/Global").healthEnduranceMod);
 	
-func scale_sp():
+func scale_sp(trainer):
 	trainer["MaxSP"] = trainer["BaseSP"] + (trainer["Endurance"] * get_node("/root/Global").staminaEnduranceMod);
 
-func scale_mp():
+func scale_mp(trainer):
 	trainer["MaxMP"] = trainer["BaseMP"] + (trainer["Intelligence"] * get_node("/root/Global").manaIntelligenceMod);
 	
 func apply_damage_level(playerLevel, trainer):
