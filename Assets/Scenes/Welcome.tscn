@@ -12,14 +12,14 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Welcome" type="Node"]
+[node name="Welcome" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Home" type="Node2D" parent="." index="0"]
 
-position = Vector2( -369.7, -10.5161 )
-scale = Vector2( 1.4, 1 )
+position = Vector2( -361.555, -9.70161 )
+scale = Vector2( 1.3, 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="WelcomeText" type="Label" parent="Home" index="0"]
@@ -28,10 +28,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 630.0
-margin_top = 150.0
-margin_right = 723.0
-margin_bottom = 193.0
+margin_left = 660.0
+margin_top = 190.0
+margin_right = 753.0
+margin_bottom = 233.0
 rect_scale = Vector2( 5, 5 )
 rect_pivot_offset = Vector2( 85, 5.52036 )
 rect_clip_content = false
@@ -49,16 +49,43 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="SendButton" type="Button" parent="Home" index="1"]
+[node name="WelcomeText2" type="Label" parent="Home" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 535.0
+margin_top = 124.0
+margin_right = 632.0
+margin_bottom = 157.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 85, 5.52036 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Logging in could take a moment..."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="SendButton" type="Button" parent="Home" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 484.0
-margin_top = 101.0
-margin_right = 626.0
-margin_bottom = 146.0
+margin_left = 510.0
+margin_top = 99.0
+margin_right = 652.0
+margin_bottom = 144.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -74,16 +101,16 @@ text = "Login"
 flat = false
 align = 1
 
-[node name="Email" type="LineEdit" parent="Home" index="2"]
+[node name="Email" type="LineEdit" parent="Home" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 471.0
+margin_left = 460.0
 margin_top = 26.0
-margin_right = 643.0
+margin_right = 704.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -120,17 +147,17 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Password" type="LineEdit" parent="Home" index="3"]
+[node name="Password" type="LineEdit" parent="Home" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 471.0
-margin_top = 60.0
-margin_right = 642.0
-margin_bottom = 84.0
+margin_left = 459.0
+margin_top = 57.0
+margin_right = 703.0
+margin_bottom = 81.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -167,16 +194,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="NewAccountButton" type="Button" parent="Home" index="4"]
+[node name="NewAccountButton" type="Button" parent="Home" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 484.0
-margin_top = 436.0
-margin_right = 626.0
-margin_bottom = 481.0
+margin_left = 508.0
+margin_top = 435.0
+margin_right = 650.0
+margin_bottom = 480.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -192,16 +219,17 @@ text = "Create Account"
 flat = false
 align = 1
 
-[node name="DevLogin" type="Button" parent="Home" index="5"]
+[node name="DevLogin" type="Button" parent="Home" index="6"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 484.0
-margin_top = 155.0
-margin_right = 626.0
-margin_bottom = 200.0
+margin_left = 510.0
+margin_top = 153.0
+margin_right = 652.0
+margin_bottom = 198.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -255,6 +283,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="NewCharacter?" type="Node2D" parent="ChooseCharacter" index="1"]
 
 visible = false
+position = Vector2( -0.565483, 13.9665 )
 
 [node name="NameLine" type="LineEdit" parent="ChooseCharacter/NewCharacter?" index="0"]
 
@@ -333,10 +362,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 313.0
-margin_top = 421.0
-margin_right = 455.0
-margin_bottom = 466.0
+margin_left = 319.0
+margin_top = 422.0
+margin_right = 461.0
+margin_bottom = 467.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -358,10 +387,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 313.0
-margin_top = 152.0
-margin_right = 455.0
-margin_bottom = 197.0
+margin_left = 320.0
+margin_top = 154.0
+margin_right = 462.0
+margin_bottom = 199.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -383,10 +412,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 313.0
-margin_top = 204.0
-margin_right = 455.0
-margin_bottom = 249.0
+margin_left = 319.0
+margin_top = 206.0
+margin_right = 461.0
+margin_bottom = 251.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -408,10 +437,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 313.0
-margin_top = 257.0
-margin_right = 455.0
-margin_bottom = 302.0
+margin_left = 319.0
+margin_top = 260.0
+margin_right = 461.0
+margin_bottom = 305.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -433,10 +462,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 313.0
-margin_top = 312.0
-margin_right = 455.0
-margin_bottom = 357.0
+margin_left = 319.0
+margin_top = 313.0
+margin_right = 461.0
+margin_bottom = 358.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -458,9 +487,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 314.0
+margin_left = 319.0
 margin_top = 367.0
-margin_right = 456.0
+margin_right = 461.0
 margin_bottom = 412.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -479,22 +508,46 @@ align = 1
 
 [node name="NewAccount" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
-position = Vector2( -204.78, -115.998 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( -125.392, -146.136 )
+scale = Vector2( 1.3, 1.3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Email2" type="LineEdit" parent="NewAccount" index="0"]
+[node name="CancelNewAccount" type="Button" parent="NewAccount" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 315.0
-margin_top = 128.0
-margin_right = 487.0
-margin_bottom = 152.0
+margin_left = 326.0
+margin_top = 349.0
+margin_right = 468.0
+margin_bottom = 394.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Cancel"
+flat = false
+align = 1
+
+[node name="Email2" type="LineEdit" parent="NewAccount" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 268.0
+margin_top = 127.0
+margin_right = 550.0
+margin_bottom = 151.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -530,16 +583,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Password2" type="LineEdit" parent="NewAccount" index="1"]
+[node name="Password2" type="LineEdit" parent="NewAccount" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 315.0
-margin_top = 158.0
-margin_right = 487.0
-margin_bottom = 182.0
+margin_left = 268.0
+margin_top = 157.0
+margin_right = 550.0
+margin_bottom = 181.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -576,15 +629,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="VerifyPassword" type="LineEdit" parent="NewAccount" index="2"]
+[node name="VerifyPassword" type="LineEdit" parent="NewAccount" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 315.0
+margin_left = 267.0
 margin_top = 189.0
-margin_right = 487.0
+margin_right = 549.0
 margin_bottom = 213.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -622,7 +675,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="SubmitButton" type="Button" parent="NewAccount" index="3"]
+[node name="SubmitButton" type="Button" parent="NewAccount" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -666,6 +719,8 @@ align = 1
 [connection signal="pressed" from="ChooseCharacter/Char4" to="ChooseCharacter" method="_on_Char4_pressed"]
 
 [connection signal="pressed" from="ChooseCharacter/Char5" to="ChooseCharacter" method="_on_Char5_pressed"]
+
+[connection signal="pressed" from="NewAccount/CancelNewAccount" to="." method="_on_CancelNewAccount_pressed"]
 
 [connection signal="pressed" from="NewAccount/SubmitButton" to="." method="_on_SubmitButton_pressed"]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/greenSlime1.png-1d2a2a67b99973d0e49d37881c959f97.stex"
+path="res://.import/slime_earth.png-fe7308b2d654c336ac046fdcaf946857.stex"
 
 [deps]
 
-source_file="res://Assets/Prefabs/GUI/Avatars/greenSlime1.png"
-dest_files=[ "res://.import/greenSlime1.png-1d2a2a67b99973d0e49d37881c959f97.stex" ]
+source_file="res://Assets/Art/Sprites/Enemies/slime_earth.png"
+dest_files=[ "res://.import/slime_earth.png-fe7308b2d654c336ac046fdcaf946857.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
-process/premult_alpha=true
+process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0

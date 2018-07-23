@@ -137,3 +137,8 @@ func _on_NewAccountButton_pressed():
 func _on_DevLogin_pressed():
 	get_node("Home/Email").text = "johnathan.crocker@gmail.com";
 	get_node("Home/Password").text = "johnathan9!";
+
+
+func _on_CancelNewAccount_pressed():
+	get_node("Home").visible = true;
+	get_node("NewAccount").visible = false;

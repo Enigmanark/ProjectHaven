@@ -27,8 +27,8 @@ func init_items():
 	path = "res://Assets/Art/Sprites/Battle/Weapons/weapon_adventurersword.png";
 	description = "Just a simple Iron Sword, what more do you want me to say?";
 	type = "Melee";
-	minDamage = 50;
-	maxDamage = 100;
+	minDamage = 5;
+	maxDamage = 10;
 	bonusAccuracy = 0;
 	bonusCritRate = 0;
 	element = "Earth";
@@ -42,7 +42,7 @@ func init_items():
 	type = "Melee";
 	minDamage = 4;
 	maxDamage = 9;
-	bonusAccuracy = 0;
+	bonusAccuracy = 10;
 	bonusCritRate = 0;
 	element = "Water";
 	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
@@ -68,7 +68,7 @@ func init_items():
 	type = "Melee";
 	minDamage = 10;
 	maxDamage = 15;
-	bonusAccuracy = 0;
+	bonusAccuracy = 5;
 	bonusCritRate = 0;
 	element = "Ice";
 	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
@@ -96,7 +96,7 @@ func init_items():
 	minDamage = 12;
 	maxDamage = 16;
 	bonusAccuracy = 0;
-	bonusCritRate = 0;
+	bonusCritRate = 10;
 	element = "Dark";
 	makeWeapon(_name, id, path, description, type, minDamage, maxDamage, bonusAccuracy,
 		bonusCritRate, element);
