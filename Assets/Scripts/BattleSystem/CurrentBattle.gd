@@ -3,6 +3,7 @@ extends Node
 var _name;
 var level;
 var experience;
+var id;
 var gold;
 var maxHP;
 var maxSP;

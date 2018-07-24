@@ -237,7 +237,7 @@ func setup_victory_window():
 
 func get_reward():
 	var level = playerStats.player["Level"];
-	get_node("/root/Network").get_reward(playerStats.player, enemyStats.experience, enemyStats.gold);
+	get_node("/root/Network").get_reward(playerStats.player, get_node("/root/CurrentBattle").id);
 	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
 	get_parent().get_node("HUD/PlayerHUD").update_player_hud();
 	if(playerStats.player["Level"] > level):

@@ -92,13 +92,12 @@ func player_death(stats):
 		else:
 			print("Server error");
 
-func get_reward(stats, experience, gold):
+func get_reward(stats, id):
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
 	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
-	var data = { "Email" : email, "Password" : password, "Character": character, "Experience" : experience,
-		"Gold" : gold };
+	var data = { "Email" : email, "Password" : password, "Character": character, "EnemyID" : id};
 	
 	print("Getting battle reward..");
 	var response = connect("/updatecharacter", data);

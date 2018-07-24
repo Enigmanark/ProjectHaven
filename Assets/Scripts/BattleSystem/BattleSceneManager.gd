@@ -12,10 +12,9 @@ func go_to_next_scene():
 	get_tree().change_scene(nextScenePath);
 
 func do_random_battle():
-	var manager = get_node("/root/BattleManager");
-	var location = manager.get_random_location();
-	var battle = manager.get_random_enemy_from_location(location);
-	setup_battle(battle, location);
+	var manager = get_node("/root/NetworkBattleManager");
+	var battle = manager.get_random_battle();
+	setup_battle(battle);
 	nextScenePath = "res://Assets/Scenes/haven.tscn";
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
@@ -44,10 +43,11 @@ func do_battle(battle, location, next):
 	nextScenePath = next;
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	
-func setup_battle(battle, location):
+func setup_battle(battle):
 	var currentBattle = get_node("/root/CurrentBattle");
-	currentBattle.battleBackgroundPath = get_background_path(location);
+	currentBattle.battleBackgroundPath = get_background_path(battle["BattleLocation"]);
 	currentBattle.level = battle["Level"];
+	currentBattle.id = battle["ID"];
 	currentBattle.experience = battle["Experience"];
 	currentBattle.gold = battle["Gold"];
 	currentBattle.maxHP = battle["MaxHP"];
