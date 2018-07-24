@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Art/GUI/hud_avatar_background_Layer 1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/Sprites/Enemies/slime_dark.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/GUI/hud_avatar_background_Layer 0.png" type="Texture" id=3]
+
+[node name="Avatar" type="Node2D" index="0"]
+
+[node name="AvatarBackground" type="Sprite" parent="." index="0"]
+
+position = Vector2( 113.573, -40.7933 )
+scale = Vector2( 0.618005, 0.637495 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AvatarSprite" type="Sprite" parent="AvatarBackground" index="0"]
+
+position = Vector2( 28.1008, -10.5362 )
+scale = Vector2( 4.25369, 4.44851 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 4.5, 11.75, 42.25, 31.75 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="AvatarFrame" type="Sprite" parent="AvatarBackground" index="1"]
+
+texture = ExtResource( 3 )
+
+

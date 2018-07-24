@@ -38,8 +38,8 @@ func get_background_path(location):
 	elif(location == "Volcano"):
 		return("res://Assets/Art/Battle_Backgrounds/background_volcano.png");
 		
-func do_battle(battle, location, next):
-	setup_battle(battle, location);
+func do_battle(battle, next):
+	setup_battle(battle);
 	nextScenePath = next;
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	

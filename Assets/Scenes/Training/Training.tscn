@@ -10,7 +10,6 @@
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Prefabs/GUI/PlayerHUD.tscn" type="PackedScene" id=9]
 
-
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
@@ -26,7 +25,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Training" type="Node2D"]
+[node name="Training" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -590,6 +589,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="ToPay" type="Node2D" parent="Scene/TrainingWindow/Background" index="2"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 30.874, 0 )
 

@@ -60,6 +60,9 @@ func get_training(stats, trainingStat):
 	elif(response == "400"):
 		print("Could not find character");
 		return false;
+	elif(response == "502"):
+		print("Didn't have enough gold");
+		return false;
 	else:
 		var json = valid_json(response);
 		if(json != null):
