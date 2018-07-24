@@ -105,6 +105,8 @@ func get_reward(stats, id):
 		print("Invalid account");
 	elif(response == "400"):
 		print("Could not find character");
+	elif(response == "803"):
+		print("Invalid enemy ID");
 	else:
 		var json = valid_json(response);
 		if(json != null):
