@@ -76,10 +76,11 @@ func has_gold(amount):
 		return false;
 
 func equip_weapon(weapon):
-	player["CurrentWeaponID"] = weapon;
+	player["CurrentWeaponID"] = weapon["ID"];
 
 func get_weapon():
-	return get_node("/root/Weapons").get_weapon_by_id(player["CurrentWeaponID"]);
+	var inventory = get_node("/root/Inventory");
+	return inventory.get_weapon_by_id(player["CurrentWeaponID"]);
 
 func damage_health(amount):
 	player["CurrentHP"] -= amount;
@@ -129,7 +130,6 @@ func init_stats():
 	player["Thunder"] = 0;
 	player["Light"] = 0;
 	player["Dark"] = 0;
-	player["CurrentWeaponID"] = 0;
 
 func _ready():
 	init_stats();

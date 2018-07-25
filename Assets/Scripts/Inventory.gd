@@ -51,7 +51,7 @@ func add_weapon(weapon):
 		if(weapons[i] == null):
 			weapons[i] = weapon;
 			return;
-	
+
 func get_portable_inventory():
 	var weps = [];
 	weps.append(weapons[0]);
@@ -88,6 +88,12 @@ func load_portable_inventory(inv):
 	weapons[7] = weps[7];
 	weapons[8] = weps[8];
 	weapons[9] = weps[9];
+	
+func get_weapon_by_id(id):
+	for weapon in weapons:
+		if(weapon["ID"] == id):
+			return weapon;
+	return null;
 	
 func has_space_for_weapon():
 	for slot in weapons:
