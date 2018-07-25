@@ -59,8 +59,6 @@ func load_enemy():
 	enemyInst.position = Vector2(enemy_x, enemy_y);
 
 func update_enemy_hud():
-	print(enemyCurHP);
-	print(enemyCurSP);
 	var hpp = (float(enemyCurHP) / float(enemyMaxHP)) * float(100);
 	var spp = 0;
 	if(enemyMaxSP != 0):
