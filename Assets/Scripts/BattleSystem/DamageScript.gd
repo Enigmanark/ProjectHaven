@@ -45,7 +45,7 @@ func _ready():
 		get_node("AudioStreamPlayer").play();
 	elif element == "Air":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/Battle/attack_air.png");
-		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_air.wav");
+		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_wind.wav");
 		get_node("AudioStreamPlayer").volume_db = 0;
 		get_node("AudioStreamPlayer").play();
 	elif element == "Thunder":
