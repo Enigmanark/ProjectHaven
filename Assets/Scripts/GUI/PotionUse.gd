@@ -45,6 +45,8 @@ func _on_HealthPotButton_pressed():
 		if(inBattle):
 			get_node("../../../../Battle").battlePhase = true;
 			get_node("../../../../HUD/PlayerHUD").update_player_hud();
+		else:
+			get_node("../../../PlayerHUD").update_player_hud();
 			
 func _on_StaminaPotButton_pressed():
 	if(staminaPotAmount > 0):
@@ -55,6 +57,8 @@ func _on_StaminaPotButton_pressed():
 		if(inBattle):
 			get_node("../../../../../Battle").battlePhase = true;
 			get_node("../../../../HUD/PlayerHUD").update_player_hud();
+		else:
+			get_node("../../../PlayerHUD").update_player_hud();
 
 func _on_ManaPotButton_pressed():
 	if(manaPotAmount > 0):
@@ -65,6 +69,8 @@ func _on_ManaPotButton_pressed():
 		if(inBattle):
 			get_node("../../../../../Battle").battlePhase = true;
 			get_node("../../../../HUD/PlayerHUD").update_player_hud();
+		else:
+			get_node("../../../PlayerHUD").update_player_hud();
 
 
 func _on_PotionButton_pressed():
