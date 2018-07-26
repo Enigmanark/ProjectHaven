@@ -19,6 +19,28 @@ func _ready():
 	weapons.append(null);
 	weapons.append(null);
 	weapons.append(null);
+	
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	armors.append(null);
+	
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
+	shields.append(null);
 
 func refill_potions():
 	healthPotion = 2;
@@ -46,31 +68,11 @@ func get_stamina_potion_amount():
 func get_weapon_slot(slot):
 	return weapons[slot];
 	
-func add_weapon(weapon):
-	for i in range(0, weapons.size()):
-		if(weapons[i] == null):
-			weapons[i] = weapon;
-			return;
-
-func get_portable_inventory():
-	var weps = [];
-	weps.append(weapons[0]);
-	weps.append(weapons[1]);
-	weps.append(weapons[2]);
-	weps.append(weapons[3]);
-	weps.append(weapons[4]);
-	weps.append(weapons[5]);
-	weps.append(weapons[6]);
-	weps.append(weapons[7]);
-	weps.append(weapons[8]);
-	weps.append(weapons[9]);
-	var inv = {
-		"Weapons" : weps,
-		"HealthPotions" : healthPotion,
-		"ManaPotions" : manaPotion,
-		"StaminaPotions" : staminaPotion
-	};
-	return inv;
+func get_armor_slot(slot):
+	return armors[slot];
+	
+func get_shield_slot(slot):
+	return shields[slot];
 	
 func load_portable_inventory(inv):
 	healthPotion = inv["HealthPotions"];
@@ -89,14 +91,47 @@ func load_portable_inventory(inv):
 	weapons[8] = weps[8];
 	weapons[9] = weps[9];
 	
+	var shs = inv["Shields"];
+	shields[0] = shs[0];
+	shields[1] = shs[1];
+	shields[2] = shs[2];
+	shields[3] = shs[3];
+	shields[4] = shs[4];
+	shields[5] = shs[5];
+	shields[6] = shs[6];
+	shields[7] = shs[7];
+	shields[8] = shs[8];
+	shields[9] = shs[9];
+	
+	var arms = inv["Armors"];
+	armors[0] = arms[0];
+	armors[1] = arms[1];
+	armors[2] = arms[2];
+	armors[3] = arms[3];
+	armors[4] = arms[4];
+	armors[5] = arms[5];
+	armors[6] = arms[6];
+	armors[7] = arms[7];
+	armors[8] = arms[8];
+	armors[9] = arms[9];
+	
 func get_weapon_by_id(id):
 	for weapon in weapons:
-		if(weapon["ID"] == id):
-			return weapon;
+		if(weapon != null):
+			if(weapon["ID"] == id):
+				return weapon;
+	return null;
+
+func get_armor_by_id(id):
+	for armor in armors:
+		if(armor != null):
+			if(armor["ID"] == id):
+				return armor;
 	return null;
 	
-func has_space_for_weapon():
-	for slot in weapons:
-		if slot == null:
-			return true;
-	return false;
+func get_shield_by_id(id):
+	for shield in shields:
+		if(shield != null):
+			if(shield["ID"] == id):
+				return shield;
+	return null;

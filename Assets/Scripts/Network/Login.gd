@@ -87,7 +87,7 @@ func _on_SubmitButton_pressed():
 			if(http.get_status() == HTTPClient.STATUS_CONNECTED):
 				print("Connected!");
 			else:
-				quit();
+				return;
 			var headers = [
 				"User-Agent: ProjectHaven (0.4.5)",
 				"Content-Type: application/json"

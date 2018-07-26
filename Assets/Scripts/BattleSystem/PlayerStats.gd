@@ -58,11 +58,17 @@ func get_weapon_damage_type():
 	return get_weapon()["Type"];
 
 func get_bonus_accuracy():
-	return get_weapon()["BonusAccuracy"];
+	var bonus = get_weapon()["BonusAccuracy"];
+	bonus += get_armor()["BonusAccuracy"];
+	bonus += get_shield()["BonusAccuracy"];
+	return bonus;
 
 func get_bonus_crit():
-	return get_weapon()["BonusCritRate"];
-
+	var bonus = get_weapon()["BonusCritRate"];
+	bonus += get_armor()["BonusCrit"];
+	bonus += get_shield()["BonusCrit"];
+	return bonus;
+	
 func restore_health(amount):
 	player["CurrentHP"] += amount;
 	if(player["CurrentHP"] > player["MaxHP"]):
@@ -90,6 +96,14 @@ func equip_weapon(weapon):
 func get_weapon():
 	var inventory = get_node("/root/Inventory");
 	return inventory.get_weapon_by_id(player["CurrentWeaponID"]);
+
+func get_armor():
+	var inventory = get_node("/root/Inventory");
+	return inventory.get_armor_by_id(player["CurrentArmorID"]);
+
+func get_shield():
+	var inventory = get_node("/root/Inventory");
+	return inventory.get_shield_by_id(player["CurrentShieldID"]);
 
 func damage_health(amount):
 	player["CurrentHP"] -= amount;
