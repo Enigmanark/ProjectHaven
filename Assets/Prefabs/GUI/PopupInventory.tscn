@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Art/GUI/button_battle.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=9]
 
 size = 10
 use_mipmaps = false
@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=8]
 
 size = 10
 use_mipmaps = false
@@ -23,7 +23,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="PopupInventory" type="Node2D"]
 
-editor/display_folded = true
 visible = false
 
 [node name="InventoryBackground" type="TextureRect" parent="." index="0"]
@@ -91,7 +90,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -162,7 +161,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -234,7 +233,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -306,7 +305,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -377,7 +376,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -448,7 +447,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -520,7 +519,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -592,7 +591,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -663,7 +662,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -736,7 +735,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iron Sword"
 valign = 1
@@ -828,7 +827,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 8 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
 bbcode_text = "Just a basic Iron Sword, what else do you want me to say?"
@@ -849,10 +848,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 12.0
-margin_top = 88.0
-margin_right = 90.0
-margin_bottom = 109.0
+margin_left = 13.0
+margin_top = 101.0
+margin_right = 91.0
+margin_bottom = 122.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -860,7 +859,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Melee Weapon"
 align = 1
@@ -871,16 +870,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="DamageText" type="Label" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="2"]
+[node name="BonusAccText" type="Label" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 13.0
-margin_top = 102.0
-margin_right = 91.0
-margin_bottom = 123.0
+margin_left = -2.0
+margin_top = 73.0
+margin_right = 110.0
+margin_bottom = 94.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -888,7 +888,64 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+10 Accuracy"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="BonusCritText" type="Label" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 83.0
+margin_right = 111.0
+margin_bottom = 104.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+10 Crit Rate"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="DamageText" type="Label" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 114.0
+margin_right = 91.0
+margin_bottom = 135.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "5 - 10 Earth"
 align = 1
@@ -899,16 +956,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="EquipButton" type="TextureButton" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="3"]
+[node name="EquipButton" type="TextureButton" parent="InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 21.0
-margin_top = 63.0
+margin_top = 54.0
 margin_right = 69.0
-margin_bottom = 103.0
+margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -940,7 +997,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Equip"
 align = 1
 valign = 1

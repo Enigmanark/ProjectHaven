@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Scripts/BattleSystem/BattleCore.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesets/haven_tileset.tres" type="TileSet" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Scripts/GUI/EquipmentWindow.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -81,12 +82,21 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="DynamicFont" id=9]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
 [node name="BattleScene" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
 [node name="Battle" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -130,10 +140,11 @@ position = Vector2( 274.361, 62.2727 )
 
 [node name="Player" parent="Battle" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 107.368, 204.54 )
+position = Vector2( 119.13, 204.54 )
 
 [node name="BattleMenu" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 532.868, 324.063 )
 scale = Vector2( 2.86, 2.8 )
 z_index = 2
@@ -296,6 +307,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="TopMenu" type="Node2D" parent="BattleMenu" index="3"]
 
+editor/display_folded = true
 position = Vector2( -224.438, -114.944 )
 z_index = 3
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -531,6 +543,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="PotionPopupWindow" type="Node2D" parent="BattleMenu/TopMenu/BattlePotionButton" index="0"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 10.9922, 31.9711 )
 script = ExtResource( 10 )
@@ -1014,6 +1027,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="EquipmentWindow" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 scale = Vector2( 2.5, 2.5 )
 z_index = 3
 script = ExtResource( 15 )
@@ -1023,7 +1037,6 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PopupInventory" type="Node2D" parent="EquipmentWindow/PopupEquipmentContainer" index="0"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( -90.2695, 14.9959 )
 
@@ -1850,10 +1863,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 12.0
-margin_top = 88.0
-margin_right = 90.0
-margin_bottom = 109.0
+margin_left = 13.0
+margin_top = 101.0
+margin_right = 91.0
+margin_bottom = 122.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1861,7 +1874,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Melee Weapon"
 align = 1
@@ -1872,16 +1885,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="DamageText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="2"]
+[node name="BonusAccText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 13.0
-margin_top = 102.0
-margin_right = 91.0
-margin_bottom = 123.0
+margin_left = -2.0
+margin_top = 73.0
+margin_right = 110.0
+margin_bottom = 94.0
 rect_scale = Vector2( 0.9, 0.9 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1889,7 +1903,64 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+10 Accuracy"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="BonusCritText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 83.0
+margin_right = 111.0
+margin_bottom = 104.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+10 Crit Rate"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="DamageText" type="Label" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 114.0
+margin_right = 91.0
+margin_bottom = 135.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "5 - 10 Earth"
 align = 1
@@ -1900,16 +1971,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="EquipButton" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="3"]
+[node name="EquipButton" type="TextureButton" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 21.0
-margin_top = 63.0
+margin_top = 54.0
 margin_right = 69.0
-margin_bottom = 103.0
+margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1941,7 +2012,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "Equip"
 align = 1
 valign = 1
@@ -1950,6 +2021,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Screen" parent="." index="5" instance=ExtResource( 17 )]
 
 [connection signal="pressed" from="BattleMenu/AttackButton" to="BattleMenu/AttackButton" method="_on_AttackButton_pressed"]
 

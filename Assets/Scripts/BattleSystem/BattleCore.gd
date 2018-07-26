@@ -76,12 +76,20 @@ func update_enemy_hud():
 
 func do_enemy_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	if calculate_if_hit("Melee", enemyStats, playerStats):	
+	var type = enemyStats.get_weapon_damage_type();
+	if calculate_if_hit(type, enemyStats, playerStats):	
 		var baseDamage = int(calculate_enemy_damage());
 		var damage = int(calculate_element_damage(enemyStats.attackElement, baseDamage, playerStats));
 		var floatD = floatDSc.instance();
-		floatD.damage = damage;
-		floatD.element = enemyStats.attackElement;
+		floatD.type = type;
+		if(is_critical(enemyStats, damage)):
+			damage = damage * 2;
+			floatD.damage = damage;
+			floatD.element = enemyStats.attackElement;
+			floatD.critical = true;
+		else:
+			floatD.damage = damage;
+			floatD.element = enemyStats.attackElement;
 		get_node("Player").add_child(floatD);
 		playerStats.damage_health(damage);
 		get_node("../HUD/PlayerHUD").update_player_hud();
@@ -113,6 +121,8 @@ func calculate_element_damage(element, damage, defender):
 		return damage * defender.get_dark();
 
 func calculate_if_hit(attackType, attacker, defender):
+	if(attackType == "Magic"):
+		return true;
 	randomize();
 	var def;
 	var baseAcc;
@@ -127,24 +137,42 @@ func calculate_if_hit(attackType, attacker, defender):
 	elif attackType == "Ranged":
 		def = defender.get_rangedDef();
 		baseAcc = 95;
-		bonusAcc = aD / 10
+		bonusAcc = (aD / 10) + attacker.get_bonus_accuracy();
 		accuracy = (baseAcc + bonusAcc) - def;
-	var roll = rand_range(1, 100);
+	var roll = rand_range(1, 101);
 	if roll <= accuracy:
 		return true;
 	else:
 		return false;
 
+func is_critical(stats, damage):
+	var baseCrit = int((stats.get_dexterity() / 8));
+	print(baseCrit);
+	var critRate = baseCrit + stats.get_bonus_crit();
+	var rand = rand_range(1, 101);
+	if(rand <= critRate):
+		return true
+	else:
+		return false
+
 func do_player_attack():
 	var floatDSc = load("res://Assets/Prefabs/BattleSystem/FloatingDamage.tscn");
-	if calculate_if_hit("Melee", playerStats, enemyStats):
+	var type = playerStats.get_weapon_damage_type();
+	if calculate_if_hit(type, playerStats, enemyStats):
 		var baseDamage = calculate_player_damage();
 		var element = playerStats.get_weapon()["Element"];
 		var damage = int(calculate_element_damage(element, baseDamage, enemyStats));
 		enemyCurHP -= damage;
 		var floatD = floatDSc.instance();
-		floatD.damage = damage;
-		floatD.element = element;
+		floatD.type = type;
+		if(is_critical(playerStats, damage)):
+			damage = damage * 2;
+			floatD.damage = damage;
+			floatD.element = element;
+			floatD.critical = true;
+		else:
+			floatD.damage = damage;
+			floatD.element = element;
 		enemyInst.add_child(floatD);
 		if(enemyCurHP <= 0):
 			enemyCurHP = 0;

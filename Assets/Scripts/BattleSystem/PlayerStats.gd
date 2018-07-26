@@ -54,6 +54,15 @@ func get_meleeDef():
 func get_rangedDef():
 	return player["RangedDef"];
 
+func get_weapon_damage_type():
+	return get_weapon()["Type"];
+
+func get_bonus_accuracy():
+	return get_weapon()["BonusAccuracy"];
+
+func get_bonus_crit():
+	return get_weapon()["BonusCritRate"];
+
 func restore_health(amount):
 	player["CurrentHP"] += amount;
 	if(player["CurrentHP"] > player["MaxHP"]):

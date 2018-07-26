@@ -105,7 +105,23 @@ func _on_Slot1Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot1["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot1["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot1["MinDamage"]) + " - " + str(weaponSlot1["MaxDamage"]) + " " + str(weaponSlot1["Element"]);
-
+		if(weaponSlot1["BonusAccuracy"] != null):
+			if(weaponSlot1["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot1["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot1["BonusCritRate"] != null):
+			if(weaponSlot1["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot1["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		
 func _on_Slot2Button_pressed():
 	var inventory = get_node("/root/Inventory");
 	var weaponSlot2 = inventory.get_weapon_slot(1);
@@ -116,7 +132,22 @@ func _on_Slot2Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot2["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot2["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot2["MinDamage"]) + " - " + str(weaponSlot2["MaxDamage"]) + " " + str(weaponSlot2["Element"]);
-
+		if(weaponSlot2["BonusAccuracy"] != null):
+			if(weaponSlot2["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot2["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot2["BonusCritRate"] != null):
+			if(weaponSlot2["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot2["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot3Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -128,7 +159,22 @@ func _on_Slot3Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot3["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot3["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot3["MinDamage"]) + " - " + str(weaponSlot3["MaxDamage"]) + " " + str(weaponSlot3["Element"]);
-
+		if(weaponSlot3["BonusAccuracy"] != null):
+			if(weaponSlot3["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot3["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot3["BonusCritRate"] != null):
+			if(weaponSlot3["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot3["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot4Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -140,7 +186,22 @@ func _on_Slot4Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot4["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot4["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot4["MinDamage"]) + " - " + str(weaponSlot4["MaxDamage"]) + " " + str(weaponSlot4["Element"]);
-
+		if(weaponSlot4["BonusAccuracy"] != null):
+			if(weaponSlot4["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot4["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot4["BonusCritRate"] != null):
+			if(weaponSlot4["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot4["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot5Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -152,7 +213,22 @@ func _on_Slot5Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot5["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot5["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot5["MinDamage"]) + " - " + str(weaponSlot5["MaxDamage"]) + " " + str(weaponSlot5["Element"]);
-
+		if(weaponSlot5["BonusAccuracy"] != null):
+			if(weaponSlot5["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot5["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot5["BonusCritRate"] != null):
+			if(weaponSlot5["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot5["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot6Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -164,7 +240,22 @@ func _on_Slot6Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot6["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot6["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot6["MinDamage"]) + " - " + str(weaponSlot6["MaxDamage"]) + " " + str(weaponSlot6["Element"]);
-
+		if(weaponSlot6["BonusAccuracy"] != null):
+			if(weaponSlot6["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot6["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot6["BonusCritRate"] != null):
+			if(weaponSlot6["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot6["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot7Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -176,7 +267,22 @@ func _on_Slot7Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot7["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot7["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot7["MinDamage"]) + " - " + str(weaponSlot7["MaxDamage"]) + " " + str(weaponSlot7["Element"]);
-
+		if(weaponSlot7["BonusAccuracy"] != null):
+			if(weaponSlot7["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot7["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot7["BonusCritRate"] != null):
+			if(weaponSlot7["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot7["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot8Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -188,7 +294,22 @@ func _on_Slot8Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot8["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot8["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot8["MinDamage"]) + " - " + str(weaponSlot8["MaxDamage"]) + " " + str(weaponSlot8["Element"]);
-
+		if(weaponSlot8["BonusAccuracy"] != null):
+			if(weaponSlot8["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot8["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot8["BonusCritRate"] != null):
+			if(weaponSlot8["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot8["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot9Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -200,7 +321,22 @@ func _on_Slot9Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot9["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot9["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot9["MinDamage"]) + " - " + str(weaponSlot9["MaxDamage"]) + " " + str(weaponSlot9["Element"]);
-
+		if(weaponSlot9["BonusAccuracy"] != null):
+			if(weaponSlot9["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot9["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot9["BonusCritRate"] != null):
+			if(weaponSlot9["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot9["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func _on_Slot10Button_pressed():
 	var inventory = get_node("/root/Inventory");
@@ -212,6 +348,22 @@ func _on_Slot10Button_pressed():
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/ItemDescription").text = weaponSlot10["Description"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/TypeText").text = weaponSlot10["Type"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/DamageText").text = str(weaponSlot10["MinDamage"]) + " - " + str(weaponSlot10["MaxDamage"]) + " " + str(weaponSlot10["Element"]);
+		if(weaponSlot10["BonusAccuracy"] != null):
+			if(weaponSlot10["BonusAccuracy"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").text = "+" + str(weaponSlot10["BonusAccuracy"]) + " Accuracy";
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = true;
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusAccText").visible = false;
+		if(weaponSlot10["BonusCritRate"] != null):
+			if(weaponSlot10["BonusCritRate"] > 0):
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = true;
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").text = "+" + str(weaponSlot10["BonusCritRate"]) + " Crit Rate";
+			else:
+				get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
+		else:
+			get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/BonusCritText").visible = false;
 
 func is_already_equipped(weaponSlot):
 	var playerWeaponID = get_node("/root/PlayerStats").get_weapon()["ID"];

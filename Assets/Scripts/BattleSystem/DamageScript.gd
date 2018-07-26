@@ -1,23 +1,39 @@
 extends Node2D
 
 var damage;
+var type;
 var element;
 var speed = 25;
+var critical = false;
 
 func _ready():
-	get_node("Text").text = str(damage);
 	if(str(damage) == "Miss!"):
+		get_node("Type").text = "";
+		get_node("Text").text = str(damage);
 		get_node("Element").visible = false;
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/miss.wav");
 		get_node("AudioStreamPlayer").volume_db = -3;
 		get_node("AudioStreamPlayer").play();
 		return;
 	elif(str(damage) == "Level Up!"):
+		get_node("Type").text = "";
+		get_node("Text").text = str(damage);
 		get_node("Element").visible = false;
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_light.wav");
 		get_node("AudioStreamPlayer").volume_db = 0;
 		get_node("AudioStreamPlayer").play();
 		return;
+	else:
+		if(critical):
+			get_node("Type").text = type;
+			get_node("Text").text = str(damage) + "!!";
+			get_node("Type").add_color_override("font_color", ColorN("yellow", 1));
+			get_node("Text").add_color_override("font_color", ColorN("yellow", 1));
+		else:
+			get_node("Type").text = type;
+			get_node("Text").text = str(damage) + " ";
+			get_node("Type").add_color_override("font_color", ColorN("white", 1));
+			get_node("Text").add_color_override("font_color", ColorN("white",1));
 	if element == "Earth":
 		get_node("Element").texture = load("res://Assets/Art/Sprites/Battle/attack_earth.png");
 		get_node("AudioStreamPlayer").stream = load("res://Assets/Audio/attack_earth.wav");

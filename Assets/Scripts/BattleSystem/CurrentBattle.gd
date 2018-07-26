@@ -31,6 +31,9 @@ var willpower;
 var agility;
 var pathToAvatar;
 var battleBackgroundPath;
+var bonusAccuracy;
+var bonusCrit;
+var damageType;
 
 func _ready():
 	pass
@@ -85,3 +88,12 @@ func get_ice():
 	
 func get_thunder():
 	return thunder;
+	
+func get_bonus_accuracy():
+	return bonusAccuracy;
+
+func get_weapon_damage_type():
+	return damageType;
+
+func get_bonus_crit():
+	return bonusCrit;

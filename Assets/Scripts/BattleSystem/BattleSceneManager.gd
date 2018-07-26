@@ -54,6 +54,9 @@ func setup_battle(battle):
 	currentBattle.maxMP = battle["MaxMP"];
 	currentBattle.maxSP = battle["MaxSP"];
 	currentBattle._name = battle["Name"];
+	currentBattle.damageType = battle["DamageType"];
+	currentBattle.bonusAccuracy = battle["BonusAccuracy"];
+	currentBattle.bonusCrit = battle["BonusCrit"];
 	currentBattle.minDamage = battle["MinDamage"];
 	currentBattle.maxDamage = battle["MaxDamage"];
 	currentBattle.attackElement = battle["AttackElement"];
