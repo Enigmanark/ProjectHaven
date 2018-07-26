@@ -91,7 +91,13 @@ func has_gold(amount):
 		return false;
 
 func equip_weapon(weapon):
-	player["CurrentWeaponID"] = weapon["ID"];
+	player["CurrentWeaponID"] = weapon["Equip"]["ID"];
+
+func equip_shield(shield):
+	player["CurrentShieldID"] = shield["Equip"]["ID"];
+	
+func equip_armor(armor):
+	player["CurrentArmorID"] = armor["Equip"]["ID"];
 
 func get_weapon():
 	var inventory = get_node("/root/Inventory");

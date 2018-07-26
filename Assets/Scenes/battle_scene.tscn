@@ -144,7 +144,6 @@ position = Vector2( 119.13, 204.54 )
 
 [node name="BattleMenu" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( 532.868, 324.063 )
 scale = Vector2( 2.86, 2.8 )
 z_index = 2
@@ -307,7 +306,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="TopMenu" type="Node2D" parent="BattleMenu" index="3"]
 
-editor/display_folded = true
 position = Vector2( -224.438, -114.944 )
 z_index = 3
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -1042,6 +1040,7 @@ position = Vector2( -90.2695, 14.9959 )
 
 [node name="InventoryBackground" type="TextureRect" parent="EquipmentWindow/PopupEquipmentContainer/PopupInventory" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -2031,6 +2030,10 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [connection signal="pressed" from="BattleMenu/TopMenu/BattleWeaponButton" to="EquipmentWindow" method="_on_BattleWeaponButton_pressed"]
 
 [connection signal="pressed" from="BattleMenu/TopMenu/BattleCloseButton" to="EquipmentWindow" method="_on_BattleCloseButton_pressed"]
+
+[connection signal="pressed" from="BattleMenu/TopMenu/BattleArmorButton" to="EquipmentWindow" method="_on_BattleArmorButton_pressed"]
+
+[connection signal="pressed" from="BattleMenu/TopMenu/BattleShieldButton" to="EquipmentWindow" method="_on_BattleShieldButton_pressed"]
 
 [connection signal="pressed" from="BattleMenu/TopMenu/BattlePotionButton" to="BattleMenu/TopMenu/BattlePotionButton/PotionPopupWindow" method="_on_BattlePotionButton_pressed"]
 

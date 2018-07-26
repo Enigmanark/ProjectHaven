@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Art/Sprites/Characters/Armors/armor_adventurer.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Art/Sprites/Characters/Heads/base_head.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/Sprites/Characters/Hair/hair_brown_short.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Art/Sprites/Characters/Armors/armor_adventurer_arm.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Art/Sprites/Battle/Weapons/weapon_adventurersword.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_attack.tres" type="Animation" id=6]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_double_attack.tres" type="Animation" id=7]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_idle.tres" type="Animation" id=8]
-[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_triple_attack.tres" type="Animation" id=9]
-[ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Scripts/BattleSystem/MoveAndAttack.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Shields/shield_adventurer.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Armors/armor_adventurer.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Heads/base_head.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Hair/hair_brown_short.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Armors/armor_adventurer_arm.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Sprites/Battle/Weapons/weapon_adventurersword.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_attack.tres" type="Animation" id=7]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_double_attack.tres" type="Animation" id=8]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_idle.tres" type="Animation" id=9]
+[ext_resource path="res://Assets/Prefabs/BattleSystem/Players/player_triple_attack.tres" type="Animation" id=10]
+[ext_resource path="res://Assets/Scripts/BattleSystem/PlayAnimation.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Scripts/BattleSystem/MoveAndAttack.gd" type="Script" id=12]
 
 [node name="Player1" type="Node2D"]
 
@@ -18,33 +19,36 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Node2D" parent="." index="0"]
 
-position = Vector2( 0, -0.487165 )
-scale = Vector2( 3.73907, 4.6 )
+scale = Vector2( 3.7, 4.6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Armor" type="Sprite" parent="Sprite" index="0"]
+[node name="Shield" type="Sprite" parent="Sprite" index="0"]
 
-scale = Vector2( 1, 1 )
+position = Vector2( 16.1219, -3.5058 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Head" type="Sprite" parent="Sprite" index="1"]
+[node name="Armor" type="Sprite" parent="Sprite" index="1"]
 
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 
-[node name="Hair" type="Sprite" parent="Sprite" index="2"]
+[node name="Head" type="Sprite" parent="Sprite" index="2"]
 
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
+
+[node name="Hair" type="Sprite" parent="Sprite" index="3"]
+
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="PlayerArm" type="Sprite" parent="Sprite" index="3"]
+[node name="PlayerArm" type="Sprite" parent="Sprite" index="4"]
 
+editor/display_folded = true
 position = Vector2( -12.1692, -3.8974 )
 rotation = 0.843961
-scale = Vector2( 1, 1 )
 z_index = 2
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 offset = Vector2( -11, -20 )
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -53,7 +57,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 position = Vector2( 7.25556, -26.0449 )
 z_as_relative = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
@@ -63,18 +67,18 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 2.0
-anims/player_attack = ExtResource( 6 )
-anims/player_double_attack = ExtResource( 7 )
-anims/player_idle = ExtResource( 8 )
-anims/player_triple_attack = ExtResource( 9 )
+anims/player_attack = ExtResource( 7 )
+anims/player_double_attack = ExtResource( 8 )
+anims/player_idle = ExtResource( 9 )
+anims/player_triple_attack = ExtResource( 10 )
 blend_times = [  ]
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Playback Options" ]
 animName = "player_idle"
 
 [node name="MoveAndAttack" type="Node" parent="." index="2"]
 
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 timeToMove = 1
 speed = 360
 

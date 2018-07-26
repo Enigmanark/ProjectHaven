@@ -42,7 +42,13 @@ func _ready():
 func load_player():
 	var weaponPath = get_node("/root/PlayerStats").get_weapon()["Path"];
 	get_node("Player/Sprite/PlayerArm/weapon").texture = load(weaponPath);
-
+	var armorPath = get_node("/root/PlayerStats").get_armor()["Path"];
+	var armPath = get_node("/root/PlayerStats").get_armor()["ArmPath"];
+	get_node("Player/Sprite/PlayerArm").texture = load(armPath);
+	get_node("Player/Sprite/Armor").texture = load(armorPath);
+	var shieldPath = get_node("/root/PlayerStats").get_shield()["Path"];
+	get_node("Player/Sprite/Shield").texture = load(shieldPath);
+	
 func load_enemy():
 	var enemy_x = get_node("Foe/Enemy").position.x;
 	var enemy_y = get_node("Foe/Enemy").position.y;

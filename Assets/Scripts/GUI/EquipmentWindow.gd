@@ -454,7 +454,13 @@ func is_already_equipped(select):
 
 func _on_EquipButton_pressed():
 	if(canEquip):
-		get_node("/root/PlayerStats").equip_weapon(selectedWeapon);
+		if(selected["Type"] == "Weapon"):
+			get_node("/root/PlayerStats").equip_weapon(selected);
+		elif(selected["Type"] == "Shield"):
+			get_node("/root/PlayerStats").equip_shield(selected);
+		elif(selected["Type"] == "Armor"):
+			get_node("/root/PlayerStats").equip_armor(selected);
+		
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
 		if(inBattle):
 			get_node("../Battle").load_player();
@@ -467,3 +473,15 @@ func _on_BattleWeaponButton_pressed():
 func _on_BattleCloseButton_pressed():
 	get_node("PopupEquipmentContainer/PopupInventory").visible = false;
 	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = false;
+
+
+func _on_BattleArmorButton_pressed():
+	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = true;
+	inBattle = true;
+	_on_ArmorButton_pressed();
+
+
+func _on_BattleShieldButton_pressed():
+	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = true;
+	inBattle = true;
+	_on_ShieldButton_pressed();
