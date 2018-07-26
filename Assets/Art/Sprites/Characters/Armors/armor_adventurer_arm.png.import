@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test_sword.png-2e4cf1dac8f1de00b5da7af5ac5247c7.stex"
+path="res://.import/armor_adventurer_arm.png-034af6734e77928bb01a18e378289774.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Battle/Weapons/test_sword.png"
-dest_files=[ "res://.import/test_sword.png-2e4cf1dac8f1de00b5da7af5ac5247c7.stex" ]
+source_file="res://Assets/Art/Sprites/Characters/Armors/armor_adventurer_arm.png"
+dest_files=[ "res://.import/armor_adventurer_arm.png-034af6734e77928bb01a18e378289774.stex" ]
 
 [params]
 

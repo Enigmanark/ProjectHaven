@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test_character_battle_Layer 1.png-c8f3783e4bb2a15f3cf82c57081a8b75.stex"
+path="res://.import/shield_adventurer.png-90c7ecedceceb7927f0f254749c37cdd.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Characters/test_character_battle_Layer 1.png"
-dest_files=[ "res://.import/test_character_battle_Layer 1.png-c8f3783e4bb2a15f3cf82c57081a8b75.stex" ]
+source_file="res://Assets/Art/Sprites/Characters/Shields/shield_adventurer.png"
+dest_files=[ "res://.import/shield_adventurer.png-90c7ecedceceb7927f0f254749c37cdd.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

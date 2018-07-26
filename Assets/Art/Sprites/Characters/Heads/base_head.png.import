@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test_character_battle_Layer 0.png-065b08911c4b92f3f17d978c8b193d51.stex"
+path="res://.import/base_head.png-f2d29f48614e26b55ab829b5152b449c.stex"
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Characters/test_character_battle_Layer 0.png"
-dest_files=[ "res://.import/test_character_battle_Layer 0.png-065b08911c4b92f3f17d978c8b193d51.stex" ]
+source_file="res://Assets/Art/Sprites/Characters/Heads/base_head.png"
+dest_files=[ "res://.import/base_head.png-f2d29f48614e26b55ab829b5152b449c.stex" ]
 
 [params]
 
