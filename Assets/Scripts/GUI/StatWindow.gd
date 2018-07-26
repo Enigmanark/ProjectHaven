@@ -24,8 +24,12 @@ func update_stats():
 	get_node("Background/Line2/Gold").text = "Gold " + str(stats.player["Gold"]);
 	
 	#Update defenses
-	get_node("Background/Line4/Melee").text = "Melee " + str(stats.player["MeleeDef"]);
-	get_node("Background/Line5/Ranged").text = "Ranged " + str(stats.player["RangedDef"]);
+	var bonusMelee = int(stats.get_agility() * get_node("/root/Global").meleeDefAgilityMod);
+	var meleeDef = stats.player["MeleeDef"] + bonusMelee;
+	get_node("Background/Line4/Melee").text = "Melee " + str(meleeDef);
+	var bonusRanged = int(stats.get_agility() * get_node("/root/Global").rangedDefAgilityMod);
+	var rangedDef = stats.player["RangedDef"] + bonusRanged;
+	get_node("Background/Line5/Ranged").text = "Ranged " + str(rangedDef);
 	get_node("Background/Line6/Spell").text = "Spell " + str(stats.player["SpellDef"]);
 	
 	#Update stats

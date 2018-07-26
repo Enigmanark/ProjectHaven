@@ -10,6 +10,7 @@ export(float) var speed = 360;
 var inPosition = false;
 var playedAttackAnim = false;
 var player;
+var attack = "Single";
 
 func _ready():
 	player = get_parent();
@@ -21,8 +22,15 @@ func _process(delta):
 		get_node("../AnimationPlayer").doPlay = false;
 		if(get_node("../AnimationPlayer").current_animation != "player_idle"):
 			if(!playedAttackAnim):
-				get_node("../AnimationPlayer").play("player_attack");
-				playedAttackAnim = true;
+				if(attack == "Single"):
+						get_node("../AnimationPlayer").play("player_attack");
+						playedAttackAnim = true;
+				elif(attack == "Double"):
+						get_node("../AnimationPlayer").play("player_double_attack");
+						playedAttackAnim = true;
+				elif(attack == "Triple"):
+						get_node("../AnimationPlayer").play("player_triple_attack");
+						playedAttackAnim = true;
 			player.position = Vector2(player.position.x + (float(speed) * delta), player.position.y);
 			timer += delta;
 			if timer >= timeToMove:

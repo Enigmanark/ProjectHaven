@@ -3,7 +3,7 @@ extends Node2D
 var damage;
 var type;
 var element;
-var speed = 25;
+var speed = 35;
 var critical = false;
 
 func _ready():

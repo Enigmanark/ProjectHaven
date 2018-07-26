@@ -131,11 +131,13 @@ func calculate_if_hit(attackType, attacker, defender):
 	var aD = attacker.get_dexterity();
 	if(attackType == "Melee"):
 		def = defender.get_meleeDef();
+		def = def + (defender.get_agility() * get_node("/root/Global").meleeDefAgilityMod);
 		baseAcc = 95;
 		bonusAcc = aD / 10
 		accuracy = (baseAcc + bonusAcc) - def;
 	elif attackType == "Ranged":
 		def = defender.get_rangedDef();
+		def = def + (defender.get_agility() * get_node("/root/Global").rangedDefAgilityMod);
 		baseAcc = 95;
 		bonusAcc = (aD / 10) + attacker.get_bonus_accuracy();
 		accuracy = (baseAcc + bonusAcc) - def;
@@ -147,7 +149,6 @@ func calculate_if_hit(attackType, attacker, defender):
 
 func is_critical(stats, damage):
 	var baseCrit = int((stats.get_dexterity() / 8));
-	print(baseCrit);
 	var critRate = baseCrit + stats.get_bonus_crit();
 	var rand = rand_range(1, 101);
 	if(rand <= critRate):
@@ -182,7 +183,7 @@ func do_player_attack():
 		var miss = floatDSc.instance();
 		miss.damage = "Miss!";
 		enemyInst.add_child(miss);
-
+		
 #Overarching battle logic
 func _process(delta):		
 	var enemyLogic = enemyInst.get_node("AttackLogic");
