@@ -91,7 +91,6 @@ func _on_ArmorButton_pressed():
 	weaponsSelected = false;
 	shieldSelected = false;
 	var inventory = get_node("/root/Inventory");
-	print(inventory.get_armor_by_id(2));
 	var armorSlot1 = inventory.get_armor_slot(0);
 	var armorSlot2 = inventory.get_armor_slot(1);
 	var armorSlot3 = inventory.get_armor_slot(2);
@@ -106,7 +105,6 @@ func _on_ArmorButton_pressed():
 		var name = armorSlot1["Name"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot1/Slot1Background/Slot1Name").text = name;
 	if(armorSlot2 != null):
-		print("Armor slot2 is not null");
 		var name = armorSlot2["Name"];
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/SlotContainer/Slot2/Slot2Background/Slot2Name").text = name;
 	else:
