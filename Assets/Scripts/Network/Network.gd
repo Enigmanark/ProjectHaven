@@ -99,7 +99,7 @@ func get_reward(stats, id):
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
-	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
+	character["Inventory"] = get_node("/root/Inventory").get_items();
 	var data = { "Email" : email, "Password" : password, "Character": character, "EnemyID" : id};
 	
 	print("Getting battle reward..");
@@ -158,17 +158,6 @@ func load_character(characterData):
 	stats.player["Intelligence"] = data["Intelligence"];
 	stats.player["Willpower"] = data["Willpower"];
 	stats.player["Agility"] = data["Agility"];
-	stats.player["MeleeDef"] = data["MeleeDef"];
-	stats.player["RangedDef"] = data["RangedDef"];
-	stats.player["SpellDef"] = data["SpellDef"]; 
-	stats.player["Earth"] = data["Earth"];
-	stats.player["Water"] = data["Water"];
-	stats.player["Air"] = data["Air"];
-	stats.player["Fire"] = data["Fire"];
-	stats.player["Ice"] = data["Ice"];
-	stats.player["Thunder"] = data["Thunder"];
-	stats.player["Light"] = data["Light"];
-	stats.player["Dark"] = data["Dark"];
 	stats.player["CurrentWeaponID"] = data["CurrentWeaponID"];
 	stats.player["CurrentShieldID"] = data["CurrentShieldID"];
 	stats.player["CurrentArmorID"] = data["CurrentArmorID"];

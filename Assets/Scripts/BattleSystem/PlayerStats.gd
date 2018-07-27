@@ -7,28 +7,52 @@ func recover_all():
 	player["CurrentHP"] = player["MaxHP"];
 
 func get_dark():
-	return player["Dark"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Dark"]);
+	element = float(element) - float(get_shield()["Dark"]);
+	return element;
 	
 func get_light():
-	return player["Light"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Light"]);
+	element = float(element) - float(get_shield()["Light"]);
+	return element;
 	
 func get_earth():
-	return player["Earth"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Earth"]);
+	element = float(element) - float(get_shield()["Earth"]);
+	return element;
 	
 func get_water():
-	return player["Water"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Water"]);
+	element = float(element) - float(get_shield()["Water"]);
+	return element;
 	
 func get_air():
-	return player["Air"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Air"]);
+	element = float(element) - float(get_shield()["Air"]);
+	return element;
 	
 func get_fire():
-	return player["Fire"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Fire"]);
+	element = float(element) - float(get_shield()["Fire"]);
+	return element;
 	
 func get_ice():
-	return player["Ice"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Ice"]);
+	element = float(element) - float(get_shield()["Ice"]);
+	return element;
 	
 func get_thunder():
-	return player["Thunder"];
+	var element = 1;
+	element = float(element) - float(get_armor()["Thunder"]);
+	element = float(element) - float(get_shield()["Thunder"]);
+	return element;
 
 func get_strength():
 	return player["Strength"];
@@ -48,12 +72,21 @@ func get_agility():
 func get_dexterity():
 	return player["Dexterity"];
 
+func get_spellDef():
+	var def = get_shield()["SpellDef"];
+	def = def + (get_willpower() * get_node("/root/Global").spellDefWillpowerMod);	
+	return def;
+	
 func get_meleeDef():
-	return player["MeleeDef"];
+	var def = get_shield()["MeleeDef"];
+	def = def + (get_agility() * get_node("/root/Global").meleeDefAgilityMod);
+	return def;
 	
 func get_rangedDef():
-	return player["RangedDef"];
-
+	var def = get_shield()["RangedDef"];
+	def = def + (get_agility() * get_node("/root/Global").rangedDefAgilityMod);
+	return def;
+	
 func get_weapon_damage_type():
 	return get_weapon()["Type"];
 

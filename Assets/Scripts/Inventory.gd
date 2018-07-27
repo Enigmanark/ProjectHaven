@@ -115,6 +115,13 @@ func load_portable_inventory(inv):
 	armors[8] = arms[8];
 	armors[9] = arms[9];
 	
+func get_items():
+	var inv = {};
+	inv["HealthPotions"] = healthPotion;
+	inv["StaminaPotions"] = staminaPotion;
+	inv["ManaPotions"] = manaPotion;
+	return inv;
+	
 func get_weapon_by_id(id):
 	for weapon in weapons:
 		if(weapon != null):

@@ -22,9 +22,9 @@ var staminaEnduranceMod = 2;
 var manaIntelligenceMod = 15;
 var doubleAttackAgilityMod = 0.5;
 var tripleAttackAgilityMod = 0.13;
-var meleeDefAgilityMod = 0.1;
-var rangedDefAgilityMod = 0.1;
-var spellDefWillpowerMod = 0.1;
+var meleeDefAgilityMod = 0.3;
+var rangedDefAgilityMod = 0.3;
+var spellDefWillpowerMod = 0.3;
 
 func _ready():
 	pass
