@@ -78,8 +78,8 @@ func _on_PotionButton_pressed():
 		visible = true;
 		open = true;
 		load_potions();
-		get_node("../../../TownGUI").visible = false;
+		get_node("../../../../TownGUI").visible = false;
 	else:
 		visible = false;
 		open = false;
-		get_node("../../../TownGUI").visible = true;
+		get_node("../../../../TownGUI").visible = true;

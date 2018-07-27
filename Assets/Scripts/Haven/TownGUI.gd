@@ -6,7 +6,8 @@ func _ready():
 
 
 func _on_RandomBattleButton_pressed():
-	get_parent().get_node("/root/BattleSceneManager").do_random_battle();
+	print("clicked");
+	get_node("/root/BattleSceneManager").do_random_battle();
 
 func _on_TrainerButton_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Training/Training.tscn");
@@ -28,3 +29,8 @@ func _on_RestButton_pressed():
 
 func _on_RefillPotButton_pressed():
 	get_node("/root/Inventory").refill_potions();
+
+
+func _on_BlacksmithButon_pressed():
+	get_parent().get_node("Blacksmith").visible = true;
+	visible = false;
