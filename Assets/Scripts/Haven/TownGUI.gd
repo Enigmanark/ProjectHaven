@@ -38,9 +38,9 @@ func _on_BlacksmithButon_pressed():
 	network.get_haven_blacksmith_inventory();
 	yield(network, "got_response");
 	var shopInventory = network.shopInventory;
-	get_parent().get_node("Blacksmith").weaponInventory = shopInventory["Weapons"];
-	get_parent().get_node("Blacksmith").armorInventory = shopInventory["Armors"];
-	get_parent().get_node("Blacksmith").shieldInventory = shopInventory["Shields"];
+	get_parent().get_node("Blacksmith").shopWeaponInventory = shopInventory["Weapons"];
+	get_parent().get_node("Blacksmith").shopArmorInventory = shopInventory["Armors"];
+	get_parent().get_node("Blacksmith").shopShieldInventory = shopInventory["Shields"];
 	get_parent().get_node("Blacksmith").visible = true;
 	visible = false;
 	get_node("../Screen").hide_message();

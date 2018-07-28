@@ -5,7 +5,7 @@ signal character_loaded;
 var response;
 var shopInventory;
 var didTrainingSucceed;
-var buySuccessful;
+var transactionSuccessful;
 
 func _ready():
 	pass;
@@ -29,6 +29,41 @@ func get_haven_blacksmith_inventory():
 			shopInventory = json;
 		else:
 			print("Server error");
+
+func sell_item(type, id):
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var character = get_node("/root/PlayerStats").player;
+	character["Inventory"] = get_node("/root/Inventory").get_items();
+	var data = { "Email" : email, "Password" : password, "Character" : character, "Type" : type, "ID" : id };
+	print("Selling item..");
+	connect("/sellitem", data);
+	yield(self, "got_response");
+	if(response == "300"):
+		transactionSuccessful = false;
+		print("Invalid account");
+		emit_signal("character_loaded");
+	elif(response == "401"):
+		transactionSuccessful = false;
+		print("Could not get data");
+		emit_signal("character_loaded");
+	elif(response == "606"):
+		transactionSuccessful = false;
+		print("Not enough gold");
+		emit_signal("character_loaded");
+	elif(response == "605"):
+		transactionSuccessful = false;
+		print("No space");
+		emit_signal("character_loaded");
+	else:
+		var json = valid_json(response);
+		if(json != null):
+			transactionSuccessful = true;
+			load_character(json);
+		else:
+			print("Server error");
+			transactionSuccessful = false;
+			emit_signal("character_loaded");
 			
 func buy_item(type, id):
 	var email = get_node("/root/Global").email;
@@ -40,29 +75,29 @@ func buy_item(type, id):
 	connect("/buyitem", data);
 	yield(self, "got_response");
 	if(response == "300"):
-		buySuccessful = false;
+		transactionSuccessful = false;
 		print("Invalid account");
 		emit_signal("character_loaded");
 	elif(response == "401"):
-		buySuccessful = false;
+		transactionSuccessful = false;
 		print("Could not get data");
 		emit_signal("character_loaded");
 	elif(response == "606"):
-		buySuccessful = false;
+		transactionSuccessful = false;
 		print("Not enough gold");
 		emit_signal("character_loaded");
 	elif(response == "605"):
-		buySuccessful = false;
+		transactionSuccessful = false;
 		print("No space");
 		emit_signal("character_loaded");
 	else:
 		var json = valid_json(response);
 		if(json != null):
-			buySuccessful = true;
+			transactionSuccessful = true;
 			load_character(json);
 		else:
 			print("Server error");
-			buySuccessful = false;
+			transactionSuccessful = false;
 			emit_signal("character_loaded");
 
 func connect(route, data):
