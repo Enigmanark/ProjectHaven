@@ -5,6 +5,7 @@ signal character_loaded;
 var response;
 var shopInventory;
 var didTrainingSucceed;
+var buySuccessful;
 
 func _ready():
 	pass;
@@ -28,6 +29,41 @@ func get_haven_blacksmith_inventory():
 			shopInventory = json;
 		else:
 			print("Server error");
+			
+func buy_item(type, id):
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var character = get_node("/root/PlayerStats").player;
+	character["Inventory"] = get_node("/root/Inventory").get_items();
+	var data = { "Email" : email, "Password" : password, "Character" : character, "Type" : type, "ID" : id };
+	print("Buying item..");
+	connect("/buyitem", data);
+	yield(self, "got_response");
+	if(response == "300"):
+		buySuccessful = false;
+		print("Invalid account");
+		emit_signal("character_loaded");
+	elif(response == "401"):
+		buySuccessful = false;
+		print("Could not get data");
+		emit_signal("character_loaded");
+	elif(response == "606"):
+		buySuccessful = false;
+		print("Not enough gold");
+		emit_signal("character_loaded");
+	elif(response == "605"):
+		buySuccessful = false;
+		print("No space");
+		emit_signal("character_loaded");
+	else:
+		var json = valid_json(response);
+		if(json != null):
+			buySuccessful = true;
+			load_character(json);
+		else:
+			print("Server error");
+			buySuccessful = false;
+			emit_signal("character_loaded");
 
 func connect(route, data):
 	yield(get_tree(), "idle_frame");
@@ -113,7 +149,7 @@ func player_death(stats):
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
-	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
+	character["Inventory"] = get_node("/root/Inventory").get_items();
 	var data = { "Email" : email, "Password" : password, "Character": character };
 	
 	print("Updating on player death..");
@@ -126,7 +162,6 @@ func player_death(stats):
 	else:
 		var json = valid_json(response);
 		if(json != null):
-			print("Character updated!");
 			load_character(json);
 		else:
 			print("Server error");
@@ -212,4 +247,5 @@ func load_character(characterData):
 	stats.player["CurrentShieldID"] = data["CurrentShieldID"];
 	stats.player["CurrentArmorID"] = data["CurrentArmorID"];
 	get_node("/root/Inventory").load_portable_inventory(data["Inventory"]);
+	print("Character updated!");
 	emit_signal("character_loaded");

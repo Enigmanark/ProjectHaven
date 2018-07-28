@@ -64,7 +64,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Haven" type="Node2D"]
+[node name="Haven" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -1255,8 +1255,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Blacksmith" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-visible = false
 position = Vector2( 66.8927, 2.94034 )
 scale = Vector2( 0.9, 1 )
 z_index = 4
@@ -1317,10 +1315,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 16.0
-margin_right = 263.0
-margin_bottom = 326.0
+margin_left = 20.0
+margin_top = 14.0
+margin_right = 215.0
+margin_bottom = 262.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -1490,6 +1488,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="BSArmorButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="5"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1542,14 +1541,15 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="BSWeaponButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="6"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 143.0
-margin_top = 328.0
-margin_right = 191.0
-margin_bottom = 348.0
+margin_left = 23.0
+margin_top = 265.0
+margin_right = 71.0
+margin_bottom = 285.0
 rect_scale = Vector2( 2.4, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1594,6 +1594,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="BSShieldButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="7"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1647,7 +1648,9 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="BSSlots" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow" index="0"]
 
+editor/display_folded = true
 visible = false
+position = Vector2( -46.439, -0.663416 )
 
 [node name="BuySellBackground" type="TextureRect" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots" index="0"]
 
@@ -1671,7 +1674,6 @@ stretch_mode = 0
 
 [node name="BSSlots" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground" index="0"]
 
-editor/display_folded = true
 position = Vector2( -264.401, -13.2038 )
 scale = Vector2( 1, 0.9 )
 _sections_unfolded = [ "Transform" ]
@@ -1728,6 +1730,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot1Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 232.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot2" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="1"]
 
 position = Vector2( 265, 15 )
@@ -1779,6 +1803,28 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot2Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 59.0
+margin_right = 231.0
+margin_bottom = 99.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot3" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="2"]
 
@@ -1832,6 +1878,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot3Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 59.0
+margin_right = 232.0
+margin_bottom = 99.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot4" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="3"]
 
 position = Vector2( 264.718, 107.645 )
@@ -1883,6 +1951,28 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot4Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 59.0
+margin_right = 230.0
+margin_bottom = 99.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot5" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="4"]
 
@@ -1936,6 +2026,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot5Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot5" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 60.0
+margin_right = 231.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot6" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="5"]
 
 position = Vector2( 265.259, 202.289 )
@@ -1987,6 +2099,28 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot6Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot6" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 57.0
+margin_right = 231.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot7" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="6"]
 
@@ -2040,6 +2174,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot7Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot7" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 58.0
+margin_right = 228.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot8" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="7"]
 
 position = Vector2( 265.259, 296.851 )
@@ -2091,6 +2247,28 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Slot8Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot8" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 57.0
+margin_right = 230.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 
 [node name="Slot9" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="8"]
 
@@ -2144,6 +2322,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot9Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot9" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 58.0
+margin_right = 232.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="Slot10" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots" index="9"]
 
 position = Vector2( 265.259, 392.494 )
@@ -2196,10 +2396,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Slot10Button" type="TextureButton" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot10" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 57.0
+margin_right = 231.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+
 [node name="BSDescription" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow" index="1"]
 
-editor/display_folded = true
-visible = false
+position = Vector2( -150.051, -0.447632 )
+scale = Vector2( 1.2, 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="BSDescriptionBG1" type="TextureRect" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSDescription" index="0"]
 
@@ -2247,11 +2470,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 9.0
+margin_left = 7.0
 margin_top = 9.0
-margin_right = 111.0
-margin_bottom = 120.0
-rect_scale = Vector2( 1.8, 1.8 )
+margin_right = 153.0
+margin_bottom = 132.0
+rect_scale = Vector2( 1.3, 1.6 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -2385,10 +2608,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 22.0
-margin_top = 231.0
-margin_right = 111.0
-margin_bottom = 252.0
+margin_left = -3.0
+margin_top = 235.0
+margin_right = 112.0
+margin_bottom = 250.0
 rect_scale = Vector2( 1.8, 1.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -2556,7 +2779,27 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="pressed" from="Blacksmith/BlacksmithBackground/BSShieldButton" to="Blacksmith" method="_on_BSShieldButton_pressed"]
 
-[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSDescription/BSDescriptionBG1/BSDescriptionBG2/BSBuyButton2" to="Blacksmith" method="_on_BSSellButton_pressed"]
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot1/Slot1Button" to="Blacksmith" method="_on_Slot1Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot2/Slot2Button" to="Blacksmith" method="_on_Slot2Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot3/Slot3Button" to="Blacksmith" method="_on_Slot3Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot4/Slot4Button" to="Blacksmith" method="_on_Slot4Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot5/Slot5Button" to="Blacksmith" method="_on_Slot5Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot6/Slot6Button" to="Blacksmith" method="_on_Slot6Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot7/Slot7Button" to="Blacksmith" method="_on_Slot7Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot8/Slot8Button" to="Blacksmith" method="_on_Slot8Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot9/Slot9Button" to="Blacksmith" method="_on_Slot9Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground/BSSlots/Slot10/Slot10Button" to="Blacksmith" method="_on_Slot10Button_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSDescription/BSDescriptionBG1/BSDescriptionBG2/BSBuyButton2" to="Blacksmith" method="_on_BSBuyButton2_pressed"]
 
 
 [editable path="EquipmentWindow/PopupEquipmentContainer/PopupInventory"]

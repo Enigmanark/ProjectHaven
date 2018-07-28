@@ -34,7 +34,7 @@ func _on_PotionClose_pressed():
 	visible = false;
 	open = false;
 	if(!inBattle):
-		get_node("../../../TownGUI").visible = true;
+		get_node("../../../../TownGUI").visible = true;
 
 func _on_HealthPotButton_pressed():
 	if(healthPotAmount > 0):
