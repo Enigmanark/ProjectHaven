@@ -124,13 +124,25 @@ func has_gold(amount):
 		return false;
 
 func equip_weapon(weapon):
-	player["CurrentWeaponID"] = weapon["Equip"]["ID"];
+	if(weapon["Equip"]["Level"] <= player["Level"]):
+		player["CurrentWeaponID"] = weapon["Equip"]["ID"];
+		return true;
+	else:
+		return false;
 
 func equip_shield(shield):
-	player["CurrentShieldID"] = shield["Equip"]["ID"];
+	if(shield["Equip"]["level"] <= player["Level"]):
+		player["CurrentShieldID"] = shield["Equip"]["ID"];
+		return true;
+	else :
+		return false;
 	
 func equip_armor(armor):
-	player["CurrentArmorID"] = armor["Equip"]["ID"];
+	if(armor["Equip"]["level"] <= player["Level"]):
+		player["CurrentArmorID"] = armor["Equip"]["ID"];
+		return true;
+	else :
+		return false;
 
 func get_weapon():
 	var inventory = get_node("/root/Inventory");

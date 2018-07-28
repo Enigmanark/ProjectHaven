@@ -63,6 +63,7 @@ func connect_chooseCharacter():
 			OS.delay_usec(500)
 		else:
 			rb = rb + chunk # Append to read buffer
+	http.close();
 	var text = rb.get_string_from_ascii()
 	if(text == "400"):
 		print("Could not find character");
@@ -175,6 +176,7 @@ func get_characters():
 		else:
 			load_buttons(json);
 			get_node("../Screen").hide_message();
+	http.close();
 
 func valid_character(text):
 	print("Checking json");
@@ -258,6 +260,7 @@ func make_new_character():
 			OS.delay_usec(500)
 		else:
 			rb = rb + chunk # Append to read buffer
+	http.close();
 	var text = rb.get_string_from_ascii()
 	if(text == "300"):
 		get_node("../Screen").show_ok_message("Character Creation Failed");

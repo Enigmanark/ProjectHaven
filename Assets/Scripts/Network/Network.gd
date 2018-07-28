@@ -1,5 +1,6 @@
 extends Node
 
+var timedOut = false;
 signal got_response;
 signal character_loaded;
 var response;
@@ -101,50 +102,62 @@ func buy_item(type, id):
 			emit_signal("character_loaded");
 
 func connect(route, data):
+	timedOut = false;
+	get_node("Timer").start();
 	yield(get_tree(), "idle_frame");
 	var http = HTTPClient.new();
 	var err;
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		if(timedOut):
+			print("Timed out");
+			break;
 		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(get_node("/root/Global").networkDelay);
+	if(http.get_status() == HTTPClient.STATUS_CANT_RESOLVE or http.get_status() == HTTPClient.STATUS_CANT_CONNECT):
+		get_node("Screen").hide_message();
+		get_node("Screen").show_ok_message("Couldn't connect");
+	elif(!timedOut):
+		if(http.get_status() == HTTPClient.STATUS_CONNECTED):
+			print("Connected!");
 	
-	if(http.get_status() == HTTPClient.STATUS_CONNECTED):
-		print("Connected!");
-
-	var headers = [
-		"Content-Type: application/json"
-    ];
-	data = to_json(data);
-	err = http.request(HTTPClient.METHOD_POST, route, headers, data);
-	
-	while http.get_status() == HTTPClient.STATUS_REQUESTING:
-		yield(get_tree(), "idle_frame");
-		# Keep polling until the request is going on
-		http.poll()
-		print("Updating Character..")
-		OS.delay_msec(get_node("/root/Global").networkDelay)
-	
-	print("response? ", http.has_response());
-	
-	var rb = PoolByteArray() # Array that will hold the data
-
-	while http.get_status() == HTTPClient.STATUS_BODY:
-		yield(get_tree(), "idle_frame");
-		# While there is body left to be read
-		http.poll()
-		var chunk = http.read_response_body_chunk() # Get a chunk
-		if chunk.size() == 0:
-			# Got nothing, wait for buffers to fill a bit
-			OS.delay_usec(get_node("/root/Global").networkDelay)
-		else:
-			rb = rb + chunk # Append to read buffer
-	var text = rb.get_string_from_ascii()
-	response = text;
-	emit_signal("got_response");
+		var headers = [
+			"Content-Type: application/json"
+	    ];
+		data = to_json(data);
+		err = http.request(HTTPClient.METHOD_POST, route, headers, data);
+		
+		while http.get_status() == HTTPClient.STATUS_REQUESTING:
+			if(timedOut):
+				print("timed out");
+				break;
+			yield(get_tree(), "idle_frame");
+			# Keep polling until the request is going on
+			http.poll()
+			print("Updating Character..")
+			OS.delay_msec(get_node("/root/Global").networkDelay)
+		if(!timedOut):
+			print("response? ", http.has_response());
+			
+			var rb = PoolByteArray() # Array that will hold the data
+		
+			while http.get_status() == HTTPClient.STATUS_BODY:
+				yield(get_tree(), "idle_frame");
+				# While there is body left to be read
+				http.poll()
+				var chunk = http.read_response_body_chunk() # Get a chunk
+				if chunk.size() == 0:
+					# Got nothing, wait for buffers to fill a bit
+					OS.delay_usec(get_node("/root/Global").networkDelay)
+				else:
+					rb = rb + chunk # Append to read buffer
+			var text = rb.get_string_from_ascii()
+			response = text;
+			http.close();
+			emit_signal("got_response");
 
 func get_training(stats, trainingStat):
 	var email = get_node("/root/Global").email;
@@ -284,3 +297,6 @@ func load_character(characterData):
 	get_node("/root/Inventory").load_portable_inventory(data["Inventory"]);
 	print("Character updated!");
 	emit_signal("character_loaded");
+
+func _on_Timer_timeout():
+	timedOut = true;

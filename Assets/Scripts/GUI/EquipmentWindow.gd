@@ -451,17 +451,26 @@ func is_already_equipped(select):
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equip";	
 
 func _on_EquipButton_pressed():
+	var didEquip = false;
 	if(canEquip):
 		if(selected["Type"] == "Weapon"):
-			get_node("/root/PlayerStats").equip_weapon(selected);
+			if(get_node("/root/PlayerStats").equip_weapon(selected)):
+				didEquip = true;
 		elif(selected["Type"] == "Shield"):
-			get_node("/root/PlayerStats").equip_shield(selected);
+			if(get_node("/root/PlayerStats").equip_shield(selected)):
+				didEquip = true;
 		elif(selected["Type"] == "Armor"):
-			get_node("/root/PlayerStats").equip_armor(selected);
+			if(get_node("/root/PlayerStats").equip_armor(selected)):
+				didEquip = true;
 		
 		get_node("PopupEquipmentContainer/PopupInventory/InventoryBackground/DescriptionContainer/DescriptionContainerBackground/DescriptionBackground/EquipButton/EquipText").text = "Equipped";
 		if(inBattle):
+			if(!didEquip):
+				get_node("../Screen").show_ok_message("Your level is not high enough");
 			get_node("../Battle").load_player();
+		else:
+			if(!didEquip):
+				get_node("../Screen").show_ok_message("Your level is not high enough");
 		
 func _on_BattleWeaponButton_pressed():
 	get_node("../BattleMenu/TopMenu/BattleCloseButton").visible = true;

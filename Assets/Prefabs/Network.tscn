@@ -2,9 +2,17 @@
 
 [ext_resource path="res://Assets/Scripts/Network/Network.gd" type="Script" id=1]
 
-
-[node name="LastSave" type="Node" index="0"]
+[node name="Network" type="Node"]
 
 script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

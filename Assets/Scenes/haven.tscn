@@ -1255,6 +1255,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Blacksmith" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 66.8927, 2.94034 )
 scale = Vector2( 0.9, 1 )
@@ -2421,6 +2422,7 @@ group = null
 
 [node name="BSDescription" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -150.051, -0.447632 )
 scale = Vector2( 1.2, 1 )
