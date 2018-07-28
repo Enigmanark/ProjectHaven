@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Scripts/GUI/EquipmentWindow.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Prefabs/GUI/PopupInventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Scripts/Haven/Blacksmith.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Art/GUI/hud_avatar_background_Layer 1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/Sprites/Characters/Portraits/brock_counter.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
@@ -64,7 +64,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Haven" type="Node2D"]
+[node name="Haven" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -1255,7 +1255,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Blacksmith" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 66.8927, 2.94034 )
 scale = Vector2( 0.9, 1 )
@@ -1265,6 +1264,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="BlacksmithBackground" type="TextureRect" parent="Blacksmith" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
