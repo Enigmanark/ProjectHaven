@@ -131,9 +131,9 @@ func _on_SubmitButton_pressed():
 			if(text == "200"):
 				get_node("Home").visible = true;
 				get_node("NewAccount").visible = false;
-				get_node("Screen").hide_message();
+				get_node("Screen").show_ok_message("Account created");
 			elif(text == "100"):
-				print("Already account with that email");
+				get_node("Screen").show_ok_message("Already an account with that email");
 	else:
 		print("Passwords did not match");
 

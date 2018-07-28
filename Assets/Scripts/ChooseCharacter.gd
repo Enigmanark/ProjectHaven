@@ -1,5 +1,6 @@
 extends Node2D
 
+var maxCharacters = false;
 var choose;
 
 func _ready():
@@ -259,18 +260,18 @@ func make_new_character():
 			rb = rb + chunk # Append to read buffer
 	var text = rb.get_string_from_ascii()
 	if(text == "300"):
-		print("Somehow account data was invalid");
-		get_node("../Screen").hide_message();
+		get_node("../Screen").show_ok_message("Character Creation Failed");
 	elif(text == "600"):
 		print("Too many characters have already been created for this account");
-		get_node("../Screen").hide_message();
+		get_node("../Screen").show_ok_message("Character Creation Failed");
+	elif(text == "603"):
+		get_node("../Screen").show_ok_message("Already character with that name");
 	elif(text == "500"):
 		print("Character creation successful!");
-		get_node("../Screen").hide_message();
 		get_characters();
 	else:
 		print("Something went horribly wrong..");
-		get_node("../Screen").hide_message();
+		get_node("../Screen").show_ok_message("Character Creation Failed");
 		
 func load_buttons(data):
 	if(data.size() == 1):
@@ -338,3 +339,4 @@ func load_buttons(data):
 		level = data[4]["Level"];
 		get_node("Char5").text = name + " " + "Level " + str(level);
 		get_node("/root/Global").char5 = name;
+		get_node("NewButton").visible = false;
