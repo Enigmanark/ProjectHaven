@@ -1,20 +1,28 @@
 extends Node2D
 
+var choose;
+
 func _ready():
-	get_node("..").connect("LoggedIn", self, "get_characters");
+	pass;
 
 func _on_NewButton_pressed():
 	get_node("NewCharacter?").visible = true;
 
 
 func get_character(nameOfCharacter):
+	get_node("../Screen").show_message("Loading...");
+	choose = nameOfCharacter;
+	connect_chooseCharacter();
+
+func connect_chooseCharacter():
 	print("Attempting to retrieve character..");
 	var http = HTTPClient.new();
 	var err;
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
+	yield(get_tree(), "idle_frame");
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(500);
@@ -29,7 +37,7 @@ func get_character(nameOfCharacter):
     ];
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
-	var charName = nameOfCharacter;
+	var charName = choose;
 	var data = { "Email" : email, "Password" : password , "Name" : charName};
 	data = to_json(data);
 	
@@ -57,8 +65,10 @@ func get_character(nameOfCharacter):
 	var text = rb.get_string_from_ascii()
 	if(text == "400"):
 		print("Could not find character");
+		get_node("../Screen").hide_message();
 	elif(text == "300"):
 		print("Account data credentials were invalid");
+		get_node("../Screen").hide_message();
 	else:
 		var json = valid_character(text);
 		if(json):
@@ -93,18 +103,19 @@ func _on_Char5_pressed():
 
 
 func _on_Make_pressed():
-	if(make_new_character()):
-		get_node("NewCharacter?").visible = false;
-		get_characters();
+	make_new_character()
+	get_node("NewCharacter?").visible = false;
 		
 func get_characters():
+	get_node("../Screen").show_message("Retrieving...");
 	print("Attempting to retrieve characters..");
 	var http = HTTPClient.new();
 	var err;
+	yield(get_tree(), "idle_frame");
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(500);
@@ -126,6 +137,7 @@ func get_characters():
 	err = http.request(HTTPClient.METHOD_POST, "/choosecharacter", headers, data);
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		yield(get_tree(), "idle_frame");
 		# Keep polling until the request is going on
 		http.poll()
 		print("Getting Characters..")
@@ -136,6 +148,7 @@ func get_characters():
 	var rb = PoolByteArray() # Array that will hold the data
 
 	while http.get_status() == HTTPClient.STATUS_BODY:
+		yield(get_tree(), "idle_frame");
 		# While there is body left to be read
 		http.poll()
 		var chunk = http.read_response_body_chunk() # Get a chunk
@@ -147,16 +160,20 @@ func get_characters():
 	var text = rb.get_string_from_ascii()
 	if(text == "300"):
 		print("Somehow account data was invalid");
+		get_node("../Screen").hide_message();
 		return false;
 	elif(text == "2000"):
 		print("No characters");
+		get_node("../Screen").hide_message();
 		load_buttons([]);
 	else:
 		var json = valid_json(text);
 		if(!json):
 			print("Character data corrupt");
+			get_node("../Screen").hide_message();
 		else:
 			load_buttons(json);
+			get_node("../Screen").hide_message();
 
 func valid_character(text):
 	print("Checking json");
@@ -191,13 +208,15 @@ func valid_json(text):
 		return false;
 
 func make_new_character():
+	get_node("../Screen").show_message("Creating...");
 	print("Attempting to make new character..");
 	var http = HTTPClient.new();
 	var err;
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
+	yield(get_tree(), "idle_frame");
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(500);
@@ -219,6 +238,7 @@ func make_new_character():
 	err = http.request(HTTPClient.METHOD_POST, "/makecharacter", headers, data);
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		yield(get_tree(), "idle_frame");
 		# Keep polling until the request is going on
 		http.poll()
 		print("Making Character..")
@@ -240,16 +260,17 @@ func make_new_character():
 	var text = rb.get_string_from_ascii()
 	if(text == "300"):
 		print("Somehow account data was invalid");
-		return false;
+		get_node("../Screen").hide_message();
 	elif(text == "600"):
 		print("Too many characters have already been created for this account");
-		return false;
+		get_node("../Screen").hide_message();
 	elif(text == "500"):
 		print("Character creation successful!");
-		return true;
+		get_node("../Screen").hide_message();
+		get_characters();
 	else:
 		print("Something went horribly wrong..");
-		return false;
+		get_node("../Screen").hide_message();
 		
 func load_buttons(data):
 	if(data.size() == 1):

@@ -1,18 +1,22 @@
 extends Node
 
-signal LoggedIn;
-
 func _ready():
 	pass;
 
 func _on_SendButton_pressed():
+	get_node("Screen").show_message("Logging in...");
+	connect_login();
+	
+func connect_login():
 	var username = get_node("Home/Email").text;
 	var password = get_node("Home/Password").text;
 	var http = HTTPClient.new();
 	var err;
+	yield(get_tree(), "idle_frame");
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
 	# Wait until resolved
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(get_node("/root/Global").networkDelay);
@@ -36,6 +40,7 @@ func _on_SendButton_pressed():
 	err = http.request(HTTPClient.METHOD_POST, "/login", headers, data);
 	assert(err == OK)
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		yield(get_tree(), "idle_frame");
 		# Keep polling until the request is going on
 		print("Logging in..")
 		http.poll()
@@ -48,6 +53,7 @@ func _on_SendButton_pressed():
 		var response = PoolByteArray() # Array that will hold the data
 	
 		while http.get_status() == HTTPClient.STATUS_BODY:
+			yield(get_tree(), "idle_frame");
 			# While there is body left
 			http.poll()
 			var chunk = http.read_response_body_chunk() # Get a chunk
@@ -63,17 +69,21 @@ func _on_SendButton_pressed():
 			get_node("/root/Global").password = password;
 			get_node("ChooseCharacter").visible = true;
 			get_node("Home").visible = false;
-			emit_signal("LoggedIn");
+			get_node("Screen").hide_message();
+			get_node("ChooseCharacter").get_characters();
 		elif(text == "300"):
 			print("There is no account with that password");
+			get_node("Screen").hide_message();
 		else:
 			print("Didn't get the response ;.;");
+			get_node("Screen").hide_message();
 
 func _on_SubmitButton_pressed():
 	var email = get_node("NewAccount/Email2").text;
 	var password = get_node("NewAccount/VerifyPassword").text;
 	var password2 = get_node("NewAccount/Password2").text;
 	if(password == password2):
+			get_node("Screen").show_message("Creating...");
 			var http = HTTPClient.new();
 			var err;
 			err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
@@ -121,14 +131,12 @@ func _on_SubmitButton_pressed():
 			if(text == "200"):
 				get_node("Home").visible = true;
 				get_node("NewAccount").visible = false;
+				get_node("Screen").hide_message();
 			elif(text == "100"):
 				print("Already account with that email");
 	else:
 		print("Passwords did not match");
 
-
-func get_last_save():
-	get_node("/root/LastSave").get_last_save();
 	
 func _on_NewAccountButton_pressed():
 	get_node("Home").visible = false;
@@ -142,3 +150,4 @@ func _on_DevLogin_pressed():
 func _on_CancelNewAccount_pressed():
 	get_node("Home").visible = true;
 	get_node("NewAccount").visible = false;
+

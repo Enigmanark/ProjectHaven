@@ -1,15 +1,42 @@
 extends Node
 
+signal got_response;
+signal character_loaded;
+var response;
+var shopInventory;
+var didTrainingSucceed;
+
 func _ready():
 	pass;
 
+func get_haven_blacksmith_inventory():
+	var email = get_node("/root/Global").email;
+	var password = get_node("/root/Global").password;
+	var data = { "Email" : email, "Password" : password };
+	
+	print("Retrieving blacksmith inventory..");
+	connect("/gethavenblacksmithinventory", data);
+	yield(self, "got_response");
+	if(response == "300"):
+		print("Invalid account");
+	elif(response == "401"):
+		print("Could not get data");
+	else:
+		var json = valid_shop(response);
+		if(json != null):
+			print("Got shop data!");
+			shopInventory = json;
+		else:
+			print("Server error");
+
 func connect(route, data):
+	yield(get_tree(), "idle_frame");
 	var http = HTTPClient.new();
 	var err;
 	err = http.connect_to_host(get_node("/root/Global").server, get_node("/root/Global").serverPort);
-	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(get_node("/root/Global").networkDelay);
@@ -24,6 +51,7 @@ func connect(route, data):
 	err = http.request(HTTPClient.METHOD_POST, route, headers, data);
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		yield(get_tree(), "idle_frame");
 		# Keep polling until the request is going on
 		http.poll()
 		print("Updating Character..")
@@ -34,6 +62,7 @@ func connect(route, data):
 	var rb = PoolByteArray() # Array that will hold the data
 
 	while http.get_status() == HTTPClient.STATUS_BODY:
+		yield(get_tree(), "idle_frame");
 		# While there is body left to be read
 		http.poll()
 		var chunk = http.read_response_body_chunk() # Get a chunk
@@ -43,35 +72,41 @@ func connect(route, data):
 		else:
 			rb = rb + chunk # Append to read buffer
 	var text = rb.get_string_from_ascii()
-	return text;
+	response = text;
+	emit_signal("got_response");
 
 func get_training(stats, trainingStat):
 	var email = get_node("/root/Global").email;
 	var password = get_node("/root/Global").password;
 	var character = stats;
-	character["Inventory"] = get_node("/root/Inventory").get_portable_inventory();
+	character["Inventory"] = get_node("/root/Inventory").get_items();
 	var data = { "Email" : email, "Password" : password, "Character": character, "TrainingStat" : trainingStat };
-	
 	print("Getting training..");
-	var response = connect("/getTraining", data);
+	connect("/getTraining", data);
+	yield(self, "got_response");
 	if(response == "300"):
 		print("Invalid account");
-		return false;
+		didTrainingSucceed = false;
+		emit_signal("character_loaded");
 	elif(response == "400"):
 		print("Could not find character");
-		return false;
+		didTrainingSucceed = false;
+		emit_signal("character_loaded");
 	elif(response == "502"):
 		print("Didn't have enough gold");
-		return false;
+		didTrainingSucceed = false;
+		emit_signal("character_loaded");
 	else:
 		var json = valid_json(response);
 		if(json != null):
 			print("Character updated!");
 			load_character(json);
-			return true;
+			didTrainingSucceed = true;
+			emit_signal("character_loaded");
 		else:
 			print("Server error");
-			return false;
+			didTrainingSucceed = false;
+			emit_signal("character_loaded");
 	
 
 func player_death(stats):
@@ -83,6 +118,7 @@ func player_death(stats):
 	
 	print("Updating on player death..");
 	var response = connect("/playerdie", data);
+	yield(self, "got_response");
 	if(response == "300"):
 		print("Invalid account");
 	elif(response == "400"):
@@ -103,7 +139,8 @@ func get_reward(stats, id):
 	var data = { "Email" : email, "Password" : password, "Character": character, "EnemyID" : id};
 	
 	print("Getting battle reward..");
-	var response = connect("/updatecharacter", data);
+	connect("/updatecharacter", data);
+	yield(self, "got_response");
 	if(response == "300"):
 		print("Invalid account");
 	elif(response == "400"):
@@ -117,6 +154,19 @@ func get_reward(stats, id):
 			load_character(json);
 		else:
 			print("Server error");
+
+func valid_shop(text):
+	print("Checking json");
+	var json = JSON.parse(text);
+	if(json.error == OK):
+		var data = json.result;
+		if(data.has("Weapons") and typeof(data["Weapons"]) == TYPE_ARRAY):
+			print("JSON is valid inventory");
+			return data;
+		else:
+			print("JSON error");
+	else:
+		print("JSON error");
 
 func valid_json(text):
 	print("Checking json");
@@ -162,3 +212,4 @@ func load_character(characterData):
 	stats.player["CurrentShieldID"] = data["CurrentShieldID"];
 	stats.player["CurrentArmorID"] = data["CurrentArmorID"];
 	get_node("/root/Inventory").load_portable_inventory(data["Inventory"]);
+	emit_signal("character_loaded");

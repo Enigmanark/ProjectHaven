@@ -141,4 +141,4 @@ func get_shield_by_id(id):
 		if(shield != null):
 			if(shield["ID"] == id):
 				return shield;
-	return null;
+	return null;	

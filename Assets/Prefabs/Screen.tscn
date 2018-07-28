@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scripts/GUI/Screen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/GUI/hud_avatar_background_Layer 1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/GUI/window_background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=4]
 
-[node name="Screen" type="Node2D" index="0"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Screen" type="Node2D"]
 
 z_index = 100
 script = ExtResource( 1 )
@@ -11,13 +21,14 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Blackout" type="TextureRect" parent="." index="0"]
 
+visible = false
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 800.0
-margin_bottom = 481.0
+margin_right = 808.0
+margin_bottom = 485.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -29,7 +40,57 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Timer" type="Timer" parent="." index="1"]
+[node name="LoadingBackground" type="TextureRect" parent="." index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 282.0
+margin_top = 133.0
+margin_right = 505.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="LoadingText" type="Label" parent="LoadingBackground" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 11.0
+margin_right = 79.0
+margin_bottom = 57.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Logging In..."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Timer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0

@@ -39,8 +39,11 @@ func _on_CancelPayButton_pressed():
 
 func _on_PayButton_pressed():
 	var playerStats = get_node("/root/PlayerStats");
+	var network = get_node("/root/Network");
 	if(playerStats.has_gold(get_node("/root/Global").trainingCost)):
-		if(get_node("/root/Network").get_training(playerStats.player, get_node("/root/Global").trainingStat)):
+		network.get_training(playerStats.player, get_node("/root/Global").trainingStat);
+		yield(network, "character_loaded");
+		if(network.didTrainingSucceed):
 			get_node("PlayerHUD").update_player_hud();
 			get_node("PlayerHUD/Avatar/StatWindow").update();
 			increase_stat_message();

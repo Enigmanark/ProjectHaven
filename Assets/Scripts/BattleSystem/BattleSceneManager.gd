@@ -13,8 +13,9 @@ func go_to_next_scene():
 
 func do_random_battle():
 	var manager = get_node("/root/NetworkBattleManager");
-	var battle = manager.get_random_battle();
-	setup_battle(battle);
+	manager.get_random_battle();
+	yield(manager, "got_battle");
+	setup_battle(manager.battle);
 	nextScenePath = "res://Assets/Scenes/haven.tscn";
 	get_tree().change_scene("res://Assets/Scenes/battle_scene.tscn");
 	

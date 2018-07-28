@@ -1,6 +1,10 @@
 extends Node
 
 var locations;
+signal got_response;
+signal got_battle;
+var response;
+var battle;
 
 func _ready():
 	pass
@@ -12,6 +16,7 @@ func connect(route, data):
 	
 	# Wait until resolved and connected
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		yield(get_tree(), "idle_frame");
 		http.poll();
 		print("Connecting..");
 		OS.delay_msec(get_node("/root/Global").networkDelay);
@@ -26,6 +31,7 @@ func connect(route, data):
 	err = http.request(HTTPClient.METHOD_POST, route, headers, data);
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
+		yield(get_tree(), "idle_frame");
 		# Keep polling until the request is going on
 		http.poll()
 		print("Getting battle data..")
@@ -36,6 +42,7 @@ func connect(route, data):
 	var rb = PoolByteArray() # Array that will hold the data
 
 	while http.get_status() == HTTPClient.STATUS_BODY:
+		yield(get_tree(), "idle_frame");
 		# While there is body left to be read
 		http.poll()
 		var chunk = http.read_response_body_chunk() # Get a chunk
@@ -45,7 +52,8 @@ func connect(route, data):
 		else:
 			rb = rb + chunk # Append to read buffer
 	var text = rb.get_string_from_ascii()
-	return text;
+	response = text;
+	emit_signal("got_response");
 
 func get_training():
 	var data = {
@@ -54,7 +62,8 @@ func get_training():
 		"CharacterName" : get_node("/root/PlayerStats").player["Name"],
 		"ToTrain" : get_node("/root/Global").trainingStat
 	};
-	var response = connect("/dotraining", data);
+	connect("/dotraining", data);
+	yield(self, "got_response");
 	if(response == "300"):
 		print("Account data was wrong");
 	elif(response == "400"):
@@ -62,7 +71,8 @@ func get_training():
 	else:
 		var battleJson = valid_battle_json(response);
 		if(battleJson):
-			return battleJson;
+			battle = battleJson;
+			emit_signal("got_battle");
 		else:
 			print("Internal server error, bad Json");
 
@@ -71,7 +81,8 @@ func get_random_battle():
 		"Email": get_node("/root/Global").email,
 		"Password" : get_node("/root/Global").password	
 	};
-	var response = connect("/randombattle", data);
+	connect("/randombattle", data);
+	yield(self, "got_response");
 	if(response == "801"):
 		print("Internal server error, query was not recieved");
 	elif(response == "802"):
@@ -79,7 +90,8 @@ func get_random_battle():
 	else:
 		var battleJson = valid_battle_json(response);
 		if(battleJson):
-			return battleJson;
+			battle = battleJson;
+			emit_signal("got_battle");
 		else:
 			print("Internal server error, bad Json");
 

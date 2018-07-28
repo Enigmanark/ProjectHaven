@@ -14,7 +14,7 @@
 [ext_resource path="res://Assets/Prefabs/GUI/PopupInventory.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Scripts/Haven/Blacksmith.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Art/GUI/hud_avatar_background_Layer 1.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Scripts/GUI/Screen.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=5]
 
@@ -64,7 +64,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Haven" type="Node2D" index="0"]
+[node name="Haven" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -1257,10 +1257,11 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 editor/display_folded = true
 visible = false
-position = Vector2( -15.4368, 0 )
+position = Vector2( 66.8927, 2.94034 )
+scale = Vector2( 0.9, 1 )
 z_index = 4
 script = ExtResource( 13 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="BlacksmithBackground" type="TextureRect" parent="Blacksmith" index="0"]
 
@@ -1338,10 +1339,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 328.0
-margin_right = 71.0
-margin_bottom = 368.0
+margin_left = -115.0
+margin_right = -67.0
+margin_bottom = 40.0
 rect_scale = Vector2( 2.4, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1390,10 +1390,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 148.0
-margin_top = 328.0
-margin_right = 196.0
-margin_bottom = 368.0
+margin_left = -114.0
+margin_top = 130.0
+margin_right = -66.0
+margin_bottom = 150.0
 rect_scale = Vector2( 2.4, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1442,10 +1442,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 148.0
-margin_top = 393.0
-margin_right = 196.0
-margin_bottom = 433.0
+margin_left = -114.0
+margin_top = 187.0
+margin_right = -66.0
+margin_bottom = 207.0
 rect_scale = Vector2( 2.4, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1487,16 +1487,170 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="BuySellWindow" type="Node2D" parent="Blacksmith/BlacksmithBackground" index="5"]
+[node name="BSArmorButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 328.0
+margin_right = 71.0
+margin_bottom = 348.0
+rect_scale = Vector2( 2.4, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="BSArmorText" type="Label" parent="Blacksmith/BlacksmithBackground/BSArmorButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_right = 55.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.8, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Armor"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="BSWeaponButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_top = 328.0
+margin_right = 191.0
+margin_bottom = 348.0
+rect_scale = Vector2( 2.4, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="BSWeaponText" type="Label" parent="Blacksmith/BlacksmithBackground/BSWeaponButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_right = 55.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.8, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Weapons"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="BSShieldButton" type="TextureButton" parent="Blacksmith/BlacksmithBackground" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 390.0
+margin_right = 71.0
+margin_bottom = 410.0
+rect_scale = Vector2( 2.4, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="BSShieldText" type="Label" parent="Blacksmith/BlacksmithBackground/BSShieldButton" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_right = 55.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.8, 0.9 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Shields"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="BuySellWindow" type="Node2D" parent="Blacksmith/BlacksmithBackground" index="8"]
 
 [node name="BSSlots" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow" index="0"]
 
-editor/display_folded = true
 visible = false
 
 [node name="BuySellBackground" type="TextureRect" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1517,6 +1671,7 @@ stretch_mode = 0
 
 [node name="BSSlots" type="Node2D" parent="Blacksmith/BlacksmithBackground/BuySellWindow/BSSlots/BuySellBackground" index="0"]
 
+editor/display_folded = true
 position = Vector2( -264.401, -13.2038 )
 scale = Vector2( 1, 0.9 )
 _sections_unfolded = [ "Transform" ]
@@ -2331,40 +2486,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Screen" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
-visible = false
-z_index = 100
-script = ExtResource( 15 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="Blackout" type="TextureRect" parent="Screen" index="0"]
-
-self_modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 808.0
-margin_bottom = 485.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 14 )
-expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Timer" type="Timer" parent="Screen" index="1"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = true
+[node name="Screen" parent="." index="5" instance=ExtResource( 15 )]
 
 [connection signal="pressed" from="PlayerHUD/Potions/PotionButton" to="PlayerHUD/Potions/PotionButton/PotionPopupWindow" method="_on_PotionButton_pressed"]
 
@@ -2428,9 +2550,13 @@ autostart = true
 
 [connection signal="pressed" from="Blacksmith/BlacksmithBackground/BSSellButton" to="Blacksmith" method="_on_BSSellButton_pressed"]
 
-[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSDescription/BSDescriptionBG1/BSDescriptionBG2/BSBuyButton2" to="Blacksmith" method="_on_BSSellButton_pressed"]
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BSArmorButton" to="Blacksmith" method="_on_BSArmorButton_pressed"]
 
-[connection signal="timeout" from="Screen/Timer" to="Screen" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BSWeaponButton" to="Blacksmith" method="_on_BSWeaponButton_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BSShieldButton" to="Blacksmith" method="_on_BSShieldButton_pressed"]
+
+[connection signal="pressed" from="Blacksmith/BlacksmithBackground/BuySellWindow/BSDescription/BSDescriptionBG1/BSDescriptionBG2/BSBuyButton2" to="Blacksmith" method="_on_BSSellButton_pressed"]
 
 
 [editable path="EquipmentWindow/PopupEquipmentContainer/PopupInventory"]

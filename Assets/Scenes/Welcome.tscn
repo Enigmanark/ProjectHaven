@@ -1,23 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scripts/Network/Login.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Scripts/ChooseCharacter.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Art/GUI/hud_background_bar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Scripts/ChooseCharacter.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 10
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Welcome" type="Node"]
 
 script = ExtResource( 1 )
 
-[node name="Home" type="Node2D" parent="." index="0"]
+[node name="Background" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -25.0
+margin_right = 802.0
+margin_bottom = 507.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="Home" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( -361.555, -9.70161 )
@@ -246,13 +266,13 @@ text = "DevLogin"
 flat = false
 align = 1
 
-[node name="ChooseCharacter" type="Node2D" parent="." index="1"]
+[node name="ChooseCharacter" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 visible = false
 position = Vector2( -128.153, -27.4483 )
 scale = Vector2( 1.3, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ChooseText" type="Label" parent="ChooseCharacter" index="0"]
@@ -283,6 +303,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="NewCharacter?" type="Node2D" parent="ChooseCharacter" index="1"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( -0.565483, 13.9665 )
 
@@ -507,7 +528,7 @@ text = "None"
 flat = false
 align = 1
 
-[node name="NewAccount" type="Node2D" parent="." index="2"]
+[node name="NewAccount" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 visible = false
@@ -702,7 +723,9 @@ text = "Submit"
 flat = false
 align = 1
 
-[node name="Screen" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Screen" parent="." index="4" instance=ExtResource( 5 )]
+
+editor/display_folded = true
 
 [connection signal="pressed" from="Home/SendButton" to="." method="_on_SendButton_pressed"]
 
@@ -729,3 +752,4 @@ align = 1
 [connection signal="pressed" from="NewAccount/SubmitButton" to="." method="_on_SubmitButton_pressed"]
 
 
+[editable path="Screen"]

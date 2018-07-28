@@ -111,7 +111,9 @@ func _on_Return_pressed():
 	get_node("/root/BattleSceneManager").go_home();
 
 func _on_TrainButton_pressed():
-	var battle = get_node("/root/NetworkBattleManager").get_training();
+	get_node("/root/NetworkBattleManager").get_training();
+	yield(get_node("/root/NetworkBattleManager"), "got_battle"); 
+	var battle = get_node("/root/NetworkBattleManager").battle;
 	var nextScene = battle["NextScene"];
 	get_node("/root/BattleSceneManager").do_battle(battle, nextScene);
 	

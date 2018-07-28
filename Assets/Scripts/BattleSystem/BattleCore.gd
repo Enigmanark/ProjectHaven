@@ -219,8 +219,6 @@ func _process(delta):
 			#Show victory screen
 			victory = true;
 			get_node("../BattleMenu").visible = false;
-			get_node("../VictoryGUI").visible = true;
-			setup_victory_window();
 			get_reward();
 
 #Damage calculation for the enemy
@@ -267,12 +265,18 @@ func init_enemy_avatar():
 	get_parent().get_node("HUD/EnemyHUD").add_child(newAvatar);
 
 func setup_victory_window():
+	get_node("../VictoryGUI").visible = true;
 	get_parent().get_node("VictoryGUI/VictoryWindow/EXP").text = str(enemyStats.experience) + " Experience!";
 	get_parent().get_node("VictoryGUI/VictoryWindow/Gold").text = str(enemyStats.gold) + " Gold!";
 
 func get_reward():
+	get_node("../Screen").show_message("Saving...");
 	var level = playerStats.player["Level"];
-	get_node("/root/Network").get_reward(playerStats.player, get_node("/root/CurrentBattle").id);
+	var network = get_node("/root/Network");
+	network.get_reward(playerStats.player, get_node("/root/CurrentBattle").id);
+	yield(network, "character_loaded");
+	get_node("../Screen").hide_message();
+	setup_victory_window();
 	get_parent().get_node("HUD/PlayerHUD/Avatar/StatWindow").update_stats();
 	get_parent().get_node("HUD/PlayerHUD").update_player_hud();
 	if(playerStats.player["Level"] > level):
