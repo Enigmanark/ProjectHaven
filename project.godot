@@ -25,6 +25,7 @@ NetworkBattleManager="*res://Assets/Prefabs/BattleSystem/NetworkBattleManager.ts
 Global="*res://Assets/Prefabs/Global.tscn"
 Inventory="*res://Assets/Prefabs/Inventory.tscn"
 Network="*res://Assets/Prefabs/Network.tscn"
+SceneManager="*res://Assets/Prefabs/SceneManager.tscn"
 
 [display]
 

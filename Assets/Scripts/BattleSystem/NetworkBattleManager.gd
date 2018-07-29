@@ -79,11 +79,35 @@ func get_training():
 	connect("/dotraining", data);
 	yield(self, "got_response");
 	if(timedOut):
+		print("Didn't get battle");
 		emit_signal("got_battle");
 	elif(response == "300"):
 		print("Account data was wrong");
 	elif(response == "400"):
 		print("Could not find character");
+	else:
+		var battleJson = valid_battle_json(response);
+		if(battleJson):
+			battle = battleJson;
+			emit_signal("got_battle");
+		else:
+			print("Internal server error, bad Json");
+
+func get_battle_from_location(location):
+	var data = {
+		"Email": get_node("/root/Global").email,
+		"Password" : get_node("/root/Global").password,
+		"Location" : location
+	};
+	connect("/battle_from_location", data);
+	yield(self, "got_response");
+	if(timedOut):
+		print("Didn't get battle");
+		emit_signal("got_battle");
+	elif(response == "801"):
+		print("Internal server error, query was not recieved");
+	elif(response == "802"):
+		print("Internal server error, query was not able to find anything");
 	else:
 		var battleJson = valid_battle_json(response);
 		if(battleJson):

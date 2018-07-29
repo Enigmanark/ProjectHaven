@@ -1,0 +1,518 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Scripts/Scene Scripts/TheCrossRoads.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/Scene_Backgrounds/crossroads.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/GUI/button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/visitor1.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Prefabs/Screen.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="TheCrossRoads" type="Node2D"]
+
+position = Vector2( 79.6671, -19.4501 )
+scale = Vector2( 2.383, 3.75 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 134.273, 69.1124 )
+texture = ExtResource( 2 )
+
+[node name="AshurForest" type="TextureButton" parent="background" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -134.0
+margin_top = -60.0
+margin_right = -86.0
+margin_bottom = -40.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/AshurForest" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 47.0
+margin_bottom = 21.0
+rect_scale = Vector2( 1, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Ashur Forest"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Tenebrae Forest" type="TextureButton" parent="background" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = -59.0
+margin_right = 127.0
+margin_bottom = -39.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/Tenebrae Forest" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_right = 48.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.95, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Tenebrae Forest"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="MtDoom" type="TextureButton" parent="background" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = -42.0
+margin_right = 127.0
+margin_bottom = -22.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/MtDoom" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_right = 48.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.95, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Mt. Doom"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="SparklingSands" type="TextureButton" parent="background" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -134.0
+margin_top = -43.0
+margin_right = -86.0
+margin_bottom = -23.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/SparklingSands" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 53.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Sparkling Sands"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="DalanBeach" type="TextureButton" parent="background" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -134.0
+margin_top = -26.0
+margin_right = -86.0
+margin_bottom = -6.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/DalanBeach" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 53.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Dalan Beach"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="The Lava Pits" type="TextureButton" parent="background" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = -25.0
+margin_right = 127.0
+margin_bottom = -5.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/The Lava Pits" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 53.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "The Lava Pits"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Gellum Glacier" type="TextureButton" parent="background" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 79.0
+margin_top = -8.0
+margin_right = 127.0
+margin_bottom = 12.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/Gellum Glacier" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 53.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Gellum Glacier"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="The Bread Basket" type="TextureButton" parent="background" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -134.0
+margin_top = -9.0
+margin_right = -86.0
+margin_bottom = 11.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/The Bread Basket" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 53.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Bread Basket"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="To Haven" type="TextureButton" parent="background" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = 35.0
+margin_right = 23.0
+margin_bottom = 55.0
+rect_scale = Vector2( 1, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text" type="Label" parent="background/To Haven" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 47.0
+margin_bottom = 21.0
+rect_scale = Vector2( 1, 0.95 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "To Haven"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Screen" parent="." index="1" instance=ExtResource( 5 )]
+
+[connection signal="pressed" from="background/AshurForest" to="." method="_on_AshurForest_pressed"]
+
+[connection signal="pressed" from="background/Tenebrae Forest" to="." method="_on_Tenebrae_Forest_pressed"]
+
+[connection signal="pressed" from="background/MtDoom" to="." method="_on_MtDoom_pressed"]
+
+[connection signal="pressed" from="background/SparklingSands" to="." method="_on_SparklingSands_pressed"]
+
+[connection signal="pressed" from="background/DalanBeach" to="." method="_on_DalanBeach_pressed"]
+
+[connection signal="pressed" from="background/The Lava Pits" to="." method="_on_The_Lava_Pits_pressed"]
+
+[connection signal="pressed" from="background/Gellum Glacier" to="." method="_on_Gellum_Glacier_pressed"]
+
+[connection signal="pressed" from="background/The Bread Basket" to="." method="_on_The_Bread_Basket_pressed"]
+
+[connection signal="pressed" from="background/To Haven" to="." method="_on_To_Haven_pressed"]
+
+

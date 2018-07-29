@@ -284,6 +284,7 @@ func get_reward():
 		var floatD = floatDSc.instance();
 		floatD.damage = "Level Up!";
 		get_node("Player").add_child(floatD);
+	get_node("/root/BattleSceneManager").emit_victory_signal();
 
 	
 func _on_ReturnButton_pressed():

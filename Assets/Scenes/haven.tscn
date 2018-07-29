@@ -64,7 +64,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Haven" type="Node2D" index="0"]
+[node name="Haven" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -1264,7 +1264,6 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="BlacksmithBackground" type="TextureRect" parent="Blacksmith" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

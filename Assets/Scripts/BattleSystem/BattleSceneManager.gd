@@ -1,9 +1,12 @@
 extends Node
-
 var nextScenePath;
+signal BattleVictory;
 
 func _ready():
 	pass;
+
+func emit_victory_signal():
+	emit_signal("BattleVictory");
 
 func go_home():
 	get_tree().change_scene("res://Assets/Scenes/haven.tscn");
